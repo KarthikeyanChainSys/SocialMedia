@@ -2,22 +2,28 @@ package com.chainsys.socialmedia.pojo;
 
 import java.util.Date;
 
-public class Users {
-	private int userId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="users")
+public class User {
+	@Id
+	private int userid;
 	private String email;
 	private String pasword;
 	private String username;
 	private Date dob;
 	private String country;
-	private Date joiningDate;
+	private Date joiningdate;
 	private String gender;
 	
-	public int getUserId() {
-		return userId;
+	public int getUserid() {
+		return userid;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 
 	public String getEmail() {
@@ -60,12 +66,12 @@ public class Users {
 		this.country = country;
 	}
 
-	public Date getJoiningDate() {
-		return joiningDate;
+	public Date getJoiningdate() {
+		return joiningdate;
 	}
 
-	public void setJoiningDate(Date joiningDate) {
-		this.joiningDate = joiningDate;
+	public void setJoiningdate(Date joiningdate) {
+		this.joiningdate = joiningdate;
 	}
 
 	public String getGender() {

@@ -1,0 +1,15 @@
+package com.chainsys.socialmedia.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.chainsys.socialmedia.pojo.Friend;
+
+import java.util.List;
+
+public interface FriendRepository extends CrudRepository<Friend,Integer> {
+	Friend findById(int id);
+	@SuppressWarnings("unchecked")
+	Friend save(Friend theUser);
+	void deleteById(int id);
+	List<Friend> findAll();
+}

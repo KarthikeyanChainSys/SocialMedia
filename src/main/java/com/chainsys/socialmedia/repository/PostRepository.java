@@ -2,14 +2,14 @@ package com.chainsys.socialmedia.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.socialmedia.pojo.User;
+import com.chainsys.socialmedia.pojo.Post;
 
 import java.util.List;
 
-public interface UserRepository extends CrudRepository<User,Integer> {
-	User findById(int id);
+public interface PostRepository extends CrudRepository<Post,Integer> {
+	Post findById(int id);
 	@SuppressWarnings("unchecked")
-	User save(User theUser);
+	Post save(Post theUser);
 	void deleteById(int id);
-	List<User> findAll();
+	List<Post> findAll();
 }

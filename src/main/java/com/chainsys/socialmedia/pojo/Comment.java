@@ -4,7 +4,13 @@ import java.sql.Blob;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class PostComment {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="Comments")
+public class Comment {
+	@Id
 	private int commentId;
 	private int postId;
 	private int friendId;
