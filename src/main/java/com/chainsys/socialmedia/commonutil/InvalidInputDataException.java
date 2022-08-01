@@ -1,5 +1,6 @@
 package com.chainsys.socialmedia.commonutil;
 
+@SuppressWarnings("serial")
 public class InvalidInputDataException extends RuntimeException {
 	public InvalidInputDataException()
 	{

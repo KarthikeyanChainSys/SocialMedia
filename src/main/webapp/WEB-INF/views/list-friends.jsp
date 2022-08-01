@@ -20,9 +20,9 @@
 		<tbody>
 			<c:forEach var="friends" items="${allfriend}">
 				<tr>
-					<td>${friends.friendid}</td>
-					<td>${friends.userid}</td>
-					<td>${friends.requeststatus}</td>
+					<td>${friends.friendId}</td>
+					<td>${friends.userId}</td>
+					<td>${friends.requestStatus}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

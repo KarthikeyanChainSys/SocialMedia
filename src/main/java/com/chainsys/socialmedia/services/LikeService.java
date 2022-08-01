@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.socialmedia.pojo.Like;
+import com.chainsys.socialmedia.model.Like;
 import com.chainsys.socialmedia.repository.LikesRepository;
 
 @Service

@@ -2,7 +2,7 @@ package com.chainsys.socialmedia.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.socialmedia.pojo.Comment;
+import com.chainsys.socialmedia.model.Comment;
 
 import java.util.List;
 

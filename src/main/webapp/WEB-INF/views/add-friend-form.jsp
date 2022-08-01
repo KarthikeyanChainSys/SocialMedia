@@ -13,21 +13,21 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addfriend">
 				<div>
-					<label for="friendid">FriendId:</label>
+					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendid" />
+						<form:input path="friendId" />
 					</div>
 				</div>
 				<div>
-					<label for="userid">UserId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
-					<label for="requeststatus">RequestStatus:</label>
+					<label for="requestStatus">RequestStatus:</label>
 					<div>
-						<form:input path="requeststatus" />
+						<form:input path="requestStatus" />
 					</div>
 				</div>
 				<div>

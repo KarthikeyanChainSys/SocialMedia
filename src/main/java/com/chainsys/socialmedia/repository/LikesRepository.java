@@ -2,7 +2,7 @@ package com.chainsys.socialmedia.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.chainsys.socialmedia.pojo.Like;
+import com.chainsys.socialmedia.model.Like;
 
 import java.util.List;
 

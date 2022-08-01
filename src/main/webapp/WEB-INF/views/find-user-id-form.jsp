@@ -13,9 +13,9 @@
 		<div id="form">
 			<form:form action="" method="get" modelAttribute="finduserbyid">
 				<div>
-					<label for="userid">UserId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userid" readonly="true"/>
+						<form:input path="userId" readonly="true"/>
 					</div>
 				</div>
 				<div>
@@ -31,9 +31,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="username">Username:</label>
+					<label for="userName">UserName:</label>
 					<div>
-						<form:input path="username" readonly="true"/>
+						<form:input path="userName" readonly="true"/>
 					</div>
 				</div>
 				<div>
@@ -49,9 +49,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="joiningdate">JoiningDate:</label>
+					<label for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input path="joiningdate" readonly="true"/>
+						<form:input path="joiningDate" readonly="true"/>
 					</div>
 				</div>
 				<div>

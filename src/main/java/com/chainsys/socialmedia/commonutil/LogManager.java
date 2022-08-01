@@ -1,9 +1,7 @@
 package com.chainsys.socialmedia.commonutil;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class LogManager {
 	public static void logException(Exception ex, String source, String exMessage){

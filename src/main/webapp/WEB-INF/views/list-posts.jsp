@@ -25,14 +25,14 @@
 		<tbody>
 			<c:forEach var="post" items="${allpost}">
 				<tr>
-					<td>${post.postid}</td>
-					<td>${post.userid}</td>
-					<td>${post.posttype}</td>
-					<td>${post.medialocation}</td>
+					<td>${post.postId}</td>
+					<td>${post.userId}</td>
+					<td>${post.postType}</td>
+					<td>${post.mediaLocation}</td>
 					<td>${post.visibility}</td>
 					<td>${post.dates}</td>
 					<td>${post.times}</td>
-					<td>${post.likecount}</td>
+					<td>${post.likeCount}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -13,27 +13,27 @@
 		<div id="form">
 			<form:form action="" method="get" modelAttribute="findpostbyid">
 				<div>
-					<label for="postid">PostId:</label>
+					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postid" readonly="true"/>
+						<form:input path="postId" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="userid">UserId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userid" readonly="true"/>
+						<form:input path="userId" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="posttype">PostType:</label>
+					<label for="postType">PostType:</label>
 					<div>
-						<form:input path="posttype" readonly="true"/>
+						<form:input path="postType" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="medialocation">MediaLocation:</label>
+					<label for="mediaLocation">MediaLocation:</label>
 					<div>
-						<form:input path="medialocation" readonly="true"/>
+						<form:input path="mediaLocation" readonly="true"/>
 					</div>
 				</div>
 				<div>
@@ -55,9 +55,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="likecount">LikeCount:</label>
+					<label for="likeCount">LikeCount:</label>
 					<div>
-						<form:input path="likecount" readonly="true"/>
+						<form:input path="likeCount" readonly="true"/>
 					</div>
 				</div>
 			</form:form>

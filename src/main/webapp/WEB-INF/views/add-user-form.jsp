@@ -13,9 +13,9 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="adduser">
 				<div>
-					<label for="userid">UserId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
@@ -31,15 +31,14 @@
 					</div>
 				</div>
 				<div>
-					<label for="username">UserName:</label>
+					<label for="userName">UserName:</label>
 					<div>
-						<form:input path="username" />
+						<form:input path="userName" />
 					</div>
 				</div>
 				<div>
 					<label for="dob">DOB:</label>
 					<div>
-					<%-- <form:input name='date' title="enter your date of birth" path="dob" type="date" /> --%>
 						<form:input path="dob" />
 					</div>
 				</div>
@@ -50,9 +49,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="joiningdate">JoiningDate:</label>
+					<label for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input path="joiningdate" />
+						<form:input path="joiningDate" />
 					</div>
 				</div>
 				<div>

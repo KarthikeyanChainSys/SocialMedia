@@ -13,28 +13,27 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addpost">
 				<div>
-					<label for="postid">PostId:</label>
+					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postid" />
+						<form:input path="postId" />
 					</div>
 				</div>
 				<div>
-					<label for="userid">UserId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
-					<label for="posttype">PostType:</label>
+					<label for="postType">PostType:</label>
 					<div>
-						<form:input path="posttype" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
-						<%-- <form:input path="posttype" /> --%>
+						<form:input path="postType" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>
-					<label for="medialocation">MediaLocation:</label>
+					<label for="mediaLocation">MediaLocation:</label>
 					<div>
-						<form:input path="medialocation" />
+						<form:input path="mediaLocation" />
 					</div>
 				</div>
 				<div>
@@ -44,9 +43,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="likecount">LikeCount:</label>
+					<label for="likeCount">LikeCount:</label>
 					<div>
-						<form:input path="likecount" />
+						<form:input path="likeCount" />
 					</div>
 				</div>
 				<div>

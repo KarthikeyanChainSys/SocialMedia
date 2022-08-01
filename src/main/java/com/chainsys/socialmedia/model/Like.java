@@ -1,6 +1,5 @@
-package com.chainsys.socialmedia.pojo;
+package com.chainsys.socialmedia.model;
 
-import java.time.LocalDateTime;
 import java.util.Calendar;
 
 import javax.persistence.Entity;

@@ -13,21 +13,21 @@
 		<div id="form">
 			<form:form action="" method="get" modelAttribute="findfriendbyid">
 				<div>
-					<label for="friendid">FriendId:</label>
+					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendid" readonly="true" />
+						<form:input path="friendId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="userid">UserId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userid" readonly="true" />
+						<form:input path="userId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="requeststatus">RequestStatus:</label>
+					<label for="requestStatus">RequestStatus:</label>
 					<div>
-						<form:input path="requeststatus" readonly="true" />
+						<form:input path="requestStatus" readonly="true" />
 					</div>
 				</div>
 			</form:form>

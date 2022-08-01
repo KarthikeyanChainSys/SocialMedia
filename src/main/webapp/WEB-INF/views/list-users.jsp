@@ -15,7 +15,7 @@
 				<th>UserId</th>
 				<th>Email</th>
 				<th>Password</th>
-				<th>Username</th>
+				<th>UserName</th>
 				<th>DOB</th>
 				<th>Country</th>
 				<th>JoiningDate</th>
@@ -25,13 +25,13 @@
 		<tbody>
 			<c:forEach var="users" items="${alluser}">
 				<tr>
-					<td>${users.userid}</td>
+					<td>${users.userId}</td>
 					<td>${users.email}</td>
 					<td>${users.pasword}</td>
-					<td>${users.username}</td>
+					<td>${users.userName}</td>
 					<td>${users.dob}</td>
 					<td>${users.country}</td>
-					<td>${users.joiningdate}</td>
+					<td>${users.joiningDate}</td>
 					<td>${users.gender}</td>
 				</tr>
 			</c:forEach>

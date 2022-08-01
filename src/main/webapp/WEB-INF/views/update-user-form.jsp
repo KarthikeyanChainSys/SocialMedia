@@ -13,9 +13,9 @@
 		<div id="form">
 			<form:form action="update" method="post" modelAttribute="updateuser">
 				<div>
-					<label for="userid">UserId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userid" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
@@ -31,9 +31,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="username">Username:</label>
+					<label for="userName">UserName:</label>
 					<div>
-						<form:input path="username" />
+						<form:input path="userName" />
 					</div>
 				</div>
 				<div>
@@ -49,9 +49,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="joiningdate">JoiningDate:</label>
+					<label for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input path="joiningdate" />
+						<form:input path="joiningDate" />
 					</div>
 				</div>
 				<div>

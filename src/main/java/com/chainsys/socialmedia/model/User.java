@@ -1,7 +1,8 @@
-package com.chainsys.socialmedia.pojo;
+package com.chainsys.socialmedia.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,21 +10,24 @@ import javax.persistence.Table;
 @Table(name="users")
 public class User {
 	@Id
-	private int userid;
+	@Column(name="userid")
+	private int userId;
 	private String email;
 	private String pasword;
-	private String username;
+	@Column(name="username")
+	private String userName;
 	private Date dob;
 	private String country;
-	private Date joiningdate;
+	@Column(name="joiningdate")
+	private Date joiningDate;
 	private String gender;
 	
-	public int getUserid() {
-		return userid;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getEmail() {
@@ -42,12 +46,12 @@ public class User {
 		this.pasword = pasword;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public Date getDob() {
@@ -66,12 +70,12 @@ public class User {
 		this.country = country;
 	}
 
-	public Date getJoiningdate() {
-		return joiningdate;
+	public Date getJoiningDate() {
+		return joiningDate;
 	}
 
-	public void setJoiningdate(Date joiningdate) {
-		this.joiningdate = joiningdate;
+	public void setJoiningDate(Date joiningDate) {
+		this.joiningDate = joiningDate;
 	}
 
 	public String getGender() {

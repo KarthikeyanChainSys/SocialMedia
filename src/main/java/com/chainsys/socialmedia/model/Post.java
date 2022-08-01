@@ -1,8 +1,9 @@
-package com.chainsys.socialmedia.pojo;
+package com.chainsys.socialmedia.model;
 
 import java.io.File;
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,38 +12,43 @@ import javax.persistence.Table;
 @Table(name="post")
 public class Post {
 	@Id
-	private int postid;
-	private int userid;
-	private File posttype;
-	private String medialocation;
+	@Column(name="postid")
+	private int postId;
+	@Column(name="userid")
+	private int userId;
+	@Column(name="posttype")
+	private File postType;
+	@Column(name="medialocation")
+	private String mediaLocation;
 	private String visibility;
 	private String dates;
 	private String times;
-	private int likecount;
-	public int getPostid() {
-		return postid;
+	@Column(name="likecount")
+	private int likeCount;
+	public int getPostId() {
+		return postId;
 	}
-	public void setPostid(int postid) {
-		this.postid = postid;
+	public void setPostId(int postId) {
+		this.postId = postId;
 	}
-	public int getUserid() {
-		return userid;
+	public int getUserId() {
+		return userId;
 	}
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
-	public File getPosttype() {
-		return posttype;
+	public File getPostType() {
+		return postType;
 	}
-	public void setPosttype(File posttype) {
-		this.posttype = posttype;
+	public void setPostType(File postType) {
+		this.postType = postType;
 	}
-	public String getMedialocation() {
-		return medialocation;
+	public String getMediaLocation() {
+		return mediaLocation;
 	}
-	public void setMedialocation(String medialocation) {
-		this.medialocation = medialocation;
+	public void setMedialocation(String mediaLocation) {
+		this.mediaLocation = mediaLocation;
 	}
 	public String getVisibility() {
 		return visibility;
@@ -67,11 +73,11 @@ public class Post {
 		String times = vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
 		this.times = times;
 	}
-	public int getLikecount() {
-		return likecount;
+	public int getLikeCount() {
+		return likeCount;
 	}
-	public void setLikecount(int likecount) {
-		this.likecount = likecount;
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
 	}
 	
 	

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.chainsys.socialmedia.pojo.Like;
+import com.chainsys.socialmedia.model.Like;
 import com.chainsys.socialmedia.services.LikeService;
 
 @Controller
@@ -49,8 +49,8 @@ public class LikeController {
 	
 	@GetMapping("/findlikebyid")
 	public String findlikeById(@RequestParam("id") int id, Model model) {
-		Like theDoc = lservice.findById(id);
-		model.addAttribute("findlikebyid", theDoc);
+		Like theLike = lservice.findById(id);
+		model.addAttribute("findlikebyid", theLike);
 		return "find-like-id-form";
 	}
 	

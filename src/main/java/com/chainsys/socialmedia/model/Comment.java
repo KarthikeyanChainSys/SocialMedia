@@ -1,4 +1,4 @@
-package com.chainsys.socialmedia.pojo;
+package com.chainsys.socialmedia.model;
 
 import java.sql.Blob;
 import java.util.Date;
