@@ -33,7 +33,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/updateuser")
-	public String UpdateUserDetails(@RequestParam("id") int id, Model model) {
+	public String updateUserDetails(@RequestParam("id") int id, Model model) {
 		User theUser = userservice.findById(id);
 		model.addAttribute("updateuser", theUser);
 		return "update-user-form";

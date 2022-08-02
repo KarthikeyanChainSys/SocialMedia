@@ -6,12 +6,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Post</title>
+<title>Add Comment</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="update" method="post" modelAttribute="updatepost">
+			<form:form action="add" method="post" modelAttribute="addcomment">
+				<div>
+					<label for="commentId">CommentId:</label>
+					<div>
+						<form:input path="commentId" />
+					</div>
+				</div>
 				<div>
 					<label for="postId">PostId:</label>
 					<div>
@@ -19,37 +25,37 @@
 					</div>
 				</div>
 				<div>
-					<label for="userId">UserId:</label>
+					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="friendId" />
 					</div>
 				</div>
 				<div>
-					<label for="postType">PostType:</label>
+					<label for="comments">PostType:</label>
 					<div>
-						<form:input path="postType" />
+						<form:input path="comments" type='file' placeholder='file' accept='text/*,audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>
-					<label for="mediaLocation">MediaLocation:</label>
+					<label for="commentText">CommentText:</label>
 					<div>
-						<form:input path="mediaLocation" />
+						<form:input path="commentText" />
 					</div>
 				</div>
 				<div>
-					<label for="visibility">Visibility:</label>
+					<label for="dates">Dates:</label>
 					<div>
-						<form:input path="visibility" />
+						<form:input path="dates" />
 					</div>
 				</div>
 				<div>
-					<label for="likeCount">LikeCount:</label>
+					<label for="times">Times:</label>
 					<div>
-						<form:input path="likeCount" />
+						<form:input path="times" />
 					</div>
 				</div>
 				<div>
-					<form:button>Update</form:button>
+					<form:button>Add</form:button>
 				</div>
 			</form:form>
 		</div>

@@ -35,7 +35,7 @@ public class FriendController {
 	}
 	
 	@GetMapping("/updatefriend")
-	public String UpdateFriendDetails(@RequestParam("id") int id, Model model) {
+	public String updateFriendDetails(@RequestParam("id") int id, Model model) {
 		Friend theFriend = friendservice.findById(id);
 		model.addAttribute("updatefriend", theFriend);
 		return "update-friend-form";

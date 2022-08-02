@@ -18,51 +18,51 @@ import com.chainsys.socialmedia.services.LikeService;
 @RequestMapping("/like")
 public class LikeController {
 	@Autowired
-	LikeService lservice;
+	LikeService likeservice;
 	
 	@GetMapping("/addlike")
-	public String showAddlike(Model model) {
+	public String addNewLike(Model model) {
 		Like theLike = new Like();
 		model.addAttribute("addlike", theLike);
 		return "add-like-form";
 	}
 	
 	@PostMapping("/add")
-	public String addNewlike(@ModelAttribute("addlike") Like theLike) {
-		theLike.setDatetime();
-		lservice.save(theLike);
+	public String addLike(@ModelAttribute("addlike") Like theLike) {
+		theLike.setDateTime();
+		likeservice.save(theLike);
 		return "redirect:/like/list";
 	}
 	
 	@GetMapping("/updatelike")
-	public String showUpdatelike(@RequestParam("id") int id, Model model) {
-		Like theLike = lservice.findById(id);
+	public String updateLikeDetails(@RequestParam("id") int id, Model model) {
+		Like theLike = likeservice.findById(id);
 		model.addAttribute("updatelike", theLike);
 		return "update-like-form";
 	}
 	
 	@PostMapping("update")
-	public String updatelikes(@ModelAttribute("updatelike") Like theLike) {
-		lservice.save(theLike);
+	public String updateLike(@ModelAttribute("updatelike") Like theLike) {
+		likeservice.save(theLike);
 		return "redirect:/like/list";
 	}
 	
 	@GetMapping("/findlikebyid")
-	public String findlikeById(@RequestParam("id") int id, Model model) {
-		Like theLike = lservice.findById(id);
+	public String findLikeById(@RequestParam("id") int id, Model model) {
+		Like theLike = likeservice.findById(id);
 		model.addAttribute("findlikebyid", theLike);
 		return "find-like-id-form";
 	}
 	
 	@GetMapping("/deletelike")
-	public String deleteDoctors(@RequestParam("id") int id) {
-		lservice.deleteById(id);
+	public String deleteLike(@RequestParam("id") int id) {
+		likeservice.deleteById(id);
 		return "redirect:/like/list";
 	}
 	
 	@GetMapping("/list")
-	public String getlikes(Model model) {
-		List<Like> thelikes = lservice.getLikes();
+	public String getLikes(Model model) {
+		List<Like> thelikes = likeservice.getLikes();
 		model.addAttribute("alllike", thelikes);
 		return "list-likes";
 	}

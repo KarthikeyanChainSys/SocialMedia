@@ -1,9 +1,9 @@
 package com.chainsys.socialmedia.model;
 
 import java.sql.Blob;
-import java.util.Date;
-import java.util.TimeZone;
+import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,13 +11,17 @@ import javax.persistence.Table;
 @Table(name="Comments")
 public class Comment {
 	@Id
+	@Column(name="commentid")
 	private int commentId;
+	@Column(name="postid")
 	private int postId;
+	@Column(name="friendid")
 	private int friendId;
+	@Column(name="commentText")
 	private String commentText;
 	private Blob comments;
-	private Date dates;
-	private TimeZone times;
+	private String dates;
+	private String times;
 	
 	public int getCommentId() {
 		return commentId;
@@ -49,16 +53,20 @@ public class Comment {
 	public void setComments(Blob comments) {
 		this.comments = comments;
 	}
-	public Date getDates() {
+	public String getDates() {
 		return dates;
 	}
-	public void setDate(Date dates) {
+	public void setDates() {
+		Calendar vCalendar = Calendar.getInstance();
+		String dates = vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR) + "_" + vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
 		this.dates = dates;
 	}
-	public TimeZone getTimes() {
+	public String getTimes() {
 		return times;
 	}
-	public void setTime(TimeZone times) {
+	public void setTimes() {
+		Calendar vCalendar = Calendar.getInstance();
+		String times = vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR) + "_" + vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
 		this.times = times;
 	}
 }

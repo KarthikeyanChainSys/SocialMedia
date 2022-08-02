@@ -47,7 +47,7 @@ public class Post {
 	public String getMediaLocation() {
 		return mediaLocation;
 	}
-	public void setMedialocation(String mediaLocation) {
+	public void setMediaLocation(String mediaLocation) {
 		this.mediaLocation = mediaLocation;
 	}
 	public String getVisibility() {

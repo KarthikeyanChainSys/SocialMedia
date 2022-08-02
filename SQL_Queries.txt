@@ -1,0 +1,43 @@
+=> Users Table:
+---------------
+create table users(
+    userid number(10) not null, username varchar2(50) not null, 
+    pasword varchar2(20) not null, email varchar2(20) not null,
+    dob date not null, country varchar2(10) not null,
+    joiningdate date not null, gender varchar2(10) not null,
+    primary key(userId)
+);
+
+=> Friends Table:
+-----------------
+create table friends(
+    friendid number(10) not null, userid number(10) not null constraint fk_userId references users(userid),
+    requeststatus varchar2(50) not null, primary key(friendid)
+);
+
+=> Post Table:
+--------------
+create table post(
+    postid number(10) not null, userid number(10) constraint fk_user references users(userid),
+    postType blob, mediaLocation VARCHAR2(4000), visibility VARCHAR2(25), dates VARCHAR2(20),Times VARCHAR2(20), 
+    likeCount number(20), primary key(postid)
+);
+
+=> Likes Table:
+---------------
+create table Likes(
+    postid number(10)not null constraint fk_postIdA references post(postid),
+    friendid number(10) not null constraint fk_friendIdA references friends(friendid),
+    datetime timestamp not null,
+    constraint pk_likes primary key (postid,friendid)
+);
+
+=> Comments Table:
+------------------
+create table Comments(
+    commentid number(10) not null,
+    postid number(10) not null constraint fk_postIdB references post(postid),
+    friendid number(10) not null constraint fk_friendIdB references friends(friendid),
+    commentText varchar2(50), comments blob, dates VARCHAR2(20),
+    times VARCHAR2(20), primary key(commentid)
+);

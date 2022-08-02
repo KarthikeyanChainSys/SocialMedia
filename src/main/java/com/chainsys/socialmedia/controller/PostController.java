@@ -36,7 +36,7 @@ public class PostController {
 	}
 	
 	@GetMapping("/updatepost")
-	public String UpdatePostDetails(@RequestParam("id") int id, Model model) {
+	public String updatePostDetails(@RequestParam("id") int id, Model model) {
 		Post thePost = postservice.findById(id);
 		model.addAttribute("updatepost", thePost);
 		return "update-post-form";
@@ -44,8 +44,8 @@ public class PostController {
 	
 	@PostMapping("update")
 	public String updatePost(@ModelAttribute("updatepost") Post thePost) {
-		thePost.getDates();
-		thePost.getTimes();
+		thePost.setDates();
+		thePost.setTimes();
 		postservice.save(thePost);
 		return "redirect:/posts/list";
 	}

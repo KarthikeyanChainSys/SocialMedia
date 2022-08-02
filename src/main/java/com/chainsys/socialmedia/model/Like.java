@@ -2,6 +2,7 @@ package com.chainsys.socialmedia.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,28 +11,31 @@ import javax.persistence.Table;
 @Table(name="likes")
 public class Like {
 	@Id
-	private int postid;
-	private int friendid;
-	private String datetime;
+	@Column(name="postid")
+	private int postId;
+	@Column(name="friendid")
+	private int friendId;
+	@Column(name="datetime")
+	private String dateTime;
 	
-	public int getPostid() {
-		return postid;
+	public int getPostId() {
+		return postId;
 	}
-	public void setPostid(int postid) {
-		this.postid = postid;
+	public void setPostId(int postId) {
+		this.postId = postId;
 	}
-	public int getFriendid() {
-		return friendid;
+	public int getFriendId() {
+		return friendId;
 	}
-	public void setFriendid(int friendid) {
-		this.friendid = friendid;
+	public void setFriendId(int friendId) {
+		this.friendId = friendId;
 	}
-	public String getDatetime() {
-		return datetime;
+	public String getDateTime() {
+		return dateTime;
 	}
-	public void setDatetime() {
+	public void setDateTime() {
 		Calendar vCalendar = Calendar.getInstance();
-		String dateTime = vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR) + "_" + vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);;
-		this.datetime = dateTime;
+		String dateTime = vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR) + "_" + vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
+		this.dateTime = dateTime;
 	}
 }

@@ -27,7 +27,7 @@
 				<div>
 					<label for="postType">PostType:</label>
 					<div>
-						<form:input path="postType" readonly="true"/>
+						<form:input path="postType" type='file' placeholder='file' accept='text/*,audio/*,video/*,image/*' readonly="true" />
 					</div>
 				</div>
 				<div>
