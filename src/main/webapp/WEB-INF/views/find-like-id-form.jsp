@@ -13,21 +13,21 @@
 		<div id="form">
 			<form:form action="" method="get" modelAttribute="findlikebyid">
 				<div>
-					<label for="postid">PostId:</label>
+					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postid" readonly="true" />
+						<form:input path="postId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="friendid">FriendId:</label>
+					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendid" readonly="true" />
+						<form:input path="friendId" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="datetime">DateTime:</label>
+					<label for="dateTime">DateTime:</label>
 					<div>
-						<form:input path="datetime" readonly="true" />
+						<form:input path="dateTime" readonly="true" />
 					</div>
 				</div>
 			</form:form>

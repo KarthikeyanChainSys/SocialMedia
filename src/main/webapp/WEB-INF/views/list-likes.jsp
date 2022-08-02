@@ -20,9 +20,9 @@
 		<tbody>
 			<c:forEach var="like" items="${alllike}">
 				<tr>
-					<td>${like.postid}</td>
-					<td>${like.friendid}</td>
-					<td>${like.datetime}</td>
+					<td>${like.postId}</td>
+					<td>${like.friendId}</td>
+					<td>${like.dateTime}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

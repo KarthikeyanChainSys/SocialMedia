@@ -1,6 +1,7 @@
 package com.chainsys.socialmedia.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.socialmedia.compositekey.LikeCompositeKey;
 import com.chainsys.socialmedia.model.Like;
 import com.chainsys.socialmedia.services.LikeService;
 
@@ -35,28 +37,32 @@ public class LikeController {
 	}
 	
 	@GetMapping("/updatelike")
-	public String updateLikeDetails(@RequestParam("id") int id, Model model) {
-		Like theLike = likeservice.findById(id);
+	public String updateLikeDetails(@RequestParam("id1") int id1, @RequestParam("id2") int id2, Model model) {
+		LikeCompositeKey likecompositekey = new LikeCompositeKey(id1, id2);
+		Optional<Like> theLike = likeservice.findById(likecompositekey);
 		model.addAttribute("updatelike", theLike);
 		return "update-like-form";
 	}
 	
-	@PostMapping("update")
+	@PostMapping("/update")
 	public String updateLike(@ModelAttribute("updatelike") Like theLike) {
+		theLike.setDateTime();
 		likeservice.save(theLike);
 		return "redirect:/like/list";
 	}
 	
 	@GetMapping("/findlikebyid")
-	public String findLikeById(@RequestParam("id") int id, Model model) {
-		Like theLike = likeservice.findById(id);
+	public String findLikeById(@RequestParam("id1") int id1, @RequestParam("id2") int id2, Model model) {
+		LikeCompositeKey likecompositekey = new LikeCompositeKey(id1, id2);
+		Optional<Like> theLike = likeservice.findById(likecompositekey);
 		model.addAttribute("findlikebyid", theLike);
 		return "find-like-id-form";
 	}
 	
 	@GetMapping("/deletelike")
-	public String deleteLike(@RequestParam("id") int id) {
-		likeservice.deleteById(id);
+	public String deleteLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
+		LikeCompositeKey likeCompositeKey = new LikeCompositeKey(id1, id2);
+		likeservice.deleteById(likeCompositeKey);
 		return "redirect:/like/list";
 	}
 	

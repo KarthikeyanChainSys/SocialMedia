@@ -22,7 +22,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="comment" items="${allpost}">
+			<c:forEach var="comment" items="${allcomment}">
 				<tr>
 					<td>${comment.commentId}</td>
 					<td>${comment.postId}</td>

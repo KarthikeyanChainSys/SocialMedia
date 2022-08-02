@@ -38,7 +38,7 @@ public class CommentController {
 	@GetMapping("/updatecomment")
 	public String updateCommentDetails(@RequestParam("id") int id, Model model) {
 		Comment theComment = commentservice.findById(id);
-		model.addAttribute("updatepost", theComment);
+		model.addAttribute("updatecomment", theComment);
 		return "update-comment-form";
 	}
 	

@@ -13,17 +13,23 @@
 		<div id="form">
 			<form:form action="update" method="post" modelAttribute="updatelike">
 				<div>
-					<label for="postid">"PostId":</label>
+					<label for="postId">"PostId":</label>
 					<div>
-						<form:input path="postid" />
+						<form:input path="postId" />
 					</div>
 				</div>
 				<div>
-				<div>
-					<label for="friendid">FriendId:</label>
+					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendid" />
+						<form:input path="friendId" />
 					</div>
+				</div>
+				<div>
+					<label for="dateTime">DateTime:</label>
+					<div>
+						<form:input path="dateTime" />
+					</div>
+				</div>
 				<div>
 					<form:button>Update</form:button>
 				</div>

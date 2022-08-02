@@ -13,15 +13,15 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addlike">
 				<div>
-					<label for="postid">"PostId":</label>
+					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postid" />
+						<form:input path="postId" />
 					</div>
 				</div>
 				<div>
-					<label for="friendid">FriendId:</label>
+					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendid" />
+						<form:input path="friendId" />
 					</div>
 				</div>
 				<div>

@@ -33,7 +33,7 @@
 				<div>
 					<label for="comments">PostType:</label>
 					<div>
-						<form:input path="comments" type='file' placeholder='file' accept='text/*,audio/*,video/*,image/*' readonly="true" />
+						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' readonly="true" />
 					</div>
 				</div>
 				<div>

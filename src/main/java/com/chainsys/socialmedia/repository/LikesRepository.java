@@ -2,14 +2,16 @@ package com.chainsys.socialmedia.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
+import com.chainsys.socialmedia.compositekey.LikeCompositeKey;
 import com.chainsys.socialmedia.model.Like;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface LikesRepository extends CrudRepository<Like,Integer> {
-	Like findById(int id);
+public interface LikesRepository extends CrudRepository<Like,LikeCompositeKey> {
+	Optional<Like> findById(LikeCompositeKey id);
 	@SuppressWarnings("unchecked")
 	Like save(Like theUser);
-	void deleteById(int id);
+	void deleteById(LikeCompositeKey id);
 	List<Like> findAll();
 }

@@ -5,10 +5,14 @@ import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
+
+import com.chainsys.socialmedia.compositekey.LikeCompositeKey;
 
 @Entity
 @Table(name="likes")
+@IdClass(LikeCompositeKey.class)
 public class Like {
 	@Id
 	@Column(name="postid")

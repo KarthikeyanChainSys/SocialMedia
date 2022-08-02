@@ -31,27 +31,15 @@
 					</div>
 				</div>
 				<div>
-					<label for="comments">PostType:</label>
+					<label for="comments">Comment:</label>
 					<div>
-						<form:input path="comments" type='file' placeholder='file' accept='text/*,audio/*,video/*,image/*' />
+						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
 						<form:input path="commentText" />
-					</div>
-				</div>
-				<div>
-					<label for="dates">Dates:</label>
-					<div>
-						<form:input path="dates" />
-					</div>
-				</div>
-				<div>
-					<label for="times">Times:</label>
-					<div>
-						<form:input path="times" />
 					</div>
 				</div>
 				<div>
