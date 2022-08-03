@@ -19,7 +19,7 @@ import com.chainsys.socialmedia.services.FriendService;
 @RequestMapping("/friend")
 public class FriendController {
 	@Autowired
-	FriendService friendservice;
+	FriendService friendService;
 	
 	@GetMapping("/addfriend")
 	public String addNewFriend(Model model) {
@@ -30,39 +30,39 @@ public class FriendController {
 	
 	@PostMapping("/add")
 	public String addFriend(@ModelAttribute("addfriend") Friend theFriend) {
-		friendservice.save(theFriend);
+		friendService.save(theFriend);
 		return "redirect:/friend/list";
 	}
 	
 	@GetMapping("/updatefriend")
 	public String updateFriendDetails(@RequestParam("id") int id, Model model) {
-		Friend theFriend = friendservice.findById(id);
+		Friend theFriend = friendService.findById(id);
 		model.addAttribute("updatefriend", theFriend);
 		return "update-friend-form";
 	}
 	
 	@PostMapping("update")
 	public String updateFriend(@ModelAttribute("updatefriend") Friend theFriend) {
-		friendservice.save(theFriend);
+		friendService.save(theFriend);
 		return "redirect:/friend/list";
 	}
 	
 	@GetMapping("/findfriendbyid")
 	public String findFriendById(@RequestParam("id") int id, Model model) {
-		Friend theFriend = friendservice.findById(id);
+		Friend theFriend = friendService.findById(id);
 		model.addAttribute("findfriendbyid", theFriend);
 		return "find-friend-id-form";
 	}
 	
 	@GetMapping("/deletefriend")
 	public String deleteFriend(@RequestParam("id") int id) {
-		friendservice.deleteById(id);
+		friendService.deleteById(id);
 		return "redirect:/friend/list";
 	}
 	
 	@GetMapping("/list")
 	public String getAllFriends(Model model) {
-		List<Friend> theFriends = friendservice.getFriends();
+		List<Friend> theFriends = friendService.getFriends();
 		model.addAttribute("allfriend", theFriends);
 		return "list-friends";
 	}

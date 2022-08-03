@@ -1,10 +1,13 @@
 package com.chainsys.socialmedia.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="users")
@@ -22,6 +25,17 @@ public class User {
 	private Date joiningDate;
 	private String gender;
 	
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Friend> friend;
+	
+	public List<Friend> getFriend() {
+		return friend;
+	}
+
+	public void setFriend(List<Friend> friend) {
+		this.friend = friend;
+	}
+
 	public int getUserId() {
 		return userId;
 	}

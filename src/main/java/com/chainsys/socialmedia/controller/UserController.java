@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.socialmedia.dto.UserFriendDTO;
 import com.chainsys.socialmedia.model.User;
 import com.chainsys.socialmedia.services.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
-	UserService userservice;
+	UserService userService;
 	
 	@GetMapping("/adduser")
 	public String addNewUser(Model model) {
@@ -28,40 +29,48 @@ public class UserController {
 	
 	@PostMapping("/add")
 	public String addUser(@ModelAttribute("adduser") User theUser) {
-		userservice.save(theUser);
+		userService.save(theUser);
 		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/updateuser")
 	public String updateUserDetails(@RequestParam("id") int id, Model model) {
-		User theUser = userservice.findById(id);
+		User theUser = userService.findById(id);
 		model.addAttribute("updateuser", theUser);
 		return "update-user-form";
 	}
 	
 	@PostMapping("update")
 	public String updateUser(@ModelAttribute("updateuser") User theUsers) {
-		userservice.save(theUsers);
+		userService.save(theUsers);
 		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/finduserbyid")
 	public String findUserById(@RequestParam("id") int id, Model model) {
-		User theUser = userservice.findById(id);
+		User theUser = userService.findById(id);
 		model.addAttribute("finduserbyid", theUser);
 		return "find-user-id-form";
 	}
 	
 	@GetMapping("/deleteuser")
 	public String deleteUser(@RequestParam("id") int id) {
-		userservice.deleteById(id);
+		userService.deleteById(id);
 		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/list")
 	public String getAllUser(Model model) {
-		List<User> theUsers = userservice.getUsers();
+		List<User> theUsers = userService.getUsers();
 		model.addAttribute("alluser", theUsers);
 		return "list-users";
+	}
+	
+	@GetMapping("/getuserfriend")
+	public String GetUserAndFriend(@RequestParam("id") int id, Model model) {
+		UserFriendDTO dto = userService.getUserAndFriend(id);
+		model.addAttribute("getuser", dto.getUser());
+		model.addAttribute("friendlist", dto.getFriendList());
+		return "list-user-friend";
 	}
 }

@@ -12,22 +12,22 @@ import com.chainsys.socialmedia.repository.FriendRepository;
 @Service
 public class FriendService {
 	@Autowired
-	private FriendRepository friendrepo;
+	private FriendRepository friendRepository;
 	
 	public Friend save(Friend ur) {
-		return friendrepo.save(ur);
+		return friendRepository.save(ur);
 	}
 	
 	public Friend findById(int id) {
-		return friendrepo.findById(id);
+		return friendRepository.findById(id);
 	}
 	
 	public void deleteById(int id) {
-		friendrepo.deleteById(id);
+		friendRepository.deleteById(id);
 	}
 	
 	public List<Friend> getFriends(){
-		List<Friend> listFriend = friendrepo.findAll();
+		List<Friend> listFriend = friendRepository.findAll();
 		return listFriend;
 	}
 }
