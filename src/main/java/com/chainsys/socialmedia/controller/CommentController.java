@@ -24,6 +24,8 @@ public class CommentController {
 	public String AddNewComment(Model model) {
 		Comment theComment = new Comment();
 		model.addAttribute("addcomment", theComment);
+		List<Comment> theComments = commentservice.getComments();
+		model.addAttribute("allcomment", theComments);
 		return "add-comment-form";
 	}
 	
@@ -32,7 +34,7 @@ public class CommentController {
 		theComment.setDates();
 		theComment.setTimes();
 		commentservice.save(theComment);
-		return "redirect:/comment/list";
+		return "redirect:/comment/addcomment";
 	}
 	
 	@GetMapping("/updatecomment")

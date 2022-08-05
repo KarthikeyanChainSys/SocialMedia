@@ -14,4 +14,7 @@ public interface LikesRepository extends CrudRepository<Like,LikeCompositeKey> {
 	Like save(Like theUser);
 	void deleteById(LikeCompositeKey id);
 	List<Like> findAll();
+	
+//	List<Like> findByPostId(LikeCompositeKey id);
+	List<Like> findByPostPostId(int id);
 }

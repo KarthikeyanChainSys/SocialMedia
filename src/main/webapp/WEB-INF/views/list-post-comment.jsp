@@ -6,18 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Comment</title>
+<title>List Post and Comment</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addcomment">
-				<div>
-					<label for="commentId">CommentId:</label>
-					<div>
-						<form:input path="commentId" />
-					</div>
-				</div>
+			<form:form action="add" method="post" modelAttribute="getpost">
 				<div>
 					<label for="postId">PostId:</label>
 					<div>
@@ -25,30 +19,38 @@
 					</div>
 				</div>
 				<div>
-					<label for="friendId">FriendId:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="friendId" />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
-					<label for="comments">Comment:</label>
+					<label for="postType">PostType:</label>
 					<div>
-						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
+						<form:input path="postType" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>
-					<label for="commentText">CommentText:</label>
+					<label for="mediaLocation">MediaLocation:</label>
 					<div>
-						<form:input path="commentText" />
+						<form:input path="mediaLocation" />
 					</div>
 				</div>
 				<div>
-					<form:button>Add</form:button>
+					<label for="visibility">Visibility:</label>
+					<div>
+						<form:input path="visibility" />
+					</div>
+				</div>
+				<div>
+					<label for="likeCount">LikeCount:</label>
+					<div>
+						<form:input path="likeCount" />
+					</div>
 				</div>
 			</form:form>
 		</div>
-	</div>
-	<div id="table root"></div>
+		<div id="table root"></div>
 	<table>
 		<thead>
 			<tr>
@@ -62,7 +64,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="comment" items="${allcomment}">
+			<c:forEach var="comment" items="${commentlist}">
 				<tr>
 					<td>${comment.commentId}</td>
 					<td>${comment.postId}</td>
@@ -75,5 +77,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chainsys.socialmedia.dto.UserFriendDTO;
+import com.chainsys.socialmedia.dto.UserPostDTO;
 import com.chainsys.socialmedia.model.User;
 import com.chainsys.socialmedia.services.UserService;
 @Controller
@@ -67,10 +68,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/getuserfriend")
-	public String GetUserAndFriend(@RequestParam("id") int id, Model model) {
+	public String getUserAndFriend(@RequestParam("id") int id, Model model) {
 		UserFriendDTO dto = userService.getUserAndFriend(id);
 		model.addAttribute("getuser", dto.getUser());
 		model.addAttribute("friendlist", dto.getFriendList());
 		return "list-user-friend";
+	}
+	
+	@GetMapping("/getuserpost")
+	public String getUserAndPost(@RequestParam("id") int id, Model model) {
+		UserPostDTO dto = userService.getUserAndPost(id);
+		model.addAttribute("getuser",dto.getUser());
+		model.addAttribute("postlist", dto.getPostList());
+		return "list-user-post";
 	}
 }

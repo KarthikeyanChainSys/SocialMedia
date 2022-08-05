@@ -14,5 +14,5 @@ public interface FriendRepository extends CrudRepository<Friend,Integer> {
 	void deleteById(int id);
 	List<Friend> findAll();
 	
-	List<Friend> findByUserUserId(int id);
+	List<Friend> findByUserId(int id);
 }

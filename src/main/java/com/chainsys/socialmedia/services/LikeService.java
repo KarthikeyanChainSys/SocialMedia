@@ -13,22 +13,22 @@ import com.chainsys.socialmedia.repository.LikesRepository;
 @Service
 public class LikeService {
 	@Autowired
-	private LikesRepository likerepo;
+	private LikesRepository likeRepository;
 	
 	public Like save(Like ur) {
-		return likerepo.save(ur);
+		return likeRepository.save(ur);
 	}
 	
 	public Optional<Like> findById(LikeCompositeKey id) {
-		return likerepo.findById(id);
+		return likeRepository.findById(id);
 	}
 	
 	public void deleteById(LikeCompositeKey id) {
-		likerepo.deleteById(id);
+		likeRepository.deleteById(id);
 	}
 	
 	public List<Like> getLikes(){
-		List<Like> listLike = likerepo.findAll();
+		List<Like> listLike = likeRepository.findAll();
 		return listLike;
 	}
 

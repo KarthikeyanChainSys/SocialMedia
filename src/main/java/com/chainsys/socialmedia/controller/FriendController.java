@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.socialmedia.dto.FriendCommentDTO;
 import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.services.FriendService;
 
@@ -65,5 +66,13 @@ public class FriendController {
 		List<Friend> theFriends = friendService.getFriends();
 		model.addAttribute("allfriend", theFriends);
 		return "list-friends";
+	}
+	
+	@GetMapping("/getfriendcomment")
+	public String getFriendAndComment(@RequestParam("id") int id, Model model) {
+		FriendCommentDTO dto = friendService.getFriendAndComment(id);
+		model.addAttribute("getfriend", dto.getFriend());
+		model.addAttribute("commentlist", dto.getCommentList());
+		return "list-friend-comment";
 	}
 }

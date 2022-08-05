@@ -5,7 +5,10 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="Comments")
@@ -22,6 +25,16 @@ public class Comment {
 	private File comments;
 	private String dates;
 	private String times;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "commentid", nullable = false, insertable = false, updatable = false)
+	private Friend friend;
+	public Friend getFriend() {
+		return friend;
+	}
+	public void setFriend(Friend friend) {
+		this.friend = friend;
+	}
 	
 	public int getCommentId() {
 		return commentId;

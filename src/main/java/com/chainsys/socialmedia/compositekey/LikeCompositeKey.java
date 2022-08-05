@@ -3,7 +3,10 @@ package com.chainsys.socialmedia.compositekey;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
+@SuppressWarnings("serial")
+@Embeddable
 public class LikeCompositeKey implements Serializable {
 	@Column(name="postid")
 	private int postId;

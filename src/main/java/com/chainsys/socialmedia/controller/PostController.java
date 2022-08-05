@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.chainsys.socialmedia.dto.PostCommentDTO;
+import com.chainsys.socialmedia.dto.PostLikeDTO;
 import com.chainsys.socialmedia.model.Post;
 import com.chainsys.socialmedia.services.PostService;
 
@@ -68,5 +70,21 @@ public class PostController {
 		List<Post> thePosts = postservice.getPosts();
 		model.addAttribute("allpost", thePosts);
 		return "list-posts";
+	}
+	
+	@GetMapping("/getpostcomment")
+	public String getPostAndComment(@RequestParam("id") int id, Model model) {
+		PostCommentDTO dto = postservice.getPostAndComment(id);
+		model.addAttribute("getpost", dto.getPost());
+		model.addAttribute("commentlist", dto.getCommentList());
+		return "list-post-comment";
+	}
+	
+	@GetMapping("/getpostlike")
+	public String getPostAndLike(@RequestParam("id") int id, Model model) {
+		PostLikeDTO dto = postservice.getPostAndLike(id);
+		model.addAttribute("getpost", dto.getPost());
+		model.addAttribute("likelist", dto.getLikeList());
+		return "list-post-like";
 	}
 }

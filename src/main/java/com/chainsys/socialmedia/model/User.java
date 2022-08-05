@@ -27,15 +27,22 @@ public class User {
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Friend> friend;
-	
 	public List<Friend> getFriend() {
 		return friend;
 	}
-
 	public void setFriend(List<Friend> friend) {
 		this.friend = friend;
 	}
 
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Post> post;
+	public List<Post> getPost() {
+		return post;
+	}
+	public void setPost(List<Post> post) {
+		this.post = post;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}

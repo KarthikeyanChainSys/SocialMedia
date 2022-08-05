@@ -6,24 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Comment</title>
+<title>List Friend and Comment</title>
 </head>
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addcomment">
-				<div>
-					<label for="commentId">CommentId:</label>
-					<div>
-						<form:input path="commentId" />
-					</div>
-				</div>
-				<div>
-					<label for="postId">PostId:</label>
-					<div>
-						<form:input path="postId" />
-					</div>
-				</div>
+			<form:form action="add" method="post" modelAttribute="getfriend">
 				<div>
 					<label for="friendId">FriendId:</label>
 					<div>
@@ -31,23 +19,19 @@
 					</div>
 				</div>
 				<div>
-					<label for="comments">Comment:</label>
+					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
+						<form:input path="userId" />
 					</div>
 				</div>
 				<div>
-					<label for="commentText">CommentText:</label>
+					<label for="requestStatus">RequestStatus:</label>
 					<div>
-						<form:input path="commentText" />
+						<form:input path="requestStatus" />
 					</div>
-				</div>
-				<div>
-					<form:button>Add</form:button>
 				</div>
 			</form:form>
 		</div>
-	</div>
 	<div id="table root"></div>
 	<table>
 		<thead>
@@ -62,7 +46,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="comment" items="${allcomment}">
+			<c:forEach var="comment" items="${commentlist}">
 				<tr>
 					<td>${comment.commentId}</td>
 					<td>${comment.postId}</td>
@@ -75,5 +59,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>

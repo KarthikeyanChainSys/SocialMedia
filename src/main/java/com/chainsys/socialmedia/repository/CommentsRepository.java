@@ -12,4 +12,7 @@ public interface CommentsRepository extends CrudRepository<Comment,Integer> {
 	Comment save(Comment theUser);
 	void deleteById(int id);
 	List<Comment> findAll();
+	
+	List<Comment> findByFriendId(int id);
+	List<Comment> findByPostId(int id);
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List User and Friend</title>
+<title>List User and Post</title>
 </head>
 <body>
 	<div id="root">
@@ -62,21 +62,31 @@
 				</div>
 			</form:form>
 		</div>
-		<div id="friendlist"></div>
+		<div id="postlist"></div>
 		<table>
 			<thead>
 				<tr>
-					<th>FriendId</th>
+					<th>PostId</th>
 					<th>UserId</th>
-					<th>RequestStatus</th>
+					<th>PostType</th>
+					<th>MediaLocation</th>
+					<th>Visibility</th>
+					<th>Date</th>
+					<th>Time</th>
+					<th>LikeCount</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="friends" items="${friendlist}">
+				<c:forEach var="posts" items="${postlist}">
 					<tr>
-						<td>${friends.friendId}</td>
-						<td>${friends.userId}</td>
-						<td>${friends.requestStatus}</td>
+						<td>${posts.postId}</td>
+						<td>${posts.userId}</td>
+						<td>${posts.postType}</td>
+						<td>${posts.mediaLocation}</td>
+						<td>${posts.visibility}</td>
+						<td>${posts.dates}</td>
+						<td>${posts.times}</td>
+						<td>${posts.likeCount}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

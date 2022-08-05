@@ -11,22 +11,22 @@ import com.chainsys.socialmedia.repository.CommentsRepository;
 @Service
 public class CommentService {
 	@Autowired
-	private CommentsRepository commentrepo;
+	private CommentsRepository commentRepository;
 	
 	public Comment save(Comment ur) {
-		return commentrepo.save(ur);
+		return commentRepository.save(ur);
 	}
 	
 	public Comment findById(int id) {
-		return commentrepo.findById(id);
+		return commentRepository.findById(id);
 	}
 	
 	public void deleteById(int id) {
-		commentrepo.deleteById(id);
+		commentRepository.deleteById(id);
 	}
 	
 	public List<Comment> getComments(){
-		List<Comment> listComment = commentrepo.findAll();
+		List<Comment> listComment = commentRepository.findAll();
 		return listComment;
 	}
 }

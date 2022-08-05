@@ -37,9 +37,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="dob">DOB:</label>
+					<label for="dob">DOB</label>
 					<div>
-						<form:input path="dob" />
+						<form:input path="dob" type="date" />
 					</div>
 				</div>
 				<div>
@@ -51,20 +51,19 @@
 				<div>
 					<label for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input path="joiningDate" />
+						<form:input path="joiningDate" type="date" />
 					</div>
 				</div>
-				<div>
-					<label for="gender">Gender:</label>
-					<div>
-						<form:input path="gender" />
-					</div>
-				</div>
-				<div>
-					<form:button>Add</form:button>
-				</div>
-			</form:form>
+		<div>
+			<label for="gender">Gender:</label>
+			<div>
+				<form:input path="gender" />
+			</div>
 		</div>
+		<div>
+			<form:button>Add</form:button>
+		</div>
+		</form:form>
 	</div>
 </body>
 </html>
