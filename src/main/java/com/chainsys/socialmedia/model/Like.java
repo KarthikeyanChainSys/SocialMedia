@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -30,13 +29,23 @@ public class Like {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "postid", nullable = false, insertable = false, updatable = false)
 	private Post post;
-	
 	public Post getPost() {
 		return post;
 	}
 	public void setPost(Post post) {
 		this.post = post;
 	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "friendid", nullable = false, updatable = false, insertable = false)
+	private Friend friend;
+	public Friend getFriend() {
+		return friend;
+	}
+	public void setFriend(Friend friend) {
+		this.friend = friend;
+	}
+	
 	public int getPostId() {
 		return postId;
 	}

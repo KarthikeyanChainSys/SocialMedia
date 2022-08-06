@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.socialmedia.compositekey.LikeCompositeKey;
 import com.chainsys.socialmedia.dto.PostCommentDTO;
 import com.chainsys.socialmedia.dto.PostLikeDTO;
 import com.chainsys.socialmedia.model.Comment;

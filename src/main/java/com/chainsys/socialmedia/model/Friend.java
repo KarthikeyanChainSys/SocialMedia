@@ -41,6 +41,15 @@ public class Friend {
 		this.comment = comment;
 	}
 	
+	@OneToMany(mappedBy = "friend", fetch = FetchType.LAZY)
+	private List<Like> like;
+	public List<Like> getLike() {
+		return like;
+	}
+	public void setLike(List<Like> like) {
+		this.like = like;
+	}
+	
 	public int getFriendId() {
 		return friendId;
 	}

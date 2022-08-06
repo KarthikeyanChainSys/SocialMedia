@@ -15,19 +15,19 @@
 				<div>
 					<label for="commentId">CommentId:</label>
 					<div>
-						<form:input path="commentId" />
+						<form:input path="commentId" placeholder="Comment ID" />
 					</div>
 				</div>
 				<div>
 					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postId" />
+						<form:input path="postId" placeholder="Post Id" />
 					</div>
 				</div>
 				<div>
 					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendId" />
+						<form:input path="friendId" placeholder="Friend Id" />
 					</div>
 				</div>
 				<div>
@@ -39,7 +39,7 @@
 				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
-						<form:input path="commentText" />
+						<form:input path="commentText" placeholder="Comment Text" />
 					</div>
 				</div>
 				<div>
@@ -49,7 +49,7 @@
 		</div>
 	</div>
 	<div id="table root"></div>
-	<table>
+	<table border="2" width="100%" cellpadding="2">
 		<thead>
 			<tr>
 				<th>CommentId</th>

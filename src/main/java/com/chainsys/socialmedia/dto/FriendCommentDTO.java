@@ -18,7 +18,7 @@ public class FriendCommentDTO {
 	public List<Comment> getCommentList() {
 		return commentList;
 	}
-	public void addComment(Comment comment) {
-		commentList.add(comment);
+	public void addComment(List<Comment> comment) {
+		commentList = comment;
 	}	
 }

@@ -15,19 +15,19 @@
 				<div>
 					<label for="postId">"PostId":</label>
 					<div>
-						<form:input path="postId" />
+						<form:input path="postId" placeholder="Post Id" />
 					</div>
 				</div>
 				<div>
 					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendId" />
+						<form:input path="friendId" placeholder="Friend Id" />
 					</div>
 				</div>
 				<div>
 					<label for="dateTime">DateTime:</label>
 					<div>
-						<form:input path="dateTime" />
+						<form:input path="dateTime" placeholder="DateTime" />
 					</div>
 				</div>
 				<div>

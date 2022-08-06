@@ -1,16 +1,18 @@
 package com.chainsys.socialmedia.services;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chainsys.socialmedia.dto.FriendCommentDTO;
+import com.chainsys.socialmedia.dto.FriendLikeDTO;
 import com.chainsys.socialmedia.model.Comment;
 import com.chainsys.socialmedia.model.Friend;
+import com.chainsys.socialmedia.model.Like;
 import com.chainsys.socialmedia.repository.CommentsRepository;
 import com.chainsys.socialmedia.repository.FriendRepository;
+import com.chainsys.socialmedia.repository.LikesRepository;
 
 
 @Service
@@ -19,6 +21,8 @@ public class FriendService {
 	private FriendRepository friendRepository;
 	@Autowired
 	private CommentsRepository commentRepository;
+	@Autowired
+	private LikesRepository likeRepository;
 	
 	public Friend save(Friend ur) {
 		return friendRepository.save(ur);
@@ -38,13 +42,20 @@ public class FriendService {
 	}
 	
 	public FriendCommentDTO getFriendAndComment(int id) {
+		Friend friend = findById(id);
 		FriendCommentDTO friendCommentDto = new FriendCommentDTO();
-		friendCommentDto.setFriend(getFriends().get(id));
+		friendCommentDto.setFriend(friend);
 		List<Comment> comment = commentRepository.findByFriendId(id);
-		Iterator<Comment> commentItr = comment.iterator();
-		while (commentItr.hasNext()) {
-			friendCommentDto.addComment((Comment) commentItr.next());
-		}
+		friendCommentDto.addComment(comment);
 		return friendCommentDto;
+	}
+	
+	public FriendLikeDTO getFriendAndLike(int id) {
+		Friend friend = findById(id);
+		FriendLikeDTO friendLikeDto = new FriendLikeDTO();
+		friendLikeDto.setFriend(friend);
+		List<Like> like = likeRepository.findByFriendId(id);
+		friendLikeDto.addLike(like);
+		return friendLikeDto;
 	}
 }

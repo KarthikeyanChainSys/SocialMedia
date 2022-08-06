@@ -1,7 +1,8 @@
 package com.chainsys.socialmedia.model;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ public class User {
 	@Column(name="userid")
 	private int userId;
 	private String email;
+	@Column(name="pasword")
 	private String pasword;
 	@Column(name="username")
 	private String userName;

@@ -15,37 +15,37 @@
 				<div>
 					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postId" />
+						<form:input path="postId" placeholder="Post Id" />
 					</div>
 				</div>
 				<div>
 					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="userId" placeholder="User Id" />
 					</div>
 				</div>
 				<div>
 					<label for="postType">PostType:</label>
 					<div>
-						<form:input path="postType" />
+						<form:input path="postType" placeholder="Post Type" />
 					</div>
 				</div>
 				<div>
 					<label for="mediaLocation">MediaLocation:</label>
 					<div>
-						<form:input path="mediaLocation" />
+						<form:input path="mediaLocation" placeholder="Media Location" />
 					</div>
 				</div>
 				<div>
 					<label for="visibility">Visibility:</label>
 					<div>
-						<form:input path="visibility" />
+						<form:input path="visibility" placeholder="Visibility" />
 					</div>
 				</div>
 				<div>
 					<label for="likeCount">LikeCount:</label>
 					<div>
-						<form:input path="likeCount" />
+						<form:input path="likeCount" placeholder="Like Count" />
 					</div>
 				</div>
 				<div>

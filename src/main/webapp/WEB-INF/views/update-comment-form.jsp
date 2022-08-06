@@ -15,23 +15,23 @@
 				<div>
 					<label for="commentId">CommentId:</label>
 					<div>
-						<form:input path="commentId" />
+						<form:input path="commentId" placeholder="Comment ID" />
 					</div>
 				</div>
 				<div>
 					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postId" />
+						<form:input path="postId" placeholder="Post Id" />
 					</div>
 				</div>
 				<div>
 					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendId" />
+						<form:input path="friendId" placeholder="Friend Id" />
 					</div>
 				</div>
 				<div>
-					<label for="comments">PostType:</label>
+					<label for="comments">Comment:</label>
 					<div>
 						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
@@ -39,19 +39,7 @@
 				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
-						<form:input path="commentText" />
-					</div>
-				</div>
-				<div>
-					<label for="dates">Dates:</label>
-					<div>
-						<form:input path="dates" />
-					</div>
-				</div>
-				<div>
-					<label for="times">Times:</label>
-					<div>
-						<form:input path="times" />
+						<form:input path="commentText" placeholder="Comment Text" />
 					</div>
 				</div>
 				<div>
@@ -60,5 +48,32 @@
 			</form:form>
 		</div>
 	</div>
+	<div id="table root"></div>
+	<table border="2" width="100%" cellpadding="2">
+		<thead>
+			<tr>
+				<th>CommentId</th>
+				<th>PostId</th>
+				<th>FriendId</th>
+				<th>commentText</th>
+				<th>comments</th>
+				<th>Date</th>
+				<th>Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="comment" items="${allcomment}">
+				<tr>
+					<td>${comment.commentId}</td>
+					<td>${comment.postId}</td>
+					<td>${comment.friendId}</td>
+					<td>${comment.commentText}</td>
+					<td>${comment.comments}</td>
+					<td>${comment.dates}</td>
+					<td>${comment.times}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>

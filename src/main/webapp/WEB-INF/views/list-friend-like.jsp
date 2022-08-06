@@ -6,13 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List Friend and Comment</title>
+<title>Like Friend and Like</title>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post"
-				modelAttribute="getfriend">
+			<form:form action="add" method="post" modelAttribute="getfriend">
 				<div>
 					<label for="friendId">FriendId:</label>
 					<div>
@@ -37,25 +36,17 @@
 		<table border="2" width="100%" cellpadding="2">
 			<thead>
 				<tr>
-					<th>CommentId</th>
 					<th>PostId</th>
 					<th>FriendId</th>
-					<th>commentText</th>
-					<th>comments</th>
-					<th>Date</th>
-					<th>Time</th>
+					<th>DateTime</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="comment" items="${commentlist}">
+				<c:forEach var="like" items="${likelist}">
 					<tr>
-						<td>${comment.commentId}</td>
-						<td>${comment.postId}</td>
-						<td>${comment.friendId}</td>
-						<td>${comment.commentText}</td>
-						<td>${comment.comments}</td>
-						<td>${comment.dates}</td>
-						<td>${comment.times}</td>
+						<td>${like.postId}</td>
+						<td>${like.friendId}</td>
+						<td>${like.dateTime}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

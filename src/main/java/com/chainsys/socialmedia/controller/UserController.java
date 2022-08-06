@@ -1,6 +1,8 @@
 package com.chainsys.socialmedia.controller;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -82,4 +84,22 @@ public class UserController {
 		model.addAttribute("postlist", dto.getPostList());
 		return "list-user-post";
 	}
+	
+	@GetMapping("/userlogin")
+	public String userLogin(Model model) {
+		User user = new User();
+		model.addAttribute("login", user);
+		return "login-form";
+	}
+	
+//	@PostMapping("/userpage")
+//	public String checkingAccess(@ModelAttribute("login") User theUser) {
+//	getAll
+//		User user = userService.getEmailAndPassword(theUser.getEmail(), theUser.getPasword());
+//		if(user != null) {
+//			return "redirect:/user/homepage";
+//		} else {
+//			return "Invalid-User";	
+//		}
+//	}
 }

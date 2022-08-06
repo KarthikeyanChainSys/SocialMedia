@@ -15,19 +15,19 @@
 				<div>
 					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendId" />
+						<form:input path="friendId" placeholder="Friend Id" />
 					</div>
 				</div>
 				<div>
 					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userId" />
+						<form:input path="userId" placeholder="User Id" />
 					</div>
 				</div>
 				<div>
 					<label for="requestStatus">RequestStatus:</label>
 					<div>
-						<form:input path="requestStatus" />
+						<form:input path="requestStatus" placeholder="Request Status" />
 					</div>
 				</div>
 				<div>

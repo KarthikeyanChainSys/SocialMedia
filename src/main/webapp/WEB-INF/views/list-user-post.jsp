@@ -63,7 +63,7 @@
 			</form:form>
 		</div>
 		<div id="postlist"></div>
-		<table>
+		<table border="2" width="100%" cellpadding="2">
 			<thead>
 				<tr>
 					<th>PostId</th>
