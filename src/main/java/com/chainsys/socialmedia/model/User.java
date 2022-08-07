@@ -2,29 +2,58 @@ package com.chainsys.socialmedia.model;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 @Entity
 @Table(name="users")
 public class User {
 	@Id
 	@Column(name="userid")
+	@Size(max = 20, min = 1, message = "*ID length should be 1 to 20")
+	@NotBlank(message = "*ID can't be Empty")
+	@Pattern(regexp = "[^0-9][+-]?[0-9]{1,20}[^0-9]", message = "*Enter valid ID ")
 	private int userId;
+	
+	@Email(message = "*Email is not valid")
+	@NotEmpty(message = "*Please enter email")
 	private String email;
+	
 	@Column(name="pasword")
+	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
+	@NotBlank(message = "*Password can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid password ")
 	private String pasword;
+	
 	@Column(name="username")
+	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
+	@NotBlank(message = "*Name can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String userName;
+	
+	@NotEmpty(message = "*Please enter DOB")
+	@Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$", message = "*Value should be in date formate ")
 	private Date dob;
+	
+	@NotEmpty(message = "*Please enter country")
+	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String country;
+	
 	@Column(name="joiningdate")
+	@NotEmpty(message = "*Please enter joining date")
+	@Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$", message = "*Value should be in date formate ")
 	private Date joiningDate;
+	
+	@NotEmpty(message = "*Please enter gender")
+	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String gender;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

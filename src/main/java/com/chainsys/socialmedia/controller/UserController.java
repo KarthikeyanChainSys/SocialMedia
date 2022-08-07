@@ -1,12 +1,13 @@
 package com.chainsys.socialmedia.controller;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,10 @@ public class UserController {
 	}
 	
 	@PostMapping("/add")
-	public String addUser(@ModelAttribute("adduser") User theUser) {
+	public String addUser(@Valid @ModelAttribute("adduser") User theUser, Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-user-form";
+		}
 		userService.save(theUser);
 		return "redirect:/user/list";
 	}
@@ -44,7 +48,10 @@ public class UserController {
 	}
 	
 	@PostMapping("update")
-	public String updateUser(@ModelAttribute("updateuser") User theUsers) {
+	public String updateUser(@Valid @ModelAttribute("updateuser") User theUsers, Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-user-form";
+		}
 		userService.save(theUsers);
 		return "redirect:/user/list";
 	}
@@ -84,22 +91,4 @@ public class UserController {
 		model.addAttribute("postlist", dto.getPostList());
 		return "list-user-post";
 	}
-	
-	@GetMapping("/userlogin")
-	public String userLogin(Model model) {
-		User user = new User();
-		model.addAttribute("login", user);
-		return "login-form";
-	}
-	
-//	@PostMapping("/userpage")
-//	public String checkingAccess(@ModelAttribute("login") User theUser) {
-//	getAll
-//		User user = userService.getEmailAndPassword(theUser.getEmail(), theUser.getPasword());
-//		if(user != null) {
-//			return "redirect:/user/homepage";
-//		} else {
-//			return "Invalid-User";	
-//		}
-//	}
 }

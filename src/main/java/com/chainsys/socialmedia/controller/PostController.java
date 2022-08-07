@@ -2,9 +2,12 @@ package com.chainsys.socialmedia.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,9 +33,12 @@ public class PostController {
 	}
 	
 	@PostMapping("/add")
-	public String addPost(@ModelAttribute("addpost") Post thePost) {
+	public String addPost(@Valid @ModelAttribute("addpost") Post thePost, Errors errors) {
 		thePost.setDates();
 		thePost.setTimes();
+		if(errors.hasErrors()) {
+			return "add-post-form";
+		}
 		postservice.save(thePost);
 		return "redirect:/posts/list";
 	}
@@ -45,9 +51,12 @@ public class PostController {
 	}
 	
 	@PostMapping("update")
-	public String updatePost(@ModelAttribute("updatepost") Post thePost) {
+	public String updatePost(@Valid @ModelAttribute("updatepost") Post thePost, Errors errors) {
 		thePost.setDates();
 		thePost.setTimes();
+		if(errors.hasErrors()) {
+			return "update-post-form";
+		}
 		postservice.save(thePost);
 		return "redirect:/posts/list";
 	}

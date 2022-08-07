@@ -63,7 +63,7 @@ public class UserService {
 		return userPostDto;
 	}
 	
-//	public User getEmailAndPassword(String email, String password) {
-//		return userRepository.findByEmailAndPassword(email, password);
-//	}
+	public User getEmailAndPassword(String email, String password) {
+		return userRepository.findByEmailAndPasword(email, password);
+	}
 }
