@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -22,15 +21,9 @@ import javax.validation.constraints.Size;
 public class Post {
 	@Id
 	@Column(name="postid")
-	@Size(max = 20, min = 1, message = "*ID length should be 1 to 20")
-	@NotBlank(message = "*ID can't be Empty")
-	@Pattern(regexp = "[^0-9][+-]?[0-9]{1,20}[^0-9]", message = "*Enter valid ID ")
 	private int postId;
 	
 	@Column(name="userid")
-	@Size(max = 20, min = 1, message = "*ID length should be 1 to 20")
-	@NotBlank(message = "*ID can't be Empty")
-	@Pattern(regexp = "[^0-9][+-]?[0-9]{1,20}[^0-9]", message = "*Enter valid ID ")
 	private int userId;
 	
 	@Column(name="posttype")
@@ -46,13 +39,9 @@ public class Post {
 	@NotBlank(message = "*Visibility can't be Empty")
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Visibility ")
 	private String visibility;
-	
-	@NotEmpty(message = "*Please enter date")
-	@Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$", message = "*Value should be in date formate ")
+
 	private String dates;
 	
-	@NotEmpty(message = "*Please enter time")
-	@Pattern(regexp = "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$", message = "*Value should be in time formate ")
 	private String times;
 	
 	@Column(name="likecount")

@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="friends")
@@ -17,9 +19,13 @@ public class Friend {
 	@Id
 	@Column(name="friendid")
 	private int friendId;
+	
 	@Column(name="userid")
 	private int userId;
+	
 	@Column(name="requeststatus")
+	@NotEmpty(message = "*Please enter gender")
+	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String requestStatus;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

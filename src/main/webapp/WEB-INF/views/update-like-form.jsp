@@ -8,6 +8,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Update Likes</title>
+<style type="text/css">
+.text-danger {
+    color: #e80c4d;
+    font-size: 0.9em;
+}
+</style>
 </head>
 <body>
 <div id="root">

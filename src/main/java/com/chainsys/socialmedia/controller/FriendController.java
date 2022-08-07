@@ -2,9 +2,12 @@ package com.chainsys.socialmedia.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +34,10 @@ public class FriendController {
 	}
 	
 	@PostMapping("/add")
-	public String addFriend(@ModelAttribute("addfriend") Friend theFriend) {
+	public String addFriend(@Valid @ModelAttribute("addfriend") Friend theFriend, Errors errors) {
+		if(errors.hasErrors()) {
+			return "add-friend-form";
+		}
 		friendService.save(theFriend);
 		return "redirect:/friend/list";
 	}
@@ -44,7 +50,10 @@ public class FriendController {
 	}
 	
 	@PostMapping("update")
-	public String updateFriend(@ModelAttribute("updatefriend") Friend theFriend) {
+	public String updateFriend(@Valid @ModelAttribute("updatefriend") Friend theFriend, Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-friend-form";
+		}
 		friendService.save(theFriend);
 		return "redirect:/friend/list";
 	}

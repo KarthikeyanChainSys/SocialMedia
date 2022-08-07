@@ -10,18 +10,28 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 @Entity
 @Table(name="Comments")
 public class Comment {
 	@Id
 	@Column(name="commentid")
 	private int commentId;
+	
 	@Column(name="postid")
 	private int postId;
+	
 	@Column(name="friendid")
 	private int friendId;
+	
 	@Column(name="commenttext")
+	@Size(max = 50, min = 1, message = "*Comment length should be 1 to 50")
+	@NotBlank(message = "*Comment can't be Empty")
+	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Comment ")
 	private String commentText;
+	
 	private File comments;
 	private String dates;
 	private String times;

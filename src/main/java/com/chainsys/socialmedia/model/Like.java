@@ -20,9 +20,11 @@ public class Like {
 	@Id
 	@Column(name="postid")
 	private int postId;
+	
 	@Id
 	@Column(name="friendid")
 	private int friendId;
+	
 	@Column(name="datetime")
 	private String dateTime;
 	

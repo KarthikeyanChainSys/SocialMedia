@@ -25,7 +25,6 @@
 						<form:input path="userId" placeholder="User Id" />
 					</div>
 				</div>
-				<form:errors path="userId" cssClass="text-danger" />
 				<div>
 					<label for="email">Email:</label>
 					<div>

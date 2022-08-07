@@ -2,9 +2,12 @@ package com.chainsys.socialmedia.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,9 +33,12 @@ public class CommentController {
 	}
 	
 	@PostMapping("/add")
-	public String addComment(@ModelAttribute("addcomment") Comment theComment) {
+	public String addComment(@Valid @ModelAttribute("addcomment") Comment theComment, Errors errors) {
 		theComment.setDates();
 		theComment.setTimes();
+		if(errors.hasErrors()) {
+			return "add-comment-form";
+		}
 		commentservice.save(theComment);
 		return "redirect:/comment/addcomment";
 	}
@@ -45,9 +51,12 @@ public class CommentController {
 	}
 	
 	@PostMapping("update")
-	public String updateComment(@ModelAttribute("updatecomment") Comment theComment) {
+	public String updateComment(@Valid @ModelAttribute("updatecomment") Comment theComment, Errors errors) {
 		theComment.setDates();
 		theComment.setTimes();
+		if(errors.hasErrors()) {
+			return "update-comment-form";
+		}
 		commentservice.save(theComment);
 		return "redirect:/comment/list";
 	}

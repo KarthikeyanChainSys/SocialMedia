@@ -18,9 +18,6 @@ import javax.validation.constraints.Size;
 public class User {
 	@Id
 	@Column(name="userid")
-	@Size(max = 20, min = 1, message = "*ID length should be 1 to 20")
-	@NotBlank(message = "*ID can't be Empty")
-	@Pattern(regexp = "[^0-9][+-]?[0-9]{1,20}[^0-9]", message = "*Enter valid ID ")
 	private int userId;
 	
 	@Email(message = "*Email is not valid")

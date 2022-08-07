@@ -25,14 +25,12 @@
 						<form:input path="postId" placeholder="Post Id" />
 					</div>
 				</div>
-				<form:errors path="postId" cssClass="text-danger" />
 				<div>
 					<label for="userId">UserId:</label>
 					<div>
 						<form:input path="userId" placeholder="User Id" />
 					</div>
 				</div>
-				<form:errors path="userId" cssClass="text-danger" />
 				<div>
 					<label for="postType">PostType:</label>
 					<div>

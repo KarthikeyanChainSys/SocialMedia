@@ -3,9 +3,12 @@ package com.chainsys.socialmedia.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,8 +33,11 @@ public class LikeController {
 	}
 	
 	@PostMapping("/add")
-	public String addLike(@ModelAttribute("addlike") Like theLike) {
+	public String addLike(@Valid @ModelAttribute("addlike") Like theLike, Errors errors) {
 		theLike.setDateTime();
+		if(errors.hasErrors()) {
+			return "add-like-form";
+		}
 		likeservice.save(theLike);
 		return "redirect:/like/list";
 	}
@@ -45,8 +51,11 @@ public class LikeController {
 	}
 	
 	@PostMapping("/update")
-	public String updateLike(@ModelAttribute("updatelike") Like theLike) {
+	public String updateLike(@Valid @ModelAttribute("updatelike") Like theLike, Errors errors) {
 		theLike.setDateTime();
+		if(errors.hasErrors()) {
+			return "update-like-form";
+		}
 		likeservice.save(theLike);
 		return "redirect:/like/list";
 	}
