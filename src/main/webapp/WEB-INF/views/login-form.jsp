@@ -5,36 +5,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="mystyle.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style><%@include file="/WEB-INF/css/login.css"%></style>
 <title>Login page</title>
 </head>
 <body>
-	<div id="header">
+	<h1>Welcome to FriendsHub</h1>
+	<h2>Connect with good friends world around </h2>
+	<div id="form">
 		<form:form action="userPage" modelAttribute="login" method="post">
 			<br>
-			<div class="f-container">
-				<img src="/static/images/Facebook-Lite.jpg" alt="Facebook">
-			</div>
+			<h2>FriendsHub</h2><br><br>
+			<label class="form">Email</label><br>
+			<form:input class="form" path="email" placeholder="Email" />
+			<br><label class="form">Password</label><br>
+			<form:input class="form" path="password" placeholder="Password" />
 			<br>
-			<br>Email<br>
-			<form:input path="email" placeholder="Email" />
-			<br> Password<br>
-			<form:input path="password" placeholder="Password" />
+			<form:button class="form" id="button" target="_self">Login</form:button>
 			<br>
-			<br>
-			<form:button id="button" onclick="myFunction()">
-			Login
-			</form:button>
-			<p id="demo"></p>
-			<br>
-			<br>
-			<form:button id="button">
+			<form:button class="form" id="button">
 				<a href="/user/adduser" target="_self">SignUp</a>
 			</form:button>
 		</form:form>
 	</div>
-	<div>${result}</div>
 </body>
 </html>

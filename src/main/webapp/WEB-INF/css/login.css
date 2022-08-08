@@ -10,16 +10,16 @@ body {
 	background-color: #f0f2f5;
 }
 
-form:form {
+form {
 	background-color: #fff;
 	position: absolute;
 	text-align: center;
 	width: 320px;
-	height: 270px;
+	height: 420px;
 	padding: 10px 5px 20px 5px;
-	margin: -10vh 850px;
-	border-radius: 5px;
-	box-shadow: 5px 5px 6px -7px;
+	margin: 10vh 850px;
+	border-radius: 20px;
+	box-shadow: 5px -7px 6px -7px;
 }
 
 input[type='text'], input[type='password'] {
@@ -102,4 +102,22 @@ P{
 	font-size: 20px;
 	font-weight: 600;
 	word-spacing: 3px;
+}
+
+h1{
+	color:#1877f2;
+	font-family: "Segoe UI", Roboto, "San Francisco";
+	text-align: center;
+}
+
+h2{
+	color:#1877f2;
+	font-family: "Segoe UI", Roboto, "San Francisco";
+	text-align: center;
+}
+
+h3{
+	color:#1877f2;
+	font-family: "Segoe UI", Roboto, "San Francisco";
+	text-align: center;
 }

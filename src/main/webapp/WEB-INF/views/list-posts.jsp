@@ -2,15 +2,20 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Post List</title>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</s</style>
 </head>
 <body>
 <div id="table root"></div>
-	<table border="2" width="100%" cellpadding="2">
+	<table style="width:100%">
 		<thead>
 			<tr>
 				<th>PostId</th>
@@ -21,6 +26,7 @@
 				<th>Date</th>
 				<th>Time</th>
 				<th>LikeCount</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,6 +40,7 @@
 					<td>${post.dates}</td>
 					<td>${post.times}</td>
 					<td>${post.likeCount}</td>
+					<td><a href="deletepost?id=${post.postId}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

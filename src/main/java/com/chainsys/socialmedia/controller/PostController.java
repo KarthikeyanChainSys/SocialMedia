@@ -26,7 +26,7 @@ public class PostController {
 	PostService postservice;
 	
 	@GetMapping("/addpost")
-	public String AddNewPost(Model model) {
+	public String addNewPost(Model model) {
 		Post thePost = new Post();
 		model.addAttribute("addpost", thePost);
 		return "add-post-form";

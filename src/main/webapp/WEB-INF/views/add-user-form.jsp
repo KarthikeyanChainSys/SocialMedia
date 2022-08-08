@@ -52,7 +52,6 @@
 						<form:input path="dob" type="date" />
 					</div>
 				</div>
-				<form:errors path="dob" cssClass="text-danger" />
 				<div>
 					<label for="country">Country:</label>
 					<div>
@@ -66,7 +65,6 @@
 						<form:input path="joiningDate" type="date" />
 					</div>
 				</div>
-				<form:errors path="joiningDate" cssClass="text-danger" />
 				<div>
 					<label for="gender">Gender:</label>
 					<div>

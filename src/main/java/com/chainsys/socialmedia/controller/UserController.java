@@ -37,7 +37,7 @@ public class UserController {
 			return "add-user-form";
 		}
 		userService.save(theUser);
-		return "redirect:/user/list";
+		return "redirect:/home/login";
 	}
 	
 	@GetMapping("/updateuser")
@@ -53,7 +53,7 @@ public class UserController {
 			return "update-user-form";
 		}
 		userService.save(theUsers);
-		return "redirect:/user/list";
+		return "redirect:/home/homePage";
 	}
 	
 	@GetMapping("/finduserbyid")

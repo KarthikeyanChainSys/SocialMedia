@@ -27,7 +27,7 @@ public class User {
 	@Column(name="pasword")
 	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
 	@NotBlank(message = "*Password can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid password ")
+	@Pattern(regexp = "^(?=.*[a-zA-Z\\d].*)[a-zA-Z\\d!@#$%&*]\\w{8,20}$", message = "*Enter valid password ")
 	private String pasword;
 	
 	@Column(name="username")
@@ -36,8 +36,6 @@ public class User {
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String userName;
 	
-	@NotEmpty(message = "*Please enter DOB")
-	@Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$", message = "*Value should be in date formate ")
 	private Date dob;
 	
 	@NotEmpty(message = "*Please enter country")
@@ -45,8 +43,6 @@ public class User {
 	private String country;
 	
 	@Column(name="joiningdate")
-	@NotEmpty(message = "*Please enter joining date")
-	@Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$", message = "*Value should be in date formate ")
 	private Date joiningDate;
 	
 	@NotEmpty(message = "*Please enter gender")
