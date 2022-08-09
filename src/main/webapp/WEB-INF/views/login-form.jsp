@@ -5,10 +5,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style><%@include file="/WEB-INF/css/login.css"%></style>
+<style><%@include file="/WEB-INF/css/login.css"%>
+body{
+background-image: url("/WEB-INF/images/connection.jpg");
+}
+</style>
 <title>Login page</title>
 </head>
 <body>
+	<br>
 	<h1>Welcome to FriendsHub</h1>
 	<h2>Connect with good friends world around </h2>
 	<div id="form">
@@ -18,11 +23,11 @@
 			<label class="form">Email</label><br>
 			<form:input class="form" path="email" placeholder="Email" />
 			<br><label class="form">Password</label><br>
-			<form:input class="form" path="password" placeholder="Password" />
+			<form:input class="form" path="password" type="password" placeholder="Password" />
 			<br>
-			<form:button class="form" id="button" target="_self">Login</form:button>
+			<form:button class="form" id="button" target="_self" value="submit">Login</form:button>
 			<br>
-			<form:button class="form" id="button">
+			<form:button class="form" id="button" value="submit">
 				<a href="/user/adduser" target="_self">SignUp</a>
 			</form:button>
 		</form:form>

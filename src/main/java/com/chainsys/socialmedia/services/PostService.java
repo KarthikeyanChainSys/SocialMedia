@@ -51,7 +51,9 @@ public class PostService {
 		}
 		return postCommentDto;
 	}
-	
+	public List<Post> findByUserId(int id){
+		return postRepository.findByUserId(id);
+	}
 	public PostLikeDTO getPostAndLike(int id) {
 		PostLikeDTO postLikeDto = new PostLikeDTO();
 		postLikeDto.setPost(getPosts().get(id));

@@ -20,12 +20,6 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addpost">
 				<div>
-					<label for="postId">PostId:</label>
-					<div>
-						<form:input path="postId" placeholder="Post Id" />
-					</div>
-				</div>
-				<div>
 					<label for="userId">UserId:</label>
 					<div>
 						<form:input path="userId" placeholder="User Id" />

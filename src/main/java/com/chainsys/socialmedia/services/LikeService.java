@@ -1,5 +1,6 @@
 package com.chainsys.socialmedia.services;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,5 +32,27 @@ public class LikeService {
 		List<Like> listLike = likeRepository.findAll();
 		return listLike;
 	}
+	
+//	public void countImages() {
+//		File f = new File("C:/Users/kart3128/Pictures/Saved Pictures");
+//        int count = 0;
+//        for (File file : f.listFiles()) {
+//                if (file.isFile() && (file.getName().endsWith(".jpg")) || file.getName().endsWith(".png")) {
+//                        count++;
+//                }
+//        }
+//        System.out.println("Number of files: " + count);
+//	}
+//	
+//	public void countVideos() {
+//		File f = new File("C:/Users/kart3128/Videos/Captures");
+//        int count = 0;
+//        for (File file : f.listFiles()) {
+//                if (file.isFile() && (file.getName().endsWith(".mp3")) || file.getName().endsWith(".mp4")) {
+//                        count++;
+//                }
+//        }
+//        System.out.println("Number of files: " + count);
+//	}
 
 }

@@ -24,6 +24,7 @@ import com.chainsys.socialmedia.services.PostService;
 public class PostController {
 	@Autowired
 	PostService postservice;
+
 	
 	@GetMapping("/addpost")
 	public String addNewPost(Model model) {
@@ -40,7 +41,7 @@ public class PostController {
 			return "add-post-form";
 		}
 		postservice.save(thePost);
-		return "redirect:/posts/list";
+		return "redirect:/home/homepage";
 	}
 	
 	@GetMapping("/updatepost")
@@ -73,7 +74,12 @@ public class PostController {
 		postservice.deleteById(id);
 		return "redirect:/posts/list";
 	}
-	
+	@GetMapping("/getPostByUserId")
+	public String getPostByUserId(@RequestParam("id")int id,Model model) {
+		List<Post>postList=postservice.findByUserId(id);
+		model.addAttribute("allpost", postList);
+		return "list-posts";
+	}
 	@GetMapping("/list")
 	public String getAllPosts(Model model) {
 		List<Post> thePosts = postservice.getPosts();

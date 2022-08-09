@@ -11,7 +11,7 @@
 table, th, td {
   border:1px solid black;
 }
-</s</style>
+</style>
 </head>
 <body>
 <div id="table root"></div>

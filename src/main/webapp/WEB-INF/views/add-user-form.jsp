@@ -3,78 +3,70 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style><%@include file="/WEB-INF/css/signup.css"%></s</style>
 <meta charset="ISO-8859-1">
 <title>Add User</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-</style>
 </head>
 <body>
-	<div id="root">
+	<h1 class="form">Create an Account</h1>
+	<div id="root" >
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="adduser">
+			<form:form class="form" action="add" method="post" modelAttribute="adduser">
 				<div>
-					<label for="userId">UserId:</label>
+					<label class="form" for="userName">UserName:</label>
 					<div>
-						<form:input path="userId" placeholder="User Id" />
-					</div>
-				</div>
-				<div>
-					<label for="email">Email:</label>
-					<div>
-						<form:input path="email" placeholder="Email" />
-					</div>
-				</div>
-				<form:errors path="email" cssClass="text-danger" />
-				<div>
-					<label for="pasword">Password:</label>
-					<div>
-						<form:input path="pasword" placeholder="Password" />
-					</div>
-				</div>
-				<form:errors path="pasword" cssClass="text-danger" />
-				<div>
-					<label for="userName">UserName:</label>
-					<div>
-						<form:input path="userName" placeholder="UserName" />
+						<form:input class="form" path="userName" placeholder="UserName" />
 					</div>
 				</div>
 				<form:errors path="userName" cssClass="text-danger" />
 				<div>
-					<label for="dob">DOB</label>
+					<label class="form" for="email">Email:</label>
 					<div>
-						<form:input path="dob" type="date" />
+						<form:input class="form" path="email" placeholder="Email" />
+					</div>
+				</div>
+				<form:errors path="email" cssClass="text-danger" />
+				<div>
+					<label class="form" for="pasword">Password:</label>
+					<div>
+						<form:input class="form" path="pasword" type="password" placeholder="Password" />
+					</div>
+				</div>
+				<form:errors path="pasword" cssClass="text-danger" />
+				
+				<div>
+					<label class="form" for="dob">DOB</label>
+					<div>
+						<form:input class="form" path="dob" type="date" />
 					</div>
 				</div>
 				<div>
-					<label for="country">Country:</label>
+					<label class="form" for="country">Country:</label>
 					<div>
-						<form:input path="country" placeholder="Country" />
+						<form:input class="form" path="country" placeholder="Country" />
 					</div>
 				</div>
 				<form:errors path="country" cssClass="text-danger" />
 				<div>
-					<label for="joiningDate">JoiningDate:</label>
+					<label class="form" for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input path="joiningDate" type="date" />
+						<form:input class="form" path="joiningDate" type="date" />
 					</div>
 				</div>
 				<div>
-					<label for="gender">Gender:</label>
+					<label class="form" for="gender">Gender:</label>
 					<div>
-						<form:input path="gender" placeholder="Gender" />
-					</div>
+                        <form:radiobutton path="gender" value="Male" required="required"/>Male
+                        <form:radiobutton path="gender" value="Female" />Female
+                    </div>
 				</div>
 				<form:errors path="gender" cssClass="text-danger" />
 				<div>
-					<form:button>Add</form:button>
+					<form:button class="button">Sign up</form:button>
 				</div>
+				<h2 class="form">Create an account and get lot of new good friends</h2>
 			</form:form>
 		</div>
 	</div>

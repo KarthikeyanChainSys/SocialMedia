@@ -47,13 +47,13 @@ public class UserController {
 		return "update-user-form";
 	}
 	
-	@PostMapping("update")
-	public String updateUser(@Valid @ModelAttribute("updateuser") User theUsers, Errors errors) {
-		if(errors.hasErrors()) {
-			return "update-user-form";
-		}
-		userService.save(theUsers);
-		return "redirect:/home/homePage";
+	@PostMapping("/update")
+	public String updateUser(@Valid @ModelAttribute("updateuser") User theUser) {
+		/*
+		 * if(errors.hasErrors()) { return "update-user-form"; }
+		 */
+		userService.save(theUser);
+		return "redirect:/home/userPage";
 	}
 	
 	@GetMapping("/finduserbyid")

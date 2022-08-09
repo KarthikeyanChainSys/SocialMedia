@@ -20,12 +20,6 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addcomment">
 				<div>
-					<label for="commentId">CommentId:</label>
-					<div>
-						<form:input path="commentId" placeholder="Comment ID" />
-					</div>
-				</div>
-				<div>
 					<label for="postId">PostId:</label>
 					<div>
 						<form:input path="postId" placeholder="Post Id" />

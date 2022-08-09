@@ -5,10 +5,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -17,6 +20,8 @@ import javax.validation.constraints.Pattern;
 @Table(name="friends")
 public class Friend {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "friendid")
+    @SequenceGenerator(name = "friendid", sequenceName = "friendid",  allocationSize = 1)
 	@Column(name="friendid")
 	private int friendId;
 	
