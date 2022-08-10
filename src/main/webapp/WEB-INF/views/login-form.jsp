@@ -6,9 +6,6 @@
 <html lang="en">
 <head>
 <style><%@include file="/WEB-INF/css/login.css"%>
-body{
-background-image: url("/WEB-INF/images/connection.jpg");
-}
 </style>
 <title>Login page</title>
 </head>

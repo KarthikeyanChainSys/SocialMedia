@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style><%@include file="/WEB-INF/css/signup.css"%></s</style>
+<style><%@include file="/WEB-INF/css/form.css"%></s</style>
 <meta charset="ISO-8859-1">
 <title>Add User</title>
 </head>

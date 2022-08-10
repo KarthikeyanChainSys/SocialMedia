@@ -15,7 +15,6 @@ import com.chainsys.socialmedia.services.UserService;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
-
 	@Autowired
 	private UserService userService;
 	
@@ -27,7 +26,7 @@ public class HomeController {
 	}
 
 	@PostMapping("/userPage")
-	public String loginPage(@ModelAttribute("login")Login login,Model model) {
+	public String loginPage(@ModelAttribute("login")Login login, Model model) {
 		User user = userService.getEmailAndPassword(login.getEmail(), login.getPassword());	
 		if(user != null) {
 			model.addAttribute("user", user);

@@ -5,21 +5,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style><%@include file="/WEB-INF/css/login.css"%></style>
 <meta charset="ISO-8859-1">
 <title>Update User</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="update" method="post" modelAttribute="updateuser">
+			<form:form style="text-align:center" action="update" method="post" modelAttribute="updateuser">
 				<div>
+					<div>
+						<form:hidden path="userId" />
+					</div>
+				</div>
+				
+				<div>
+					<label for="email">Email:</label>
+					<div>
+						<form:input path="email" placeholder="Email" />
+					</div>
+				</div>
+				<div>
+					<label for="pasword">Password:</label>
+					<div>
+						<form:input path="pasword" placeholder="Password" />
+					</div>
+				</div><div>
 					<label for="userName">UserName:</label>
 					<div>
 						<form:input path="userName" placeholder="UserName" />

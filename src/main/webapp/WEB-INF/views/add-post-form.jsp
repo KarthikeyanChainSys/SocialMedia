@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
@@ -18,7 +18,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addpost">
+			<form:form action="add" method="post" modelAttribute="addpost" >
 				<div>
 					<label for="userId">UserId:</label>
 					<div>
@@ -45,13 +45,7 @@
 					</div>
 				</div>
 				<form:errors path="visibility" cssClass="text-danger" />
-				<div>
-					<label for="likeCount">LikeCount:</label>
-					<div>
-						<form:input path="likeCount" placeholder="Like Count" />
-					</div>
-				</div>
-				<form:errors path="likeCount" cssClass="text-danger" />
+				<br>
 				<div>
 					<form:button>Add</form:button>
 				</div>

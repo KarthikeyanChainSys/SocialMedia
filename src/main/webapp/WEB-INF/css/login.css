@@ -6,19 +6,15 @@
 }
 
 body {
-    background-image: url("/WEB-INF/images/connection.jpg");
+    background-image:
+        url("https://media.istockphoto.com/photos/user-based-blockchain-futuristic-technology-backgrounds-picture-id1344724504?b=1&k=20&m=1344724504&s=170667a&w=0&h=Nk0gXz9WkXGHifkv498rDoJl1uOC7iw-RsgFESKm0Ms=");
     height: 768px;
     width: 1366px;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: fixed;
 }
-
-/* body {
-	width: 100%;
-	background-color: #f0f2f5;
-} */
 
 form {
 	background-color: #fff;
@@ -120,13 +116,13 @@ P{
 }
 
 h1{
-	color:#1877f2;
+	color:white;
 	font-family: "Segoe UI", Roboto, "San Francisco";
 	text-align: center;
 }
 
 h2{
-	color:#1877f2;
+	color:white;
 	font-family: "Segoe UI", Roboto, "San Francisco";
 	text-align: center;
 }

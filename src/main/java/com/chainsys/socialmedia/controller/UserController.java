@@ -44,16 +44,17 @@ public class UserController {
 	public String updateUserDetails(@RequestParam("id") int id, Model model) {
 		User theUser = userService.findById(id);
 		model.addAttribute("updateuser", theUser);
+		theUser.getUserId();
 		return "update-user-form";
 	}
 	
 	@PostMapping("/update")
-	public String updateUser(@Valid @ModelAttribute("updateuser") User theUser) {
-		/*
-		 * if(errors.hasErrors()) { return "update-user-form"; }
-		 */
+	public String updateUser(@Valid @ModelAttribute("updateuser") User theUser, Errors errors) {
+		if(errors.hasErrors()) {
+			return "update-user-form"; 
+			}
 		userService.save(theUser);
-		return "redirect:/home/userPage";
+		return "homepage";
 	}
 	
 	@GetMapping("/finduserbyid")

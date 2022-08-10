@@ -24,24 +24,24 @@ import com.chainsys.socialmedia.services.PostService;
 public class PostController {
 	@Autowired
 	PostService postservice;
-
 	
 	@GetMapping("/addpost")
-	public String addNewPost(Model model) {
+	public String addNewPost(@RequestParam("userId") int id,Model model) {
 		Post thePost = new Post();
+		thePost.setUserId(id);
 		model.addAttribute("addpost", thePost);
 		return "add-post-form";
 	}
 	
 	@PostMapping("/add")
-	public String addPost(@Valid @ModelAttribute("addpost") Post thePost, Errors errors) {
+	public String addPost(@Valid @ModelAttribute("addpost") Post thePost/*, Errors errors*/) {
 		thePost.setDates();
 		thePost.setTimes();
-		if(errors.hasErrors()) {
-			return "add-post-form";
-		}
+//		if(errors.hasErrors()) {
+//			return "add-post-form";
+//		}
 		postservice.save(thePost);
-		return "redirect:/home/homepage";
+		return "redirect:/posts/list";
 	}
 	
 	@GetMapping("/updatepost")
@@ -59,7 +59,7 @@ public class PostController {
 			return "update-post-form";
 		}
 		postservice.save(thePost);
-		return "redirect:/posts/list";
+		return "homepage";
 	}
 	
 	@GetMapping("/findpostbyid")
@@ -74,12 +74,14 @@ public class PostController {
 		postservice.deleteById(id);
 		return "redirect:/posts/list";
 	}
+	
 	@GetMapping("/getPostByUserId")
 	public String getPostByUserId(@RequestParam("id")int id,Model model) {
 		List<Post>postList=postservice.findByUserId(id);
 		model.addAttribute("allpost", postList);
 		return "list-posts";
 	}
+	
 	@GetMapping("/list")
 	public String getAllPosts(Model model) {
 		List<Post> thePosts = postservice.getPosts();

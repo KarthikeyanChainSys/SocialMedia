@@ -10,20 +10,21 @@
 <style><%@include file="/WEB-INF/css/homepage.css"%></style>
 </head>
 <body>
-	<figure>
-		<img src="https://www.pinterest.com/pin/128423026849507135.jpg"
-			class="img-fluid" alt="profile cover">
-	</figure>
+	<!-- <figure>
+		<img src="https://www.bootdey.com/img/Content/bg1.jpg" alt="profile cover" class="img.profile">
+	</figure> -->
 		<div>
 		<div>
-			<img src="https://bootdey.com/img/Content/avatar/avatar6.png"
-				alt="profile"><br> <br><span class="profile-name">${user.userName}</span>
+			<img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img"
+				alt="profile"><br><p class="img.p">${user.userName}</p>
 		</div>
+		<br>
 		<div>
 			<a href="/user/updateuser?id=${user.userId}" target="_self">
 				&nbsp;<button id="button">Edit profile</button>
 			</a>
-		</div>
+		</div><br>
+		<hr>
 	</div>
 	<div>
 		<ul>
@@ -34,13 +35,10 @@
 			<li><a href="/posts/getPostByUserId?id=${user.userId}" target="_self">
 					<button id="button">Pictures</button>
 			</a><br> <br></li>
-			<li><a href="/posts/addpost" target="_self">
+			<li><a href="/posts/addpost?userId=${user.userId}" target="_self">
 			<button id="button">Post</button>
 			</a></li>
 		</ul>
-	</div>
-	<div>
-		<button id="button">View all</button>
 	</div>
 </body>
 </html>
