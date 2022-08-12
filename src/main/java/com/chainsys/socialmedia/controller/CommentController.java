@@ -1,10 +1,13 @@
 package com.chainsys.socialmedia.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -13,7 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.chainsys.socialmedia.commonutil.LogManager;
 import com.chainsys.socialmedia.model.Comment;
 import com.chainsys.socialmedia.services.CommentService;
 
@@ -24,7 +30,7 @@ public class CommentController {
 	CommentService commentservice;
 	
 	@GetMapping("/addcomment")
-	public String AddNewComment(Model model) {
+	public String addNewComment(Model model) {
 		Comment theComment = new Comment();
 		model.addAttribute("addcomment", theComment);
 		List<Comment> theComments = commentservice.getComments();
@@ -33,11 +39,19 @@ public class CommentController {
 	}
 	
 	@PostMapping("/add")
-	public String addComment(@Valid @ModelAttribute("addcomment") Comment theComment, Errors errors) {
+	public String addComment(@ModelAttribute("addcomment") Comment theComment, @RequestParam("photo") MultipartFile photo) {
 		theComment.setDates();
 		theComment.setTimes();
-		if(errors.hasErrors()) {
-			return "add-comment-form";
+		try {
+			System.out.println(photo.getBytes().length);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			theComment.setComments(photo.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+			LogManager.logException(e, "CommentController.addComment");
 		}
 		commentservice.save(theComment);
 		return "redirect:/comment/addcomment";
@@ -80,4 +94,13 @@ public class CommentController {
 		model.addAttribute("allcomment", theComments);
 		return "list-comments";
 	}
+	
+	@ResponseBody
+ 	@GetMapping("/getimage")
+ 	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id)
+ 	{
+ 		byte[] imageBytes = commentservice.getDocumentImageByteArray(id);
+ 		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
+ 		
+ 	}
 }

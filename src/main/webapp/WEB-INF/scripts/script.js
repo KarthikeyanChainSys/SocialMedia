@@ -4,6 +4,12 @@ function name() {
 	document.getElementById("demo").innerHTML = x;
 }
 
+	var clicks = 0;
+    function click() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+    };
+
 function like(){
 	const likeBtn = document.querySelector(".like_btn");
 	let likeIcon= document.querySelector("#icon"); 
@@ -46,3 +52,18 @@ function fasterPreview(uploader) {
 $("#imageUpload").change(function() {
 	fasterPreview(this);
 });
+
+
+$('#foo').click(function() {
+	    var button = $(this),
+	        commentField = $('<textarea/>');
+	        .val(button.data('textContent') || 'This is my comment field\'s text')
+	        .keypress(function(e) {
+	            if (e.which === 13) {
+	                e.preventDefault();
+	                button.data('textContent', this.value);
+	                $(this).remove();
+	            }
+	        })
+	        .appendTo(document.body);
+	});

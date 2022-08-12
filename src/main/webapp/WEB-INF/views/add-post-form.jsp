@@ -18,7 +18,7 @@
 <body>
 	<div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addpost" >
+			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addpost" >
 				<div>
 					<label for="userId">UserId:</label>
 					<div>
@@ -28,7 +28,7 @@
 				<div>
 					<label for="postType">PostType:</label>
 					<div>
-						<form:input path="postType" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
+						<input name="photo" type='file' placeholder='file' required="true" accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>

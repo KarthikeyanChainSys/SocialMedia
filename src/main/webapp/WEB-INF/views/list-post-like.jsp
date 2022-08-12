@@ -54,6 +54,7 @@
 		</div>
 		<div id="table root"></div>
 	<table border="2" width="100%" cellpadding="2">
+		<caption>List Post Like</caption>
 		<thead>
 			<tr>
 				<th>PostId</th>

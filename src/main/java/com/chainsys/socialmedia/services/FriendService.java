@@ -41,6 +41,10 @@ public class FriendService {
 		return listFriend;
 	}
 	
+	public List<Friend> findByUserId(int id){
+		return friendRepository.findByUserId(id);
+	}
+	
 	public FriendCommentDTO getFriendAndComment(int id) {
 		Friend friend = findById(id);
 		FriendCommentDTO friendCommentDto = new FriendCommentDTO();
@@ -58,4 +62,5 @@ public class FriendService {
 		friendLikeDto.addLike(like);
 		return friendLikeDto;
 	}
+	
 }

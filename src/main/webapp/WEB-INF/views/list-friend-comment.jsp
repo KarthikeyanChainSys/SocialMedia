@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
@@ -36,6 +36,7 @@
 		</div>
 		<div id="table root"></div>
 		<table border="2" width="100%" cellpadding="2">
+			<caption>Friend Comment table</caption>
 			<thead>
 				<tr>
 					<th>CommentId</th>

@@ -29,4 +29,20 @@ public class CommentService {
 		List<Comment> listComment = commentRepository.findAll();
 		return listComment;
 	}
+	
+	public byte[] getDocumentImageByteArray(int id) {
+		Comment comment = commentRepository.findById(id);
+		byte[] imageBytes = null;
+			
+			if(comment != null)
+			{
+				imageBytes = comment.getComments();
+			}
+			else
+			{
+				
+				System.out.println("debug:" + this.getClass().getName() + " image is null " + id);
+			}	
+		return imageBytes;
+	}
 }

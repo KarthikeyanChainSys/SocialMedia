@@ -1,6 +1,5 @@
 package com.chainsys.socialmedia.model;
 
-import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class Post {
 	private int userId;
 	
 	@Column(name="posttype")
-	private File postType;
+	private byte[] postType;
 	
 	@Column(name="medialocation")
 	@Size(max = 40, min = 3, message = "*Location length should be 3 to 40")
@@ -84,10 +83,10 @@ public class Post {
 		this.userId = userId;
 	}
 	
-	public File getPostType() {
+	public byte[] getPostType() {
 		return postType;
 	}
-	public void setPostType(File postType) {
+	public void setPostType(byte[] postType) {
 		this.postType = postType;
 	}
 	public String getMediaLocation() {
@@ -108,16 +107,16 @@ public class Post {
 	}
 	public void setDates() {
 		Calendar vCalendar = Calendar.getInstance();
-		String dates =  vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR);
-		this.dates = dates;
+		String date =  vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR);
+		this.dates = date;
 	}
 	public String getTimes() {
 		return times;
 	}
 	public void setTimes() {
 		Calendar vCalendar = Calendar.getInstance();
-		String times = vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
-		this.times = times;
+		String time = vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
+		this.times = time;
 	}
 	public int getLikeCount() {
 		return likeCount;

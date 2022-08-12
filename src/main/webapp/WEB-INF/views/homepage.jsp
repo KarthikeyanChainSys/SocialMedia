@@ -10,9 +10,9 @@
 <style><%@include file="/WEB-INF/css/homepage.css"%></style>
 </head>
 <body>
-	<!-- <figure>
+	<figure>
 		<img src="https://www.bootdey.com/img/Content/bg1.jpg" alt="profile cover" class="img.profile">
-	</figure> -->
+	</figure>
 		<div>
 		<div>
 			<img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img"
@@ -37,6 +37,9 @@
 			</a><br> <br></li>
 			<li><a href="/posts/addpost?userId=${user.userId}" target="_self">
 			<button id="button">Post</button>
+			</a><br> <br></li>
+			<li><a href="/friend/getFriendByUserId?id=${user.userId}" target="_self">
+			<button id="button">Friend</button>
 			</a></li>
 		</ul>
 	</div>

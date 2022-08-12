@@ -78,6 +78,13 @@ public class FriendController {
 		return "list-friends";
 	}
 	
+	@GetMapping("/getFriendByUserId")
+	public String getfriendByUserId(@RequestParam("id")int id, Model model) {
+		List<Friend> friendList = friendService.findByUserId(id);
+		model.addAttribute("allfriend", friendList);
+		return "list-friends";
+	}
+	
 	@GetMapping("/getfriendcomment")
 	public String getFriendAndComment(@RequestParam("id") int id, Model model) {
 		FriendCommentDTO dto = friendService.getFriendAndComment(id);

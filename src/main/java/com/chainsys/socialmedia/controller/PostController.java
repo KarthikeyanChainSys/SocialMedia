@@ -1,10 +1,11 @@
 package com.chainsys.socialmedia.controller;
 
+import java.io.IOException;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import com.chainsys.socialmedia.commonutil.LogManager;
 import com.chainsys.socialmedia.dto.PostCommentDTO;
 import com.chainsys.socialmedia.dto.PostLikeDTO;
 import com.chainsys.socialmedia.model.Post;
@@ -26,7 +29,7 @@ public class PostController {
 	PostService postservice;
 	
 	@GetMapping("/addpost")
-	public String addNewPost(@RequestParam("userId") int id,Model model) {
+	public String addNewPost(@RequestParam("userId") int id, Model model) {
 		Post thePost = new Post();
 		thePost.setUserId(id);
 		model.addAttribute("addpost", thePost);
@@ -34,12 +37,20 @@ public class PostController {
 	}
 	
 	@PostMapping("/add")
-	public String addPost(@Valid @ModelAttribute("addpost") Post thePost/*, Errors errors*/) {
+	public String addPost(@ModelAttribute("addpost") Post thePost, @RequestParam("photo") MultipartFile photo) {
+		try {
+			System.out.println(photo.getBytes().length);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			thePost.setPostType(photo.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+			LogManager.logException(e, "PostController.addPost");
+		}
 		thePost.setDates();
 		thePost.setTimes();
-//		if(errors.hasErrors()) {
-//			return "add-post-form";
-//		}
 		postservice.save(thePost);
 		return "redirect:/posts/list";
 	}
@@ -103,5 +114,12 @@ public class PostController {
 		model.addAttribute("getpost", dto.getPost());
 		model.addAttribute("likelist", dto.getLikeList());
 		return "list-post-like";
+	}
+	
+	@ResponseBody
+	@GetMapping("/getimage")
+	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id) {
+		byte[] imageBytes = postservice.getDocumentImageByteArray(id);
+		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
 	}
 }

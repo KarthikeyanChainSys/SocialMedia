@@ -1,6 +1,5 @@
 package com.chainsys.socialmedia.model;
 
-import java.io.File;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -37,7 +36,7 @@ public class Comment {
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Comment ")
 	private String commentText;
 	
-	private File comments;
+	private byte[] comments;
 	private String dates;
 	private String times;
 	
@@ -75,10 +74,10 @@ public class Comment {
 	public void setCommentText(String commentText) {
 		this.commentText = commentText;
 	}
-	public File getComments() {
+	public byte[] getComments() {
 		return comments;
 	}
-	public void setComments(File comments) {
+	public void setComments(byte[] comments) {
 		this.comments = comments;
 	}
 	public String getDates() {

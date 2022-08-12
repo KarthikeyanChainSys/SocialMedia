@@ -51,15 +51,33 @@ public class PostService {
 		}
 		return postCommentDto;
 	}
+	
 	public List<Post> findByUserId(int id){
 		return postRepository.findByUserId(id);
 	}
+	
 	public PostLikeDTO getPostAndLike(int id) {
 		PostLikeDTO postLikeDto = new PostLikeDTO();
 		postLikeDto.setPost(getPosts().get(id));
 		List<Like> like = likeRepository.findByPostPostId(id);
 		postLikeDto.addLike(like);
 		return postLikeDto;
+	}
+	
+	public byte[] getDocumentImageByteArray(int id) {
+		Post post = postRepository.findById(id);
+		byte[] imageBytes = null;
+			
+			if(post != null)
+			{
+				imageBytes = post.getPostType();
+			}
+			else
+			{
+				
+				System.out.println("debug:" + this.getClass().getName() + " image is null " + id);
+			}	
+		return imageBytes;
 	}
 }
  

@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
@@ -18,7 +18,7 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="add" method="post" modelAttribute="addcomment">
+			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment">
 				<div>
 					<label for="postId">PostId:</label>
 					<div>
@@ -34,7 +34,7 @@
 				<div>
 					<label for="comments">Comment:</label>
 					<div>
-						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
+						<input name="photo" type='file' placeholder='file' required="true" accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>
@@ -52,6 +52,7 @@
 	</div>
 	<div id="table root"></div>
 	<table border="2" width="100%" cellpadding="2">
+		<caption>Comment table</caption>
 		<thead>
 			<tr>
 				<th>CommentId</th>
