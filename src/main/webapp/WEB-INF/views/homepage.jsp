@@ -7,7 +7,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
-<style><%@include file="/WEB-INF/css/homepage.css"%></style>
+<style><%@include file="/WEB-INF/css/homepage.css"%>
+.iframe {
+    position: absolute;
+    top:110%;
+    right: 25%;
+    width: 700px;
+    height: 500px;
+    margin-top: -400px;
+    margin-right: 20px;
+    z-index: 999;
+    border-radius:20px;
+} 
+</style>
 </head>
 <body>
 	<figure>
@@ -27,6 +39,9 @@
 		<hr>
 	</div>
 	<div>
+	<iframe width="560" class="iframe" height="315" title="Post lists" src="/posts/list?userId=${user.userId}"></iframe>
+	</div>
+	<div>
 		<ul>
 			<li><a href="/user/finduserbyid?id=${user.userId}"
 				target="_self">
@@ -40,6 +55,12 @@
 			</a><br> <br></li>
 			<li><a href="/friend/getFriendByUserId?id=${user.userId}" target="_self">
 			<button id="button">Friend</button>
+			</a></li>
+			<li><a href="/user/list?id=${user.userId}" target="_self">
+			<button id="button">addRequest</button>
+			</a></li>
+			<li><a href="/friend/list?id=${user.userId}" target="_self">
+			<button id="button">Request</button>
 			</a></li>
 		</ul>
 	</div>

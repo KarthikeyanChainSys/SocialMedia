@@ -27,12 +27,13 @@ public class User {
 	
 	@Email(message = "*Email is not valid")
 	@NotEmpty(message = "*Please enter email")
+	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "*Enter valid Email")
 	private String email;
 	
 	@Column(name="pasword")
 	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
 	@NotBlank(message = "*Password can't be Empty")
-	@Pattern(regexp = "^(?=.*[a-zA-Z\\d].*)[a-zA-Z\\d!@#$%&*]\\w{8,20}$", message = "*Enter valid password ")
+	@Pattern(regexp = "^(?=.[A-Za-z])(?=.\\\\d)(?=.[@$!%#?&])[A-Za-z\\\\d@$!%*#?&]{8,}$", message = "*Enter valid password ")
 	private String pasword;
 	
 	@Column(name="username")

@@ -20,6 +20,12 @@
 		<div id="form">
 			<form:form action="update" method="post" modelAttribute="updatelike">
 				<div>
+					<label for="likeId">"LikeId":</label>
+					<div>
+						<form:input path="likeId" placeholder="Like Id" />
+					</div>
+				</div>
+				<div>
 					<label for="postId">"PostId":</label>
 					<div>
 						<form:input path="postId" placeholder="Post Id" />

@@ -1,10 +1,7 @@
 package com.chainsys.socialmedia.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.chainsys.socialmedia.compositekey.LikeCompositeKey;
 import com.chainsys.socialmedia.model.Like;
 import com.chainsys.socialmedia.services.LikeService;
 
@@ -43,9 +38,8 @@ public class LikeController {
 	}
 	
 	@GetMapping("/updatelike")
-	public String updateLikeDetails(@RequestParam("id1") int id1, @RequestParam("id2") int id2, Model model) {
-		LikeCompositeKey likecompositekey = new LikeCompositeKey(id1, id2);
-		Optional<Like> theLike = likeservice.findById(likecompositekey);
+	public String updateLikeDetails(@RequestParam("id") int id, Model model) {
+		Like theLike = likeservice.findById(id);
 		model.addAttribute("updatelike", theLike);
 		return "update-like-form";
 	}
@@ -61,17 +55,15 @@ public class LikeController {
 	}
 	
 	@GetMapping("/findlikebyid")
-	public String findLikeById(@RequestParam("id1") int id1, @RequestParam("id2") int id2, Model model) {
-		LikeCompositeKey likecompositekey = new LikeCompositeKey(id1, id2);
-		Optional<Like> theLike = likeservice.findById(likecompositekey);
+	public String findLikeById(@RequestParam("id") int id, Model model) {
+		Like theLike = likeservice.findById(id);
 		model.addAttribute("findlikebyid", theLike);
 		return "find-like-id-form";
 	}
 	
 	@GetMapping("/deletelike")
-	public String deleteLike(@RequestParam("id1") int id1, @RequestParam("id2") int id2) {
-		LikeCompositeKey likeCompositeKey = new LikeCompositeKey(id1, id2);
-		likeservice.deleteById(likeCompositeKey);
+	public String deleteLike(@RequestParam("id") int id) {
+		likeservice.deleteById(id);
 		return "redirect:/like/list";
 	}
 	

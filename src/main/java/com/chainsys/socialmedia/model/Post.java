@@ -30,8 +30,8 @@ public class Post {
 	@Column(name="userid")
 	private int userId;
 	
-	@Column(name="posttype")
-	private byte[] postType;
+	@Column(name="posts")
+	private byte[] posts;
 	
 	@Column(name="medialocation")
 	@Size(max = 40, min = 3, message = "*Location length should be 3 to 40")
@@ -39,14 +39,16 @@ public class Post {
 	@Pattern(regexp = "^[A-Za-z]\\w{3,40}$", message = "*Enter valid Location ")
 	private String mediaLocation;
 	
-	@Size(max = 20, min = 3, message = "*Visibility length should be 3 to 20")
-	@NotBlank(message = "*Visibility can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Visibility ")
+//	@Size(max = 20, min = 3, message = "*Visibility length should be 3 to 20")
+//	@NotBlank(message = "*Visibility can't be Empty")
+//	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Visibility ")
 	private String visibility;
 
-	private String dates;
+	@Column(name="dates")
+	private String date;
 	
-	private String times;
+	@Column(name="times")
+	private String time;
 	
 	@Column(name="likecount")
 	private int likeCount;
@@ -83,11 +85,11 @@ public class Post {
 		this.userId = userId;
 	}
 	
-	public byte[] getPostType() {
-		return postType;
+	public byte[] getPosts() {
+		return posts;
 	}
-	public void setPostType(byte[] postType) {
-		this.postType = postType;
+	public void setPosts(byte[] posts) {
+		this.posts = posts;
 	}
 	public String getMediaLocation() {
 		return mediaLocation;
@@ -102,21 +104,21 @@ public class Post {
 		this.visibility = visibility;
 	}
 	
-	public String getDates() {
-		return dates;
+	public String getDate() {
+		return date;
 	}
-	public void setDates() {
+	public void setDate() {
 		Calendar vCalendar = Calendar.getInstance();
 		String date =  vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR);
-		this.dates = date;
+		this.date = date;
 	}
-	public String getTimes() {
-		return times;
+	public String getTime() {
+		return time;
 	}
-	public void setTimes() {
+	public void setTime() {
 		Calendar vCalendar = Calendar.getInstance();
 		String time = vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
-		this.times = time;
+		this.time = time;
 	}
 	public int getLikeCount() {
 		return likeCount;

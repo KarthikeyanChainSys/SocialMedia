@@ -1,12 +1,8 @@
 package com.chainsys.socialmedia.services;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.chainsys.socialmedia.compositekey.LikeCompositeKey;
 import com.chainsys.socialmedia.model.Like;
 import com.chainsys.socialmedia.repository.LikesRepository;
 
@@ -19,11 +15,11 @@ public class LikeService {
 		return likeRepository.save(ur);
 	}
 	
-	public Optional<Like> findById(LikeCompositeKey id) {
+	public Like findById(int id) {
 		return likeRepository.findById(id);
 	}
 	
-	public void deleteById(LikeCompositeKey id) {
+	public void deleteById(int id) {
 		likeRepository.deleteById(id);
 	}
 	

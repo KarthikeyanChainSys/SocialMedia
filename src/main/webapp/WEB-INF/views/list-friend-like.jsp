@@ -38,6 +38,7 @@
 			<caption>List Friend like</caption>
 			<thead>
 				<tr>
+					<th>LikeId</th>
 					<th>PostId</th>
 					<th>FriendId</th>
 					<th>DateTime</th>
@@ -46,6 +47,7 @@
 			<tbody>
 				<c:forEach var="like" items="${likelist}">
 					<tr>
+						<td>${like.likeId}</td>
 						<td>${like.postId}</td>
 						<td>${like.friendId}</td>
 						<td>${like.dateTime}</td>

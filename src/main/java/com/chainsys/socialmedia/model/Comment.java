@@ -37,8 +37,10 @@ public class Comment {
 	private String commentText;
 	
 	private byte[] comments;
-	private String dates;
-	private String times;
+	@Column(name="dates")
+	private String date;
+	@Column(name="times")
+	private String time;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "commentid", nullable = false, insertable = false, updatable = false)
@@ -80,20 +82,20 @@ public class Comment {
 	public void setComments(byte[] comments) {
 		this.comments = comments;
 	}
-	public String getDates() {
-		return dates;
+	public String getDate() {
+		return date;
 	}
-	public void setDates() {
+	public void setDate() {
 		Calendar vCalendar = Calendar.getInstance();
 		String dates = vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR);
-		this.dates = dates;
+		this.date = dates;
 	}
-	public String getTimes() {
-		return times;
+	public String getTime() {
+		return time;
 	}
-	public void setTimes() {
+	public void setTime() {
 		Calendar vCalendar = Calendar.getInstance();
 		String times = vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
-		this.times = times;
+		this.time = times;
 	}
 }

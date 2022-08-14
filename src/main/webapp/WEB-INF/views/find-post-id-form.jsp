@@ -26,9 +26,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="postType">PostType:</label>
+					<label for="post">Post:</label>
 					<div>
-						<form:input path="postType" type='file' placeholder='file' accept='text/*,audio/*,video/*,image/*' readonly="true" />
+						<form:input path="post" type='file' placeholder='file' accept='text/*,audio/*,video/*,image/*' readonly="true" />
 					</div>
 				</div>
 				<div>
@@ -44,15 +44,15 @@
 					</div>
 				</div>
 				<div>
-					<label for="dates">Date:</label>
+					<label for="date">Date:</label>
 					<div>
-						<form:input path="dates" readonly="true"/>
+						<form:input path="date" readonly="true"/>
 					</div>
 				</div>
 				<div>
-					<label for="times">Time:</label>
+					<label for="time">Time:</label>
 					<div>
-						<form:input path="times" readonly="true"/>
+						<form:input path="time" readonly="true"/>
 					</div>
 				</div>
 				<div>

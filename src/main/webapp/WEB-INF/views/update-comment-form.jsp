@@ -38,7 +38,7 @@
 					</div>
 				</div>
 				<div>
-					<label for="comments">Comment:</label>
+					<label for="comments">Comments:</label>
 					<div>
 						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
@@ -78,8 +78,8 @@
 					<td>${comment.friendId}</td>
 					<td>${comment.commentText}</td>
 					<td>${comment.comments}</td>
-					<td>${comment.dates}</td>
-					<td>${comment.times}</td>
+					<td>${comment.date}</td>
+					<td>${comment.time}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

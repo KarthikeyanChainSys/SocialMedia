@@ -12,7 +12,7 @@
 <body>
 	<br>
 	<h1>Welcome to FriendsHub</h1>
-	<h2>Connect with good friends world around </h2>
+	<h1>Connect with good friends world around </h1>
 	<div id="form">
 		<form:form action="userPage" modelAttribute="login" method="post">
 			<br>
@@ -20,18 +20,13 @@
 			<label class="form">Email</label><br>
 			<form:input class="form" path="email" placeholder="Email" />
 			<br><label class="form">Password</label><br>
-			<form:input class="form" path="password" type="password" placeholder="Password" onclick="pass();" />
+			<form:input class="form" path="password" type="password" placeholder="Password" />
 			<br>
 			<form:button class="form" id="button" target="_self" value="submit">Login</form:button>
 			<br>
-			<form:button class="form" id="button" value="submit">
+			<form:button class="signup" id="button" value="submit">
 				<a href="/user/adduser" target="_self">SignUp</a>
 			</form:button>
-			<script type="text/javascript">
-			function pass(){	
-				alert("Enter valid Email or Password");
-			}
-			</script>
 		</form:form>
 	</div>
 </body>

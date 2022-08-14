@@ -35,6 +35,7 @@
 					<td>${users.country}</td>
 					<td>${users.joiningDate}</td>
 					<td>${users.gender}</td>
+					<td><a href="/friend/addfriend?friendId=${users.userId}&userId=${userId}"><button>request</button></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

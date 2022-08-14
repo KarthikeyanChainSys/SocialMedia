@@ -13,6 +13,6 @@ public interface PostRepository extends CrudRepository<Post,Integer> {
 	Post save(Post theUser);
 	void deleteById(int id);
 	List<Post> findAll();
-	
+	List<Post> findByPostIdIn(List<Integer> postId);
 	List<Post> findByUserId(int id);
 }

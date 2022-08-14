@@ -19,7 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.chainsys.socialmedia.commonutil.LogManager;
 import com.chainsys.socialmedia.dto.PostCommentDTO;
 import com.chainsys.socialmedia.dto.PostLikeDTO;
+import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.model.Post;
+import com.chainsys.socialmedia.services.FriendService;
 import com.chainsys.socialmedia.services.PostService;
 
 @Controller
@@ -27,6 +29,8 @@ import com.chainsys.socialmedia.services.PostService;
 public class PostController {
 	@Autowired
 	PostService postservice;
+	@Autowired
+	private FriendService friendService;
 	
 	@GetMapping("/addpost")
 	public String addNewPost(@RequestParam("userId") int id, Model model) {
@@ -44,13 +48,13 @@ public class PostController {
 			e.printStackTrace();
 		}
 		try {
-			thePost.setPostType(photo.getBytes());
+			thePost.setPosts(photo.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
 			LogManager.logException(e, "PostController.addPost");
 		}
-		thePost.setDates();
-		thePost.setTimes();
+		thePost.setDate();
+		thePost.setTime();
 		postservice.save(thePost);
 		return "redirect:/posts/list";
 	}
@@ -64,8 +68,8 @@ public class PostController {
 	
 	@PostMapping("update")
 	public String updatePost(@Valid @ModelAttribute("updatepost") Post thePost, Errors errors) {
-		thePost.setDates();
-		thePost.setTimes();
+		thePost.setDate();
+		thePost.setTime();
 		if(errors.hasErrors()) {
 			return "update-post-form";
 		}
@@ -94,9 +98,13 @@ public class PostController {
 	}
 	
 	@GetMapping("/list")
-	public String getAllPosts(Model model) {
-		List<Post> thePosts = postservice.getPosts();
-		model.addAttribute("allpost", thePosts);
+	public String getAllPosts(@RequestParam("userId")int userId,Model model) {
+//		List<Post> thePosts = postservice.getPosts();
+		List<Friend>friendList=friendService.findByUserId(userId);
+		System.out.println("somthing");
+		friendList.forEach(friend->System.out.println(friend.getFriendId()));
+		List<Post> friendPosts=postservice.getPostByFriendId(friendList);
+		model.addAttribute("allpost", friendPosts);
 		return "list-posts";
 	}
 	
@@ -108,13 +116,13 @@ public class PostController {
 		return "list-post-comment";
 	}
 	
-	@GetMapping("/getpostlike")
-	public String getPostAndLike(@RequestParam("id") int id, Model model) {
-		PostLikeDTO dto = postservice.getPostAndLike(id);
-		model.addAttribute("getpost", dto.getPost());
-		model.addAttribute("likelist", dto.getLikeList());
-		return "list-post-like";
-	}
+//	@GetMapping("/getpostlike")
+//	public String getPostAndLike(@RequestParam("id") int id, Model model) {
+//		PostLikeDTO dto = postservice.getPostAndLike(id);
+//		model.addAttribute("getpost", dto.getPost());
+//		model.addAttribute("likelist", dto.getLikeList());
+//		return "list-post-like";
+//	}
 	
 	@ResponseBody
 	@GetMapping("/getimage")

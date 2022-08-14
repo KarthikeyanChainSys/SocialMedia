@@ -54,7 +54,7 @@ $("#imageUpload").change(function() {
 });
 
 
-$('#foo').click(function() {
+/*$('#foo').click(function() {
 	    var button = $(this),
 	        commentField = $('<textarea/>');
 	        .val(button.data('textContent') || 'This is my comment field\'s text')
@@ -66,4 +66,4 @@ $('#foo').click(function() {
 	            }
 	        })
 	        .appendTo(document.body);
-	});
+	});*/

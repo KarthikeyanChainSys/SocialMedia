@@ -34,7 +34,7 @@
 				<div>
 					<label for="comments">Comment:</label>
 					<div>
-						<input name="photo" type='file' placeholder='file' required="true" accept='audio/*,video/*,image/*' />
+						<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>
@@ -72,8 +72,8 @@
 					<td>${comment.friendId}</td>
 					<td>${comment.commentText}</td>
 					<td>${comment.comments}</td>
-					<td>${comment.dates}</td>
-					<td>${comment.times}</td>
+					<td>${comment.date}</td>
+					<td>${comment.time}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -14,6 +14,12 @@
 		<div id="form">
 			<form:form action="" method="get" modelAttribute="findlikebyid">
 				<div>
+					<label for="likeId">LikeId:</label>
+					<div>
+						<form:input path="likeId" readonly="true" />
+					</div>
+				</div>
+				<div>
 					<label for="postId">PostId:</label>
 					<div>
 						<form:input path="postId" readonly="true" />

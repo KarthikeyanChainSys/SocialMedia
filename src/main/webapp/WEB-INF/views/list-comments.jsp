@@ -31,8 +31,8 @@
 					<td>${comment.friendId}</td>
 					<td>${comment.commentText}</td>
 					<td>${comment.comments}</td>
-					<td>${comment.dates}</td>
-					<td>${comment.times}</td>
+					<td>${comment.date}</td>
+					<td>${comment.time}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

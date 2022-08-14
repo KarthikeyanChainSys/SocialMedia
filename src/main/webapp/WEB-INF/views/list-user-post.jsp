@@ -70,7 +70,7 @@
 				<tr>
 					<th>PostId</th>
 					<th>UserId</th>
-					<th>PostType</th>
+					<th>Post</th>
 					<th>MediaLocation</th>
 					<th>Visibility</th>
 					<th>Date</th>
@@ -83,11 +83,11 @@
 					<tr>
 						<td>${posts.postId}</td>
 						<td>${posts.userId}</td>
-						<td>${posts.postType}</td>
+						<td>${posts.post}</td>
 						<td>${posts.mediaLocation}</td>
 						<td>${posts.visibility}</td>
-						<td>${posts.dates}</td>
-						<td>${posts.times}</td>
+						<td>${posts.date}</td>
+						<td>${posts.time}</td>
 						<td>${posts.likeCount}</td>
 					</tr>
 				</c:forEach>

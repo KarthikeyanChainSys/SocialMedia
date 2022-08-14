@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div>
-					<label for="comments">PostType:</label>
+					<label for="comments">Comments:</label>
 					<div>
 						<form:input path="comments" type='file' placeholder='file' accept='audio/*,video/*,image/*' readonly="true" />
 					</div>
@@ -44,15 +44,15 @@
 					</div>
 				</div>
 				<div>
-					<label for="dates">Dates:</label>
+					<label for="date">Date:</label>
 					<div>
-						<form:input path="dates" readonly="true" />
+						<form:input path="date" readonly="true" />
 					</div>
 				</div>
 				<div>
-					<label for="times">Times:</label>
+					<label for="time">Time:</label>
 					<div>
-						<form:input path="times" readonly="true" />
+						<form:input path="time" readonly="true" />
 					</div>
 				</div>
 			</form:form>

@@ -32,9 +32,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="postType">PostType:</label>
+					<label for="post">Post:</label>
 					<div>
-						<form:input path="postType" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
+						<form:input path="post" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>

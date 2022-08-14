@@ -7,27 +7,27 @@ import javax.persistence.Embeddable;
 
 @SuppressWarnings("serial")
 @Embeddable
-public class LikeCompositeKey implements Serializable {
-	@Column(name="postid")
-	private int postId;
+public class FriendCompositeKey implements Serializable {
+	@Column(name="userid")
+	private int userId;
 	@Column(name="friendid")
 	private int friendId;
 	
-	LikeCompositeKey(){
+	FriendCompositeKey(){
 		
 	}
 	
-	public LikeCompositeKey(int postId, int friendId){
-		this.postId = postId;
+	public FriendCompositeKey(int userId, int friendId){
+		this.userId = userId;
 		this.friendId = friendId;
 	}
 
-	public int getPostId() {
-		return postId;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setPostId(int postId) {
-		this.postId = postId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public int getFriendId() {

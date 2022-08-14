@@ -5,23 +5,27 @@ import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.chainsys.socialmedia.compositekey.LikeCompositeKey;
 
 @Entity
 @Table(name="likes")
-@IdClass(LikeCompositeKey.class)
 public class Like {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "likeid")
+	@SequenceGenerator(name = "likeid", sequenceName = "likeid", allocationSize = 1)
+	@Column(name="likeid")
+	private int likeId;
+
 	@Column(name="postid")
 	private int postId;
 	
-	@Id
+
 	@Column(name="friendid")
 	private int friendId;
 	
@@ -48,6 +52,13 @@ public class Like {
 		this.friend = friend;
 	}
 	
+	public int getLikeId() {
+		return likeId;
+	}
+	public void setLikeId(int likeId) {
+		this.likeId = likeId;
+	}
+	
 	public int getPostId() {
 		return postId;
 	}
@@ -65,7 +76,7 @@ public class Like {
 	}
 	public void setDateTime() {
 		Calendar vCalendar = Calendar.getInstance();
-		String dateTime = vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR) + "_" + vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
-		this.dateTime = dateTime;
+		String datetime = vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR) + "_" + vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
+		this.dateTime = datetime;
 	}
 }

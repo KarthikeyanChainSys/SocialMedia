@@ -40,8 +40,8 @@ public class CommentController {
 	
 	@PostMapping("/add")
 	public String addComment(@ModelAttribute("addcomment") Comment theComment, @RequestParam("photo") MultipartFile photo) {
-		theComment.setDates();
-		theComment.setTimes();
+		theComment.setDate();
+		theComment.setTime();
 		try {
 			System.out.println(photo.getBytes().length);
 		}catch(IOException e) {
@@ -66,8 +66,8 @@ public class CommentController {
 	
 	@PostMapping("update")
 	public String updateComment(@Valid @ModelAttribute("updatecomment") Comment theComment, Errors errors) {
-		theComment.setDates();
-		theComment.setTimes();
+		theComment.setDate();
+		theComment.setTime();
 		if(errors.hasErrors()) {
 			return "update-comment-form";
 		}

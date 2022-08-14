@@ -26,9 +26,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="postType">PostType:</label>
+					<label for="post">Post:</label>
 					<div>
-						<input name="photo" type='file' placeholder='file' required="true" accept='audio/*,video/*,image/*' />
+						<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 				</div>
 				<div>
@@ -37,14 +37,12 @@
 						<form:input path="mediaLocation" placeholder="Media Location" />
 					</div>
 				</div>
-				<form:errors path="mediaLocation" cssClass="text-danger" />
 				<div>
 					<label for="visibility">Visibility:</label>
 					<div>
 						<form:input path="visibility" placeholder="Visibility" />
 					</div>
 				</div>
-				<form:errors path="visibility" cssClass="text-danger" />
 				<br>
 				<div>
 					<form:button>Add</form:button>

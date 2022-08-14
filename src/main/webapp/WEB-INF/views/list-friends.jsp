@@ -21,7 +21,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="friends" items="${allfriend}">
+			<c:forEach var="friends" items="${requestList}">
 				<tr>
 					<td>${friends.friendId}</td>
 					<td>${friends.userId}</td>

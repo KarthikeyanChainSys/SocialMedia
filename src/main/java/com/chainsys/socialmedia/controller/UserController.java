@@ -71,8 +71,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/list")
-	public String getAllUser(Model model) {
+	public String getAllUser(@RequestParam("id")int id,Model model) {
 		List<User> theUsers = userService.getUsers();
+		model.addAttribute("userId", id);
 		model.addAttribute("alluser", theUsers);
 		return "list-users";
 	}
