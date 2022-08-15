@@ -1,23 +1,24 @@
 package com.chainsys.socialmedia.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+import com.chainsys.socialmedia.compositekey.FriendCompositeKey;
+
 @Entity
 @Table(name="friends")
+@IdClass(FriendCompositeKey.class)
 public class Friend {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "friendid")
@@ -25,6 +26,7 @@ public class Friend {
 	@Column(name="friendid")
 	private int friendId;
 	
+	@Id
 	@Column(name="userid")
 	private int userId;
 	
@@ -41,24 +43,6 @@ public class Friend {
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
-	
-	@OneToMany(mappedBy = "friend", fetch = FetchType.LAZY)
-	private List<Comment> comment;
-	public List<Comment> getComment() {
-		return comment;
-	}
-	public void setComment(List<Comment> comment) {
-		this.comment = comment;
-	}
-	
-	@OneToMany(mappedBy = "friend", fetch = FetchType.LAZY)
-	private List<Like> like;
-	public List<Like> getLike() {
-		return like;
-	}
-	public void setLike(List<Like> like) {
-		this.like = like;
 	}
 	
 	public int getFriendId() {

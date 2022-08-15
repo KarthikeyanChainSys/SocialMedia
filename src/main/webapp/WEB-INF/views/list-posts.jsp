@@ -10,27 +10,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 <meta charset="ISO-8859-1">
 <title>Post List</title>
-<style>
-table, th, td {
-	border: 1px solid black;
-}
-
-textarea {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.like_btn {
-	padding: 10px 15px;
-	background: #0080ff;
-	font-size: 18px;
-	font-family: "Open Sans", sans-serif;
-	border: none;
-	outline: none;
-	color: #e8efff;
-	border-radius: 5px;
-	cursor: pointer;
-}
+<style><%@include file="/WEB-INF/css/form.css"%>
 </style>
 </head>
 <body>
@@ -59,6 +39,7 @@ textarea {
 		${post.posts}
 		${post.mediaLocation}
 		<a href="deletepost?id=${post.postId}">Delete</a>
+		<i class="fa-regular fa-comment"></i>
 	</div>
 	</c:forEach>	
 </body>

@@ -20,9 +20,15 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addfriend">
 				<div>
-					<label for="userId">UserId:</label>
+					
 					<div>
-						<form:input path="userId" placeholder="User Id" />
+						<form:input path="userId" placeholder="Friend Id" type="hidden"/>
+					</div>
+				</div>
+				<div>
+					<label for="friendId">FriendId:</label>
+					<div>
+						<form:input path="friendId" placeholder="Friend Id" />
 					</div>
 				</div>
 				<div>

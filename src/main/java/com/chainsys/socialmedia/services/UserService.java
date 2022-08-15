@@ -2,10 +2,9 @@ package com.chainsys.socialmedia.services;
 
 import java.util.Iterator;
 import java.util.List;
-
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.chainsys.socialmedia.dto.UserFriendDTO;
 import com.chainsys.socialmedia.dto.UserPostDTO;
 import com.chainsys.socialmedia.model.Friend;
@@ -61,6 +60,14 @@ public class UserService {
 			userPostDto.addPost((Post) postItr.next());
 		}
 		return userPostDto;
+	}
+	
+	public List<User> getUsersWithoutFriends(int userId) {
+		List<Friend> friendList = friendRepository.findByUserId(userId);
+		List<Integer> duplicateUserList = friendList.stream().map(Friend::getFriendId).collect(Collectors.toList());
+		List<Integer> userIdList = duplicateUserList.stream().distinct().collect(Collectors.toList());
+		List<User> users = userRepository.findByUserIdNotIn(userIdList);
+		return users;
 	}
 	
 	public User getEmailAndPassword(String email, String password) {

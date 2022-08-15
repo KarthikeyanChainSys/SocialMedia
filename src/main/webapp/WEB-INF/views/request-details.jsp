@@ -2,11 +2,10 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
-<title>Friend List</title>
+<title>Request Details</title>
 </head>
 <body>
 <div id="table root"></div>
@@ -17,16 +16,16 @@
 				<th>FriendId</th>
 				<th>UserId</th>
 				<th>RequestStatus</th>
-				<th>UnFriend</th>
+				<th>Reject</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="friends" items="${allfriend}">
+			<c:forEach var="friends" items="${requestList}">
 				<tr>
 					<td>${friends.friendId}</td>
 					<td>${friends.userId}</td>
 					<td>${friends.requestStatus}</td>
-					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">UnFriend</a></td>
+					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">UnRequest</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -14,19 +14,21 @@
 		<caption>List Friends</caption>
 		<thead>
 			<tr>
-				<th>FriendId</th>
 				<th>UserId</th>
+				<th>FriendId</th>
 				<th>RequestStatus</th>
-				<th>UnFriend</th>
+				<th>Accept</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="friends" items="${allfriend}">
+			<c:forEach var="friends" items="${requestList}">
 				<tr>
 					<td>${friends.friendId}</td>
 					<td>${friends.userId}</td>
 					<td>${friends.requestStatus}</td>
-					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">UnFriend</a></td>
+					<td><a href="/friend/updatefriend?id=${friends.friendId}&userId=${friends.userId}">Accept</a></td>
+					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

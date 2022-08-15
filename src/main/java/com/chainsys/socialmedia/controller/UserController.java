@@ -72,7 +72,7 @@ public class UserController {
 	
 	@GetMapping("/list")
 	public String getAllUser(@RequestParam("id")int id,Model model) {
-		List<User> theUsers = userService.getUsers();
+		List<User> theUsers = userService.getUsersWithoutFriends(id);
 		model.addAttribute("userId", id);
 		model.addAttribute("alluser", theUsers);
 		return "list-users";

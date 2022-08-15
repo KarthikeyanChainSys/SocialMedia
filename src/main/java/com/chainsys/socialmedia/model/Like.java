@@ -42,16 +42,6 @@ public class Like {
 		this.post = post;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "friendid", nullable = false, updatable = false, insertable = false)
-	private Friend friend;
-	public Friend getFriend() {
-		return friend;
-	}
-	public void setFriend(Friend friend) {
-		this.friend = friend;
-	}
-	
 	public int getLikeId() {
 		return likeId;
 	}

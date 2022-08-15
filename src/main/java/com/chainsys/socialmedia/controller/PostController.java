@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.chainsys.socialmedia.commonutil.LogManager;
 import com.chainsys.socialmedia.dto.PostCommentDTO;
-import com.chainsys.socialmedia.dto.PostLikeDTO;
 import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.model.Post;
 import com.chainsys.socialmedia.services.FriendService;
@@ -55,8 +54,9 @@ public class PostController {
 		}
 		thePost.setDate();
 		thePost.setTime();
+		int id = thePost.getUserId();
 		postservice.save(thePost);
-		return "redirect:/posts/list";
+		return "redirect:/posts/list?userId"+id;
 	}
 	
 	@GetMapping("/updatepost")
@@ -99,12 +99,9 @@ public class PostController {
 	
 	@GetMapping("/list")
 	public String getAllPosts(@RequestParam("userId")int userId,Model model) {
-//		List<Post> thePosts = postservice.getPosts();
 		List<Friend>friendList=friendService.findByUserId(userId);
-		System.out.println("somthing");
-		friendList.forEach(friend->System.out.println(friend.getFriendId()));
-		List<Post> friendPosts=postservice.getPostByFriendId(friendList);
-		model.addAttribute("allpost", friendPosts);
+		List<Post> postList = postservice.getPost(friendList);
+		model.addAttribute("allpost", postList);
 		return "list-posts";
 	}
 	
@@ -115,7 +112,7 @@ public class PostController {
 		model.addAttribute("commentlist", dto.getCommentList());
 		return "list-post-comment";
 	}
-	
+//	
 //	@GetMapping("/getpostlike")
 //	public String getPostAndLike(@RequestParam("id") int id, Model model) {
 //		PostLikeDTO dto = postservice.getPostAndLike(id);

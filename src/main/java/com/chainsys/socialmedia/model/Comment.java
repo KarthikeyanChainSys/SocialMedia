@@ -4,12 +4,9 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -42,15 +39,6 @@ public class Comment {
 	@Column(name="times")
 	private String time;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "commentid", nullable = false, insertable = false, updatable = false)
-	private Friend friend;
-	public Friend getFriend() {
-		return friend;
-	}
-	public void setFriend(Friend friend) {
-		this.friend = friend;
-	}
 	
 	public int getCommentId() {
 		return commentId;

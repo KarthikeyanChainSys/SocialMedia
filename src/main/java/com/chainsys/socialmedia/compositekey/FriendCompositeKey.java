@@ -1,12 +1,8 @@
 package com.chainsys.socialmedia.compositekey;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
 @SuppressWarnings("serial")
-@Embeddable
 public class FriendCompositeKey implements Serializable {
 	@Column(name="userid")
 	private int userId;
@@ -17,7 +13,7 @@ public class FriendCompositeKey implements Serializable {
 		
 	}
 	
-	public FriendCompositeKey(int userId, int friendId){
+	public FriendCompositeKey(int friendId, int userId){
 		this.userId = userId;
 		this.friendId = friendId;
 	}
