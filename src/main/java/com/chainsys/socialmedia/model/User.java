@@ -34,7 +34,7 @@ public class User {
 	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
 	@NotBlank(message = "*Password can't be Empty")
 	@Pattern(regexp = "^(?=.[A-Za-z])(?=.\\\\d)(?=.[@$!%#?&])[A-Za-z\\\\d@$!%*#?&]{8,}$", message = "*Enter valid password ")
-	private String pasword;
+	private String password;
 	
 	@Column(name="username")
 	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
@@ -89,12 +89,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPasword() {
-		return pasword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasword(String pasword) {
-		this.pasword = pasword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getUserName() {

@@ -29,7 +29,7 @@
 				<tr>
 					<td>${users.userId}</td>
 					<td>${users.email}</td>
-					<td>${users.pasword}</td>
+					<td>${users.password}</td>
 					<td>${users.userName}</td>
 					<td>${users.dob}</td>
 					<td>${users.country}</td>

@@ -14,5 +14,5 @@ public interface UserRepository extends CrudRepository<User,Integer> {
 	void deleteById(int id);
 	List<User> findAll();
 	List<User> findByUserIdNotIn(List<Integer> userId);
-	User findByEmailAndPasword(String email, String password);
+	User findByEmailAndPassword(String email, String password);
 }

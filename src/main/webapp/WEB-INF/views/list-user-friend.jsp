@@ -26,9 +26,9 @@
 					</div>
 				</div>
 				<div>
-					<label for="pasword">Password:</label>
+					<label for="password">Password:</label>
 					<div>
-						<form:input path="pasword" />
+						<form:input path="password" />
 					</div>
 				</div>
 				<div>

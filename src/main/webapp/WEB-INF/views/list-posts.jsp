@@ -39,7 +39,7 @@
 		${post.posts}
 		${post.mediaLocation}
 		<a href="deletepost?id=${post.postId}">Delete</a>
-		<i class="fa-regular fa-comment"></i>
+		<a href="/comment/addcomment" target="_blank" ><i class="fa-regular fa-comment"></i>comment</a>
 	</div>
 	</c:forEach>	
 </body>

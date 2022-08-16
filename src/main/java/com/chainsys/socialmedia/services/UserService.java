@@ -71,6 +71,6 @@ public class UserService {
 	}
 	
 	public User getEmailAndPassword(String email, String password) {
-		return userRepository.findByEmailAndPasword(email, password);
+		return userRepository.findByEmailAndPassword(email, password);
 	}
 }

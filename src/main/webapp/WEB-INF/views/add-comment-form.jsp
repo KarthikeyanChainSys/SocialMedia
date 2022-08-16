@@ -18,17 +18,17 @@
 <body>
 <div id="root">
 		<div id="form">
-			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment">
+			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment" name="form">
 				<div>
 					<label for="postId">PostId:</label>
 					<div>
-						<form:input path="postId" placeholder="Post Id" />
+						<form:input path="postId" name="postId" placeholder="Post Id" />
 					</div>
 				</div>
 				<div>
 					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendId" placeholder="Friend Id" />
+						<form:input path="friendId" name="friendId" placeholder="Friend Id" />
 					</div>
 				</div>
 				<div>
@@ -40,7 +40,7 @@
 				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
-						<form:input path="commentText" placeholder="Comment Text" />
+						<form:input path="commentText" name="commentText" placeholder="Comment Text" />
 					</div>
 				</div>
 				<form:errors path="commentText" cssClass="text-danger" />
