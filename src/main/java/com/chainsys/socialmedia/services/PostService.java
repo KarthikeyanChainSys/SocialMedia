@@ -54,7 +54,7 @@ public class PostService {
 		return postRepository.findByUserId(id);
 	}
 	
-	public byte[] getDocumentImageByteArray(int id) {
+	public byte[] getPostImageByteArray(int id) {
 		Post post = postRepository.findById(id);
 		byte[] imageBytes = null;
 			

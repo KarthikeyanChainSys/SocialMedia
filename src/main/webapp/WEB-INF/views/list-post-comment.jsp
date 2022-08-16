@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>List Post and Comment</title>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <body>
 <div id="root">
@@ -52,7 +53,7 @@
 			</form:form>
 		</div>
 		<div id="table root"></div>
-	<table border="2" width="100%" cellpadding="2">
+	<table class=".table_size">
 		<caption>List Post Comment</caption>
 		<thead>
 			<tr>

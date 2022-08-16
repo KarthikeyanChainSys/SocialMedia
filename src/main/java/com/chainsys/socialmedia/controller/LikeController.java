@@ -34,7 +34,7 @@ public class LikeController {
 			return "add-like-form";
 		}
 		likeservice.save(theLike);
-		return "redirect:/like/list";
+		return "redirect:/like/list?friendId";
 	}
 	
 	@GetMapping("/updatelike")

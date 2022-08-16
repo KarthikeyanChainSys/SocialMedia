@@ -20,10 +20,7 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addlike">
 				<div>
-					<label for="postId">PostId:</label>
-					<div>
-						<form:input path="postId" placeholder="Post Id" />
-					</div>
+						<form:hidden path="postId" />
 				</div>
 				<div>
 					<label for="friendId">FriendId:</label>

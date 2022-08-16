@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.chainsys.socialmedia.commonutil.LogManager;
 import com.chainsys.socialmedia.dto.PostCommentDTO;
 import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.model.Post;
@@ -43,20 +42,19 @@ public class PostController {
 	public String addPost(@ModelAttribute("addpost") Post thePost, @RequestParam("photo") MultipartFile photo) {
 		try {
 			System.out.println(photo.getBytes().length);
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
 			thePost.setPosts(photo.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
-			LogManager.logException(e, "PostController.addPost");
 		}
 		thePost.setDate();
 		thePost.setTime();
 		int id = thePost.getUserId();
 		postservice.save(thePost);
-		return "redirect:/posts/list?userId"+id;
+		return "redirect:/posts/list?userId="+id;
 	}
 	
 	@GetMapping("/updatepost")
@@ -98,7 +96,7 @@ public class PostController {
 	}
 	
 	@GetMapping("/list")
-	public String getAllPosts(@RequestParam("userId")int userId,Model model) {
+	public String getAllPosts(@RequestParam("userId")int userId , Model model) {
 		List<Friend>friendList=friendService.findByUserId(userId);
 		List<Post> postList = postservice.getPost(friendList);
 		model.addAttribute("allpost", postList);
@@ -112,7 +110,7 @@ public class PostController {
 		model.addAttribute("commentlist", dto.getCommentList());
 		return "list-post-comment";
 	}
-//	
+	
 //	@GetMapping("/getpostlike")
 //	public String getPostAndLike(@RequestParam("id") int id, Model model) {
 //		PostLikeDTO dto = postservice.getPostAndLike(id);
@@ -124,7 +122,7 @@ public class PostController {
 	@ResponseBody
 	@GetMapping("/getimage")
 	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id) {
-		byte[] imageBytes = postservice.getDocumentImageByteArray(id);
+		byte[] imageBytes = postservice.getPostImageByteArray(id);
 		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
 	}
 }

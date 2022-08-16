@@ -13,7 +13,7 @@ public class Login {
 	
 	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
 	@NotBlank(message = "*Password can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid password ")
+	@Pattern(regexp = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$", message = "*Enter valid password ")
 	private String password;
 	
 	public String getEmail() {

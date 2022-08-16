@@ -8,12 +8,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Add Comment</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <body>
 <div id="root">
@@ -32,7 +27,7 @@
 					</div>
 				</div>
 				<div>
-					<label for="comments">Comment:</label>
+					<label for="comments">Comments:</label>
 					<div>
 						<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
@@ -40,7 +35,7 @@
 				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
-						<form:input path="commentText" name="commentText" placeholder="Comment Text" />
+						<form:textarea path="commentText" name="commentText" placeholder="Comment Text" />
 					</div>
 				</div>
 				<form:errors path="commentText" cssClass="text-danger" />
@@ -51,7 +46,7 @@
 		</div>
 	</div>
 	<div id="table root"></div>
-	<table border="2" width="100%" cellpadding="2">
+	<table class=".table_size">
 		<caption>Comment table</caption>
 		<thead>
 			<tr>

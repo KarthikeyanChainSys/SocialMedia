@@ -8,12 +8,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Update Comment</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <body>
 <div id="root">
@@ -46,7 +41,7 @@
 				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
-						<form:input path="commentText" placeholder="Comment Text" />
+						<form:textarea path="commentText" placeholder="Comment Text" />
 					</div>
 				</div>
 				<form:errors path="commentText" cssClass="text-danger" />
@@ -57,7 +52,7 @@
 		</div>
 	</div>
 	<div id="table root"></div>
-	<table border="2" width="100%" cellpadding="2">
+	<table class=".table_size">
 		<caption>Update Comment table</caption>
 		<thead>
 			<tr>

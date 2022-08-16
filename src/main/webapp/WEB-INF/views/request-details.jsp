@@ -2,14 +2,15 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Request Details</title>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <body>
 <div id="table root"></div>
-	<table border="2" width="100%" cellpadding="2">
+	<table class=".table_size">
 		<caption>List Friends</caption>
 		<thead>
 			<tr>

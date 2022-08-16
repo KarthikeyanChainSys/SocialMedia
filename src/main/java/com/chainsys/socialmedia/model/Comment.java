@@ -33,9 +33,12 @@ public class Comment {
 	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Comment ")
 	private String commentText;
 	
+	@Column(name="comments")
 	private byte[] comments;
+	
 	@Column(name="dates")
 	private String date;
+	
 	@Column(name="times")
 	private String time;
 	

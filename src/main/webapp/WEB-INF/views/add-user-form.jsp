@@ -31,10 +31,10 @@
 				<div>
 					<label class="form" for="password">Password:</label>
 					<div>
-						<form:input class="form" path="password" type="password" placeholder="Password" required="true"
+						<form:input class="form" path="password" type="password" required="true"
 							title='Password must begin with letter and contain atleast one number and must have atleast 8 characters' 
-							placeholder="Enter the password" type="password" name="password" onblur="passwordCheck();"
-							pattern="^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$" />
+							placeholder="Enter the password" name="password" onblur="passwordCheck();"
+							pattern="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$" />
 					</div>
 				</div>				
 				<div>
@@ -116,7 +116,7 @@
 	}
 	 
 	 var passwordCheck = function() {
-		 var nameRegex = new RegExp("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$");
+		 var nameRegex = new RegExp("^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$");
 		 if(!document.form.password.value.match(nameRegex)){
 				if(alert("Password must begin with letter and contain atleast one number and must have atleast 8 characters")){ 
 					 document.form.password.focus();

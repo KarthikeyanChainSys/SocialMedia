@@ -20,7 +20,6 @@
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addfriend">
 				<div>
-					
 					<div>
 						<form:input path="userId" placeholder="Friend Id" type="hidden"/>
 					</div>
