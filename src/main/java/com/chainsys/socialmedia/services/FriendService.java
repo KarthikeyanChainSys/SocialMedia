@@ -36,8 +36,7 @@ public class FriendService {
 	}
 	
 	public List<Friend> getFriends(){
-		List<Friend> listFriend = friendRepository.findAll();
-		return listFriend;
+		return friendRepository.findAll();
 	}
 	
 	public List<Friend> findByUserId(int id){

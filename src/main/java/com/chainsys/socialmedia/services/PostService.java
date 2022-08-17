@@ -35,8 +35,7 @@ public class PostService {
 	}
 	
 	public List<Post> getPosts(){
-		List<Post> listPost = postRepository.findAll();
-		return listPost;
+		return postRepository.findAll();
 	}
 	
 	public PostCommentDTO getPostAndComment(int id) {
@@ -75,11 +74,8 @@ public class PostService {
 		for(int i=0;i<acceptFriendList.size();i++) {
 			Friend friend=acceptFriendList.get(i);
 			postId.add(friend.getFriendId());
-			System.out.println(friend.getFriendId());
 		}
-		List<Post> postList = postRepository.findByPostIdIn(postId);
-		postList.forEach(post-> System.out.println(post.getPostId()));
-		return postList;
+		return postRepository.findByPostIdIn(postId);
 	}
 	
 	public List<Post> getPost(List<Friend> friendList){

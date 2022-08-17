@@ -24,8 +24,7 @@ public class LikeService {
 	}
 	
 	public List<Like> getLikes(){
-		List<Like> listLike = likeRepository.findAll();
-		return listLike;
+		return likeRepository.findAll();
 	}
 }
 	

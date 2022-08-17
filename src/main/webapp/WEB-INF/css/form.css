@@ -95,3 +95,7 @@ textarea {
     color: #e80c4d;
     font-size: 0.9em;
 }
+.textarea{
+	width: 20%;
+	height: 50%;
+}

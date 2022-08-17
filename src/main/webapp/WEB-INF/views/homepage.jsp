@@ -32,19 +32,19 @@
 			<div class="menu">
 				<ul>
 					<li><a href="/user/finduserbyid?id=${user.userId}"
-						target="_self"> <i class="fa-regular fa-circle-user"></i>
+						target="_self"> <em class="fa-regular fa-circle-user"></em>
 							<button id="button" class="button">About</button>
 					</a><br> <br></li>
 					<li><a href="/posts/getPostByUserId?id=${user.userId}"
-						target="_self"> <i class="fa-light fa-image"></i>
+						target="_self"> <em class="fa-light fa-image"></em>
 							<button id="button" class="button">Pictures</button>
 					</a><br> <br></li>
 					<li><a href="/posts/addpost?userId=${user.userId}"
-						target="_self"> <i class="fa-regular fa-camera"></i>
+						target="_self"> <em class="fa-regular fa-camera"></em>
 							<button id="button" class="button">Post</button>
 					</a><br> <br></li>
 					<li><a href="/friend/getFriendByUserId?id=${user.userId}"
-						target="_self"> <i class="fa-regular fa-users"></i>
+						target="_self"> <em class="fa-regular fa-users"></em>
 							<button id="button" class="button">Friends</button>
 					</a><br> <br></li>
 					<li><a href="/user/list?id=${user.userId}" target="_self">

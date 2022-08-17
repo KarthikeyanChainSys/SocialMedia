@@ -36,8 +36,7 @@ public class UserService {
 	}
 	
 	public List<User> getUsers(){
-		List<User> listuser = userRepository.findAll();
-		return listuser;
+		return userRepository.findAll();
 	}
 	
 	public UserFriendDTO getUserAndFriend(int id) {
@@ -66,8 +65,7 @@ public class UserService {
 		List<Friend> friendList = friendRepository.findByUserId(userId);
 		List<Integer> duplicateUserList = friendList.stream().map(Friend::getFriendId).collect(Collectors.toList());
 		List<Integer> userIdList = duplicateUserList.stream().distinct().collect(Collectors.toList());
-		List<User> users = userRepository.findByUserIdNotIn(userIdList);
-		return users;
+		return userRepository.findByUserIdNotIn(userIdList);
 	}
 	
 	public User getEmailAndPassword(String email, String password) {

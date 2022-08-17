@@ -84,8 +84,10 @@ public class PostController {
 	
 	@GetMapping("/deletepost")
 	public String deletePost(@RequestParam("id") int id) {
+		Post post = postservice.findById(id);
 		postservice.deleteById(id);
-		return "redirect:/posts/list";
+		int userId = post.getUserId();
+		return "redirect:/posts/list?userId="+userId;
 	}
 	
 	@GetMapping("/getPostByUserId")

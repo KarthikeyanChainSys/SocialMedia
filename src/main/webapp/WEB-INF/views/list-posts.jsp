@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Post List</title>
 <style><%@include file="/WEB-INF/css/form.css"%>
@@ -36,10 +36,11 @@
 	</div>
 	<div>
 		${post.posts}
+		<img width="350" height="250" src="getimage?id=${post.postId}" alt="image"><br>
 		${post.mediaLocation}<br>
-		<a href="/posts/deletepost?id=${post.postId}" target="_self"><i class="fa fa-trash-o"></i>Delete</a>&nbsp;&nbsp;
-		<a href="/comment/addcomment" class="foo" target="_blank" ><i class="fa-regular fa-comment"></i>comment</a>&nbsp;&nbsp;
-		<a href="/like/addlike" target="_blank" onclick="clickCounter"><i class="fa-regular fa-thumbs-up"></i>like</a>
+		<a href="/posts/deletepost?id=${post.userId}" target="_self"><em class="fa fa-trash-o"></em>Delete</a>&nbsp;&nbsp;&nbsp;
+		<a href="/comment/addcomment?id=${post.postId}&fid=${post.userId}" data-toggle="collapse" class="foo" target="_self" ><em class="fa-regular fa-comment"></em>comment</a>&nbsp;&nbsp;&nbsp;
+		<a href="/like/addlike" target="_self" onclick="clickCounter();"><em class="fa-regular fa-thumbs-up"></em>like</a>
 	</div>
 	</div>
 	<hr>

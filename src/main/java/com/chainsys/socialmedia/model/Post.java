@@ -109,16 +109,16 @@ public class Post {
 	}
 	public void setDate() {
 		Calendar vCalendar = Calendar.getInstance();
-		String date =  vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR);
-		this.date = date;
+		String dateDetails =  vCalendar.get(Calendar.DATE) + "/" + (vCalendar.get(Calendar.MONTH)+1) + "/" + vCalendar.get(Calendar.YEAR);
+		this.date = dateDetails;
 	}
 	public String getTime() {
 		return time;
 	}
 	public void setTime() {
 		Calendar vCalendar = Calendar.getInstance();
-		String time = vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
-		this.time = time;
+		String timeDetails = vCalendar.get(Calendar.HOUR) + ":" + vCalendar.get(Calendar.MINUTE);
+		this.time = timeDetails;
 	}
 	public int getLikeCount() {
 		return likeCount;

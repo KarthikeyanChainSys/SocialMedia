@@ -31,7 +31,8 @@
 					<td>${comment.postId}</td>
 					<td>${comment.friendId}</td>
 					<td>${comment.commentText}</td>
-					<td>${comment.comments}</td>
+					<td>${comment.comments}
+					<img width="100" height="100" src="getimage?id=${comment.commentId}" alt="image"></td>
 					<td>${comment.date}</td>
 					<td>${comment.time}</td>
 				</tr>

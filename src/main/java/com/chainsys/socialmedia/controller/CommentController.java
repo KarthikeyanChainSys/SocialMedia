@@ -30,8 +30,10 @@ public class CommentController {
 	CommentService commentservice;
 	
 	@GetMapping("/addcomment")
-	public String addNewComment(Model model) {
+	public String addNewComment(@RequestParam("id") int postId, @RequestParam("fid") int friendId, Model model) {
 		Comment theComment = new Comment();
+		theComment.setPostId(postId);
+		theComment.setFriendId(friendId);
 		model.addAttribute("addcomment", theComment);
 		List<Comment> theComments = commentservice.getComments();
 		model.addAttribute("allcomment", theComments);
@@ -54,7 +56,7 @@ public class CommentController {
 			LogManager.logException(e, "CommentController.addComment");
 		}
 		commentservice.save(theComment);
-		return "redirect:/comment/addcomment";
+		return "redirect:/comment/addcomment?id=" + theComment.getPostId() + "&fid=" + theComment.getFriendId();
 	}
 	
 	@GetMapping("/updatecomment")
@@ -99,7 +101,7 @@ public class CommentController {
  	@GetMapping("/getimage")
  	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id)
  	{
- 		byte[] imageBytes = commentservice.getDocumentImageByteArray(id);
+ 		byte[] imageBytes = commentservice.getCommentImageByteArray(id);
  		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
  		
  	}

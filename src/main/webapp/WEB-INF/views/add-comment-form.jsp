@@ -15,29 +15,23 @@
 		<div id="form">
 			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment" name="form">
 				<div>
-					<label for="postId">PostId:</label>
-					<div>
-						<form:input path="postId" name="postId" placeholder="Post Id" />
-					</div>
+						<form:hidden path="postId" />
 				</div>
 				<div>
-					<label for="friendId">FriendId:</label>
-					<div>
-						<form:input path="friendId" name="friendId" placeholder="Friend Id" />
-					</div>
-				</div>
+						<form:hidden path="friendId" />
+					</div><br>
 				<div>
 					<label for="comments">Comments:</label>
 					<div>
 						<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
-				</div>
+				</div><br>
 				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
-						<form:textarea path="commentText" name="commentText" placeholder="Comment Text" />
+						<form:textarea path="commentText" name="commentText" class="textarea" placeholder="Comment Text" />
 					</div>
-				</div>
+				</div><br>
 				<form:errors path="commentText" cssClass="text-danger" />
 				<div>
 					<form:button>Add</form:button>
