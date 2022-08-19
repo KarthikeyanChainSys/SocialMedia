@@ -92,10 +92,6 @@ table, th, td {
 	border: 2;
 	width: 100%;
 }
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
 .iframe {
     position: relative;
     width: 500px;

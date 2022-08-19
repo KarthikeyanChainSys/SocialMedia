@@ -56,14 +56,15 @@ public class Post {
 	}
 	
 	@OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
-	private List<Like> Like;
-	
+	private List<Like> like;
+		
 	public List<Like> getLike() {
-		return Like;
+		return like;
 	}
 	public void setLike(List<Like> like) {
-		Like = like;
+		this.like = like;
 	}
+	
 	public int getPostId() {
 		return postId;
 	}
