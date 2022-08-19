@@ -34,24 +34,5 @@ public class FriendService {
 	
 	public List<Friend> findByFriendId(int id){
 		return friendRepository.findByFriendId(id);
-	}
-	
-//	public FriendCommentDTO getFriendAndComment(FriendCompositeKey id) {
-//		Optional<Friend> friend = findById(id);
-//		FriendCommentDTO friendCommentDto = new FriendCommentDTO();
-//		friendCommentDto.setFriend(friend);
-//		List<Comment> comment = commentRepository.findByFriendId(id);
-//		friendCommentDto.addComment(comment);
-//		return friendCommentDto;
-//	}
-//	
-//	public FriendLikeDTO getFriendAndLike(int id) {
-//		Friend friend = findById(id);
-//		FriendLikeDTO friendLikeDto = new FriendLikeDTO();
-//		friendLikeDto.setFriend(friend);
-//		List<Like> like = likeRepository.findByFriendId(id);
-//		friendLikeDto.addLike(like);
-//		return friendLikeDto;
-//	}
-	
+	}	
 }

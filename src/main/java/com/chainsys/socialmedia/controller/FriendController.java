@@ -106,20 +106,4 @@ public class FriendController {
 		model.addAttribute("requestList", requestList);
 		return "request-details";
 	}
-	
-//	@GetMapping("/getfriendcomment")
-//	public String getFriendAndComment(@RequestParam("id") int id, Model model) {
-//		FriendCommentDTO dto = friendService.getFriendAndComment(id);
-//		model.addAttribute("getfriend", dto.getFriend());
-//		model.addAttribute("commentlist", dto.getCommentList());
-//		return "list-friend-comment";
-//	}
-//	
-//	@GetMapping("/getfriendlike")
-//	public String getFriendAndLike(@RequestParam("id") int id, Model model) {
-//		FriendLikeDTO dto = friendService.getFriendAndLike(id);
-//		model.addAttribute("getfriend", dto.getFriend());
-//		model.addAttribute("likelist", dto.getLike());
-//		return "list-friend-like";
-//	}
 }

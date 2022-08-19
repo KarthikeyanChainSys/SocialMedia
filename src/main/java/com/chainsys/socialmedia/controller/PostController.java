@@ -124,14 +124,6 @@ public class PostController {
 		return "list-post-comment";
 	}
 	
-//	@GetMapping("/getpostlike")
-//	public String getPostAndLike(@RequestParam("id") int id, Model model) {
-//		PostLikeDTO dto = postservice.getPostAndLike(id);
-//		model.addAttribute("getpost", dto.getPost());
-//		model.addAttribute("likelist", dto.getLikeList());
-//		return "list-post-like";
-//	}
-	
 	@ResponseBody
 	@GetMapping("/getimage")
 	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id) {
