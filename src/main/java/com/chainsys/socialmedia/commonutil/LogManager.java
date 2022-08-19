@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.Calendar;
 
 public class LogManager {
+	private LogManager() {
+	    throw new IllegalStateException("Utility class");
+	  }
 	public static void logException(Exception ex, String source, String exMessage){
 		Calendar vCalendar = Calendar.getInstance();
 		String logDate =  vCalendar.get(Calendar.DATE) + "_" + (vCalendar.get(Calendar.MONTH)+1) + "_" + vCalendar.get(Calendar.YEAR) + "_" ;

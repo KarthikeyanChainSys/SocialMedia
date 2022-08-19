@@ -8,6 +8,9 @@ import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.model.Post;
 
 public class Logic{
+	private Logic() {
+	    throw new IllegalStateException("Utility class");
+	  }
 	public static List<Friend> getRequestList(List<Friend>friendList) {
 		List<Friend> requestList=new ArrayList<>();
 		for(int i=0;i<friendList.size();i++) {

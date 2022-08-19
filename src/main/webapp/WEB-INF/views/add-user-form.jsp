@@ -5,47 +5,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style><%@include file="/WEB-INF/css/form.css"%></s</style>
+<style><%@include file="/WEB-INF/css/signup.css"%></s</style>
 <meta charset="ISO-8859-1">
 <title>Add User</title>
 </head>
 <body>
 <button class="button"
         onclick="history.back()">Go Back</button>
-	<h1 class="form">Create an Account</h1>
+	<h1>Create an Account</h1>
 	<div class="container">
-	<div class="form">
 			<form:form action="add" method="post" modelAttribute="adduser">
-				<div class="form">
 					<label for="userName">UserName:</label>
 					<div>
-						<form:input class="form" path="userName" name="userName" title="User name can't be empty" placeholder="UserName"
+						<form:input path="userName" name="userName" title="User name can't be empty" placeholder="UserName"
 							required="true" pattern="^[A-Za-z]\\w{3,20}$" onblur="userNameCheck();" />
 					</div>
 					<label for="email">Email:</label>
 					<div>
-						<form:input class="form" path="email" type="email" title="Mail Id is not in correct format" placeholder="example@domain.com"
+						<form:input path="email" type="email" title="Mail Id is not in correct format" placeholder="example@domain.com"
 							required="true" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" name="email" onblur="emailCheck();" />
 					</div>
 					<label for="password">Password:</label>
 					<div>
-						<form:input class="form" path="password" type="password" required="true"
+						<form:input path="password" type="password" required="true"
 							title='Password must begin with letter and contain atleast one number and must have atleast 8 characters' 
 							placeholder="Enter the password" name="password" onblur="passwordCheck();"
 							pattern="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$" />
 					</div>
 					<label for="dob">DOB</label>
 					<div>
-						<form:input class="form" path="dob" type="date" />
+						<form:input path="dob" type="date" />
 					</div>
 					<label for="country">Country:</label>
 					<div>
-						<form:input class="form" path="country" name="country" placeholder="Country" title="Country can't be empty"
+						<form:input path="country" name="country" placeholder="Country" title="Country can't be empty"
 							required="true" pattern="^[a-zA-z\s]+$" onblur="countryCheck();"/>
 					</div>
 					<label for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input class="form" path="joiningDate" type="date" />
+						<form:input path="joiningDate" type="date" />
 					</div>
 					<label for="gender">Gender:</label>
 					<div>
@@ -55,11 +53,8 @@
                     <div class="container.button1">
 					<form:button class="button1">Sign up</form:button>
 					</div>
-				</div>
-				<h2 class="form">Create an account and get lot of new good friends</h2>
+				<h2>Create an account and get lot of new good friends</h2>
 			</form:form>
-			</div>
-		</div>
 	<script type="text/javascript">
 	 var userNameCheck = function() {
 		 var nameRegex = new RegExp("^[A-Za-z]\\w{3,20}$");
