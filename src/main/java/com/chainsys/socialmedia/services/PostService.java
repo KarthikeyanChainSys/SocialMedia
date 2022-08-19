@@ -60,10 +60,6 @@ public class PostService {
 			if(post != null)
 			{
 				imageBytes = post.getPosts();
-			}
-			else
-			{	
-				System.out.println("debug:" + this.getClass().getName() + " image is null " + id);
 			}	
 		return imageBytes;
 	}

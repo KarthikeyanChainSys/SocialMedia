@@ -35,10 +35,6 @@ public class CommentService {
 			if(comment != null)
 			{
 				imageBytes = comment.getComments();
-			}
-			else
-			{	
-				System.out.println("debug:" + this.getClass().getName() + " image is null " + id);
 			}	
 		return imageBytes;
 	}
