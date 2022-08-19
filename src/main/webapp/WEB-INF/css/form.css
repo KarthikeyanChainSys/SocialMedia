@@ -29,7 +29,7 @@ input[type='text'], input[type='password'] {
 	border-radius: 5px;
 	text-align: center;
 	color: black;
-	font-family: 'Segoe UI';
+	font-family: Roboto, "San Francisco", 'Segoe UI';
 	font-size: 15px;
 }
 
@@ -46,19 +46,19 @@ P {
 
 h1 {
 	color: #1877f2;
-	font-family: "Segoe UI", Roboto, "San Francisco";
+	font-family: Roboto, "San Francisco", "Segoe UI";
 	text-align: center;
 }
 
 h2 {
 	color: #1877f2;
-	font-family: "Segoe UI", Roboto, "San Francisco";
+	font-family: Roboto, "San Francisco", "Segoe UI";
 	text-align: center;
 }
 
 h3 {
 	color: #1877f2;
-	font-family: "Segoe UI", Roboto, "San Francisco";
+	font-family: Roboto, "San Francisco", "Segoe UI";
 	text-align: center;
 }
 
@@ -91,7 +91,6 @@ table, th, td {
 .table_size{
 	border: 2;
 	width: 100%;
-	cellpadding: 2;
 }
 .text-danger {
     color: #e80c4d;
