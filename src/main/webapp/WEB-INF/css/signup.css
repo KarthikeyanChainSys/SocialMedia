@@ -16,7 +16,7 @@ form {
 	height: auto;
 }
 .add-form label {
-	font-family: "Trirong", serif;
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
 	font-size: 25px;
 	font-weight:800;
 	color: black;
@@ -27,7 +27,7 @@ form {
 }
 .form label {
 	margin-left: 1474%;
-	font-family: "Trirong", serif;
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
 	font-size: 22px;
 	font-weight:800;
 	color: #1877f2;
@@ -43,7 +43,7 @@ input[type='text'], input[type='password'], input[type='date'], input[type='emai
 	border-radius: 5px;
 	text-align: center;
 	color: black;
-	font-family: 'Segoe UI';
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
 	font-size: 15px;
 }
 button {
