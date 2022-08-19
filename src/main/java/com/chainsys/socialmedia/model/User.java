@@ -11,11 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 @Entity
 @Table(name="users")
 public class User {
@@ -25,35 +20,25 @@ public class User {
 	@Column(name="userid")
 	private int userId;
 	
-	@Email(message = "*Email is not valid")
-	@NotEmpty(message = "*Please enter email")
-	@Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "*Enter valid Email")
+	@Column(name="email")
 	private String email;
 	
 	@Column(name="pasword")
-	@Size(max = 20, min = 8, message = "*Password length should be 8 to 20")
-	@NotBlank(message = "*Password can't be Empty")
-	@Pattern(regexp = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$", message = "*Enter valid password ")
 	private String password;
 	
 	@Column(name="username")
-	@Size(max = 20, min = 3, message = "*Name length should be 3 to 20")
-	@NotBlank(message = "*Name can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid name ")
 	private String userName;
 	
 	@Column(name="dob")
 	private Date dob;
 	
-	@NotEmpty(message = "*Please enter country")
-	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
+	@Column(name="country")
 	private String country;
 	
 	@Column(name="joiningdate")
 	private Date joiningDate;
-	
-	@NotEmpty(message = "*Please enter gender")
-	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
+
+	@Column(name="gender")
 	private String gender;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

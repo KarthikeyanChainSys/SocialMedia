@@ -14,9 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="post")
@@ -34,14 +31,9 @@ public class Post {
 	private byte[] posts;
 	
 	@Column(name="medialocation")
-	@Size(max = 40, min = 3, message = "*Location length should be 3 to 40")
-	@NotBlank(message = "*Location can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,40}$", message = "*Enter valid Location ")
 	private String mediaLocation;
 	
-//	@Size(max = 20, min = 3, message = "*Visibility length should be 3 to 20")
-//	@NotBlank(message = "*Visibility can't be Empty")
-//	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Visibility ")
+	@Column(name="visibility")
 	private String visibility;
 
 	@Column(name="dates")

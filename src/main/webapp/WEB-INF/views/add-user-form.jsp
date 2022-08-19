@@ -55,6 +55,7 @@
 					</div>
 				<h2>Create an account and get lot of new good friends</h2>
 			</form:form>
+			</div>
 	<script type="text/javascript">
 	 var userNameCheck = function() {
 		 var nameRegex = new RegExp("^[A-Za-z]\\w{3,20}$");

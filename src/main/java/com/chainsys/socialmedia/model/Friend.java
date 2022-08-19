@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 
 import com.chainsys.socialmedia.compositekey.FriendCompositeKey;
 
@@ -31,8 +29,6 @@ public class Friend {
 	private int userId;
 	
 	@Column(name="requeststatus")
-	@NotEmpty(message = "*Please enter gender")
-	@Pattern(regexp = "^[a-zA-Z]*$", message = "*Value should be in Alphabets ")
 	private String requestStatus;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
