@@ -5,57 +5,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Find User Id</title>
+<style><%@ include file="/WEB-INF/css/about.css"%></s</style>
 </head>
 <body>
+<button class="button"
+        onclick="history.back()">Go Back</button>
 <div id="root">
-		<div id="form">
+		<div class="container">
 			<form:form action="" method="get" modelAttribute="finduserbyid">
-				<div>
+				<div class="form">
 					<label for="userId">UserId:</label>
 					<div>
 						<form:input path="userId" readonly="true"/>
 					</div>
-				</div>
-				<div>
 					<label for="email">Email:</label>
 					<div>
 						<form:input path="email" readonly="true"/>
 					</div>
-				</div>
-				<div>
 					<label for="password">Password:</label>
 					<div>
 						<form:input path="password" readonly="true"/>
 					</div>
-				</div>
-				<div>
 					<label for="userName">UserName:</label>
 					<div>
 						<form:input path="userName" readonly="true"/>
 					</div>
-				</div>
-				<div>
 					<label for="dob">DOB:</label>
 					<div>
 						<form:input path="dob" readonly="true"/>
 					</div>
-				</div>
-				<div>
 					<label for="country">Country:</label>
 					<div>
 						<form:input path="country" readonly="true"/>
 					</div>
-				</div>
-				<div>
 					<label for="joiningDate">JoiningDate:</label>
 					<div>
 						<form:input path="joiningDate" readonly="true"/>
 					</div>
-				</div>
-				<div>
 					<label for="gender">Gender:</label>
 					<div>
 						<form:input path="gender" readonly="true"/>

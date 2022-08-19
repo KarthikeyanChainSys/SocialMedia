@@ -7,13 +7,20 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Friend List</title>
-<style><%@include file="/WEB-INF/css/form.css"%></style>
+<style><%@include file="/WEB-INF/css/table.css"%></style>
 </head>
 <body>
-<div id="table root"></div>
-	<table class=".table_size">
-		<caption>List Friends</caption>
-		<thead>
+<script type="text/javascript">
+$(window).on("load resize ", function() {
+	  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+	  $('.tbl-header').css({'padding-right':scrollWidth});
+	}).resize();
+</script>
+<form class="form">
+<div class="root">
+	<table>
+		<caption></caption>
+		<thead class="tbl-header">
 			<tr>
 				<th>FriendId</th>
 				<th>UserId</th>
@@ -21,16 +28,19 @@
 				<th>UnFriend</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="tbl-content">
 			<c:forEach var="friends" items="${allfriend}">
 				<tr>
 					<td>${friends.friendId}</td>
 					<td>${friends.userId}</td>
 					<td>${friends.requestStatus}</td>
-					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">UnFriend</a></td>
+					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">
+						<button class="button" type="button">UnFriend </button></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
+	</form>
 </body>
 </html>

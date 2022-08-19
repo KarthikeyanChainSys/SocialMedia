@@ -1,0 +1,74 @@
+.container{
+	width: 500px;
+	background-color: white;
+	height: 550px;
+	border: 3px solid black;
+	margin-left: 30%;
+	border-radius: 10%;
+	position: fixed;
+	box-shadow: 5px 3px 5px 3px;
+}
+form {
+	background-color: #fff;
+	position: fixed;
+	text-align: center;
+	width: 10px;;
+	height: auto;
+}
+.add-form label {
+	font-family: "Trirong", serif;
+	font-size: 25px;
+	font-weight:800;
+	color: black;
+}
+.form{
+    margin-top:5%;
+	margin-left: 30%;
+}
+.form label {
+	margin-left: 600%;
+	font-family: "Trirong", serif;
+	font-size: 22px;
+	font-weight:800;
+	color: #1877f2;
+	text-align: center;
+}
+input[type='text'], input[type='password'] {
+	display: block;
+	background-color: #fff;
+	margin: auto;
+	border: 1.5px solid rgb(200, 200, 200);
+	width: 200px;
+	padding: 10px 40px;
+	border-radius: 5px;
+	text-align: center;
+	color: black;
+	font-family: 'Segoe UI';
+	font-size: 15px;
+}
+button {
+	border: none;
+	background-color: #1877f2;
+	color: white;
+	margin: auto;
+	width: 100px;
+	display: block;
+	border-radius: 20px;
+	padding: 10px 0;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: 3%
+}
+.button1 {
+	border: none;
+	background-color: #00FF00;
+	color: white;
+	margin: auto;
+	width: 100px;
+	display: block;
+	border-radius: 20px;
+	padding: 10px 0;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: 700%
+}

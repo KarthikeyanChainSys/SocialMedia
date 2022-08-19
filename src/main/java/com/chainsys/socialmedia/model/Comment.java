@@ -28,9 +28,6 @@ public class Comment {
 	private int friendId;
 	
 	@Column(name="commenttext")
-	@Size(max = 50, min = 1, message = "*Comment length should be 1 to 50")
-	@NotBlank(message = "*Comment can't be Empty")
-	@Pattern(regexp = "^[A-Za-z]\\w{3,20}$", message = "*Enter valid Comment ")
 	private String commentText;
 	
 	@Column(name="comments")

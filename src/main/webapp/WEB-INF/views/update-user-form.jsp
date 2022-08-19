@@ -7,26 +7,23 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update User</title>
-<style><%@include file="/WEB-INF/css/form.css"%></style>
+<style><%@include file="/WEB-INF/css/update.css"%></style>
 </head>
 <body>
-	<div id="root">
-		<div id="form">
+<button class="button"
+        onclick="history.back()">Go Back</button>
+		<div class="container">
+		<div class="form">
 			<form:form style="text-align:center" action="update" method="post" modelAttribute="updateuser">
-				<div>
+				<div class="form">
 					<div>
 						<form:hidden path="userId" />
 					</div>
-				</div>
-				
-				<div>
 					<label for="email">Email:</label>
 					<div>
 						<form:input class="form" path="email" type="email" title="Mail Id is not in correct format" placeholder="example@domain.com"
 							required="true" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" name="email" onblur="emailCheck();" />
 					</div>
-				</div>
-				<div>
 					<label for="password">Password:</label>
 					<div>
 						<form:input class="form" path="password" type="password" required="true"
@@ -34,51 +31,36 @@
 							placeholder="Enter the password" name="Password" onblur="passwordCheck();"
 							pattern="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$" />
 					</div>
-				</div>
-				<div>
 					<label for="userName">UserName:</label>
 					<div>
 						<form:input class="form" path="userName" name="userName" title="User name can't be empty" placeholder="UserName"
 							required="true" pattern="^[A-Za-z]\\w{3,20}$" onblur="userNameCheck();" />
 					</div>
-				</div>
-				<br>
-				<div>
 					<label for="dob">DOB</label>
 					<div>
 						<form:input path="dob" type="date" />
 					</div>
-				</div>
-				<br>
-				<div>
 					<label for="country">Country:</label>
 					<div>
 						<form:input class="form" path="country" name="country" placeholder="Country" title="Country can't be empty"
 							required="true" pattern="^[a-zA-z\s]+$" onblur="countryCheck();"/>
 					</div>
-				</div>
-				<br>
-				<div>
 					<label for="joiningDate">JoiningDate:</label>
 					<div>
 						<form:input path="joiningDate" type="date" />
 					</div>
-				</div>
-				<br>
-				<div>
 					<label for="gender">Gender:</label>
 					<div>
-						<form:input path="gender" placeholder="Gender" />
+						<form:input path="gender" placeholder="Gender" required="true" pattern="^[a-zA-z\s]+$" onblur="countryCheck();" />
 					</div>
-				</div>
-				<form:errors path="gender" cssClass="text-danger" />
-				<br>
-				<div>
-					<form:button>Update</form:button>
+					<br>
+					<div class="container.button1">
+						<form:button class="button1">Update</form:button>
+					</div>
 				</div>
 			</form:form>
 		</div>
-	</div>
+		</div>
 	<script type="text/javascript">
 	 var userNameCheck = function() {
 		 var nameRegex = new RegExp("^[A-Za-z]\\w{3,20}$");

@@ -65,7 +65,7 @@
 		</div>
 		<div class="iframe">
 			<iframe width="560" class="iframe" height="315" title="Post lists"
-				src="/posts/list?userId=${user.userId}"></iframe>
+				src="/posts/list2?userId=${user.userId}"></iframe>
 		</div>
 	</div>
 </body>

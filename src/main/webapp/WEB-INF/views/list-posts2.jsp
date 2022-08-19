@@ -28,11 +28,7 @@
 	        })
 	        .appendTo(document.body);
 	});
-	</script>
-	
-	<button
-        style="font-size: 12px; background-color: #e7e7e7; color: black; float: left;"
-        onclick="history.back()">Go Back</button>
+	</script>  
 	
 	<c:forEach var="post" items="${allpost}">
 	<div class="div">
@@ -45,10 +41,10 @@
 		${post.posts}
 		<img width="350" height="250" src="getimage?id=${post.postId}" alt="image"><br>
 		${post.mediaLocation}<br>
-		<a href="/posts/deletepost?id=${post.postId}" target="_self"><em class="fa fa-trash-o"></em>Delete</a>&nbsp;&nbsp;&nbsp;
+		<a href="/posts/deletepost2?id=${post.postId}" target="_self"><em class="fa fa-trash-o"></em>Delete</a>&nbsp;&nbsp;&nbsp;
 		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
  			<div id="demo" class="collapse">
-   		<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="comments" height="100px"> </iframe>
+   		<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="comments" class="iframe" class="box"> </iframe>
  			 </div>
 		<a href="/like/addlike" target="_self" onclick="clickCounter();"><em class="fa-regular fa-thumbs-up"></em>like</a>	
 	</div>
@@ -81,8 +77,3 @@
 	</script>
 </body>
 </html>
-	
-	
-	
-	
-	

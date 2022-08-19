@@ -20,6 +20,7 @@
 				<div>
 						<form:hidden path="friendId" />
 					</div><br>
+				<div class="box">
 				<div>
 					<label for="comments">Comments:</label>
 					<div>
@@ -32,9 +33,9 @@
 						<form:textarea path="commentText" name="commentText" class="textarea" placeholder="Comment Text" />
 					</div>
 				</div><br>
-				<form:errors path="commentText" cssClass="text-danger" />
 				<div>
 					<form:button>Add</form:button>
+				</div>
 				</div>
 			</form:form>
 		</div>
