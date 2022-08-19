@@ -45,11 +45,6 @@ public class CommentController {
 		theComment.setDate();
 		theComment.setTime();
 		try {
-			System.out.println(photo.getBytes().length);
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			theComment.setComments(photo.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();

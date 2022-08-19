@@ -41,11 +41,6 @@ public class PostController {
 	@PostMapping("/add")
 	public String addPost(@ModelAttribute("addpost") Post thePost, @RequestParam("photo") MultipartFile photo) {
 		try {
-			System.out.println(photo.getBytes().length);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			thePost.setPosts(photo.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
