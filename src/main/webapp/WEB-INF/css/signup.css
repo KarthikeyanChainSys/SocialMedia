@@ -28,7 +28,7 @@ form {
 .form label {
 	margin-left: 1474%;
 	font-family: "Trirong", serif;
-	font-size: 22px;
+	font-size: 15px;
 	font-weight:800;
 	color: #1877f2;
 	text-align: center;
@@ -50,14 +50,14 @@ button {
 	border: none;
 	background-color: #1877f2;
 	color: white;
-	margin: auto;
+	margin-left: 0px;
 	width: 100px;
 	display: block;
 	border-radius: 20px;
 	padding: 10px 0;
 	font-weight: bold;
 	cursor: pointer;
-	margin-left: 3%
+	margin-left: 0px;
 }
 .button1 {
 	border: none;

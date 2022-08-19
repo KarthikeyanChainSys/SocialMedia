@@ -45,7 +45,7 @@ public class UserService {
 		List<Friend> friend = friendRepository.findByUserId(id);
 		Iterator<Friend> friendItr = friend.iterator();
 		while (friendItr.hasNext()) {
-			userFriendDto.addFriend((Friend) friendItr.next());
+			userFriendDto.addFriend(friendItr.next());
 		}
 		return userFriendDto;
 	}
@@ -56,7 +56,7 @@ public class UserService {
 		List<Post> post = postRepository.findByUserId(id);
 		Iterator<Post> postItr = post.iterator();
 		while (postItr.hasNext()) {
-			userPostDto.addPost((Post) postItr.next());
+			userPostDto.addPost(postItr.next());
 		}
 		return userPostDto;
 	}

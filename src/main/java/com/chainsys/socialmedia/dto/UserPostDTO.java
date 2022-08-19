@@ -8,7 +8,7 @@ import com.chainsys.socialmedia.model.User;
 
 public class UserPostDTO {
 	private User user;
-	private List<Post> postList = new ArrayList<Post>();
+	private List<Post> postList = new ArrayList<>();
 	public User getUser() {
 		return user;
 	}

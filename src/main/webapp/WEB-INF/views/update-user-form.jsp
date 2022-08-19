@@ -15,7 +15,7 @@
 		<div class="container">
 		<div class="form">
 			<form:form style="text-align:center" action="update" method="post" modelAttribute="updateuser">
-				<div class="form">
+					<div class="form">
 					<div>
 						<form:hidden path="userId" />
 					</div>
@@ -38,7 +38,7 @@
 					</div>
 					<label for="dob">DOB</label>
 					<div>
-						<form:input path="dob" type="date" />
+						<form:input class="form" path="dob" type="date" />
 					</div>
 					<label for="country">Country:</label>
 					<div>
@@ -47,17 +47,16 @@
 					</div>
 					<label for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input path="joiningDate" type="date" />
+						<form:input class="form" path="joiningDate" type="date" />
 					</div>
 					<label for="gender">Gender:</label>
 					<div>
 						<form:input path="gender" placeholder="Gender" required="true" pattern="^[a-zA-z\s]+$" onblur="countryCheck();" />
-					</div>
-					<br>
+					</div><br>
 					<div class="container.button1">
 						<form:button class="button1">Update</form:button>
 					</div>
-				</div>
+					</div>
 			</form:form>
 		</div>
 		</div>

@@ -44,7 +44,7 @@ public class PostService {
 		List<Comment> comment = commentRepository.findByPostId(id);
 		Iterator<Comment> commentItr = comment.iterator();
 		while(commentItr.hasNext()) {
-			postCommentDto.addComment((Comment) commentItr.next());
+			postCommentDto.addComment(commentItr.next());
 		}
 		return postCommentDto;
 	}

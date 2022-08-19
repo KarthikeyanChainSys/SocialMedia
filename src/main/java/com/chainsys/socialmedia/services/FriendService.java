@@ -5,23 +5,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.chainsys.socialmedia.compositekey.FriendCompositeKey;
-import com.chainsys.socialmedia.dto.FriendCommentDTO;
-import com.chainsys.socialmedia.dto.FriendLikeDTO;
-import com.chainsys.socialmedia.model.Comment;
 import com.chainsys.socialmedia.model.Friend;
-import com.chainsys.socialmedia.model.Like;
-import com.chainsys.socialmedia.repository.CommentsRepository;
 import com.chainsys.socialmedia.repository.FriendRepository;
-import com.chainsys.socialmedia.repository.LikesRepository;
-
 @Service
 public class FriendService {
 	@Autowired
 	private FriendRepository friendRepository;
-	@Autowired
-	private CommentsRepository commentRepository;
-	@Autowired
-	private LikesRepository likeRepository;
 	
 	public Friend save(Friend theFriend) {
 		return friendRepository.save(theFriend);
