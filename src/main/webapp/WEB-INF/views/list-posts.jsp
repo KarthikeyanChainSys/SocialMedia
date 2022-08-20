@@ -48,7 +48,7 @@
  			<div id="demo" class="collapse">
    		<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="comments" height="100px"> </iframe>
  			 </div>
-		<a href="/like/addlike" target="_self" onclick="clickCounter();"><em class="fa-regular fa-thumbs-up"></em>like</a>	
+		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" onclick="clickCounter();"><em class="fa-regular fa-thumbs-up"></em>like</a>	
 	</div>
 	</div>
 	<hr>

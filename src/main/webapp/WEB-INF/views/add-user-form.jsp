@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style><%@include file="/WEB-INF/css/signup.css"%></s</style>
+<style><%@include file="/WEB-INF/css/form.css"%></style>
 <meta charset="ISO-8859-1">
 <title>Add User</title>
 </head>
@@ -13,7 +13,6 @@
 <button class="button"
         onclick="history.back()">Go Back</button>
 	<h1>Create an Account</h1>
-	<div class="container">
 			<form:form action="add" method="post" modelAttribute="adduser">
 					<label for="userName">UserName:</label>
 					<div>
@@ -55,7 +54,6 @@
 					</div>
 				<h2>Create an account and get lot of new good friends</h2>
 			</form:form>
-			</div>
 	<script type="text/javascript">
 	 var userNameCheck = function() {
 		 var nameRegex = new RegExp("^[A-Za-z]\\w{3,20}$");

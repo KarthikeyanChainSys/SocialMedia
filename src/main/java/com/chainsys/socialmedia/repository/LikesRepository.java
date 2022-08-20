@@ -11,5 +11,5 @@ public interface LikesRepository extends CrudRepository<Like,Integer> {
 	Like save(Like theUser);
 	void deleteById(int id);
 	List<Like> findAll();
-	
+	List<Like> findByPostId(int id);
 }

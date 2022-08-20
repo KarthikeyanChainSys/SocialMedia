@@ -8,31 +8,6 @@
 	position: fixed;
 	box-shadow: 5px 3px 5px 3px;
 }
-form {
-	background-color: #fff;
-	position: fixed;
-	text-align: center;
-	width: 8px;
-	height: auto;
-}
-.add-form label {
-	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
-	font-size: 25px;
-	font-weight:800;
-	color: black;
-}
-.form{
-    margin-top:5%;
-	margin-left: 22%;
-}
-.form label {
-	margin-left: 1474%;
-	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
-	font-size: 22px;
-	font-weight:800;
-	color: #1877f2;
-	text-align: center;
-}
 input[type='text'], input[type='password'], input[type='date'], input[type='email'] {
 	display: block;
 	background-color: #fff;
@@ -71,4 +46,7 @@ button {
 	font-weight: bold;
 	cursor: pointer;
 	margin-left: 1050%
+}
+.h1{
+	text-align: center;
 }

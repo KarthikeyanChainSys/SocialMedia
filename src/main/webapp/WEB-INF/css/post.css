@@ -1,6 +1,12 @@
+body{
+	background-image:
+        url("https://media.istockphoto.com/photos/people-communication-network-concept-social-media-picture-id1315599813?b=1&k=20&m=1315599813&s=170667a&w=0&h=nqx7onO0Ivlkun71lTV_9QLISj8Y5Tpa10lQqAvEAjY=");
+    background-color: white;
+    background-size: 1370px 600px;
+}
 .container{
 	width: 500px;
-	background-color: white;
+	background-color: #ADD8E6;
 	height: 550px;
 	border: 3px solid black;
 	margin-left: 30%;
@@ -9,7 +15,7 @@
 	box-shadow: 5px 3px 5px 3px;
 }
 form {
-	background-color: #fff;
+	background-color: #ADD8E6;
 	position: fixed;
 	text-align: center;
 	width: 10px;

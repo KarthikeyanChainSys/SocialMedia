@@ -5,12 +5,14 @@ form {
 	width: 1400px;
 	height: 1400px;
 }
-
+body{
+	background-size: 1370px 600px;
+}
 .button {
 	border: none;
 	background-color: #1877f2;
 	color: white;
-	margin: auto;
+	margin-left: 0px;
 	width: 100px;
 	display: block;
 	border-radius: 5px;
@@ -19,7 +21,7 @@ form {
 	cursor: pointer;
 }
 
-input[type='text'], input[type='password'] {
+input[type='text'], input[type='password'], input[type='email'], input[type='date'] {
 	display: block;
 	background-color: #fff;
 	margin: auto;
@@ -101,4 +103,17 @@ table, th, td {
 } 
 .box{
 	margin-left: 5%;
+}
+.button1 {
+	border: none;
+	background-color: #00FF00;
+	color: white;
+	margin: auto;
+	width: 100px;
+	display: block;
+	border-radius: 20px;
+	padding: 10px 0;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: 47%
 }

@@ -104,6 +104,7 @@ public class PostController {
 	public String getAllPosts(@RequestParam("userId")int userId , Model model) {
 		List<Friend>friendList=friendService.findByUserId(userId);
 		List<Post> postList = postservice.getPost(friendList);
+		model.addAttribute("userId", userId);
 		model.addAttribute("allpost", postList);
 		return "list-posts";
 	}
@@ -112,6 +113,7 @@ public class PostController {
 	public String getPosts(@RequestParam("userId")int userId , Model model) {
 		List<Friend>friendList=friendService.findByUserId(userId);
 		List<Post> postList = postservice.getPost(friendList);
+		model.addAttribute("userId", userId);
 		model.addAttribute("allpost", postList);
 		return "list-posts2";
 	}

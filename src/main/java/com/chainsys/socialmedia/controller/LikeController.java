@@ -1,6 +1,9 @@
 package com.chainsys.socialmedia.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,19 +15,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.chainsys.socialmedia.model.Like;
+import com.chainsys.socialmedia.model.User;
 import com.chainsys.socialmedia.services.LikeService;
+import com.chainsys.socialmedia.services.UserService;
 
 @Controller
 @RequestMapping("/like")
 public class LikeController {
 	@Autowired
 	LikeService likeservice;
+	@Autowired
+	UserService userService;
 	
 	@GetMapping("/addlike")
-	public String addNewLike(Model model) {
+	public String addNewLike(@RequestParam("id") int id, @RequestParam("fid") int friendId, Model model,HttpServletRequest request) {
 		Like theLike = new Like();
-		model.addAttribute("addlike", theLike);
-		return "add-like-form";
+		theLike.setPostId(id);
+		theLike.setFriendId(friendId);
+		theLike.setDateTime();
+		likeservice.save(theLike);
+		User user = userService.findById(friendId);
+		model.addAttribute("user", user);
+		return "redirect:/posts/list2?userId="+friendId;
 	}
 	
 	@PostMapping("/add")
@@ -34,7 +46,7 @@ public class LikeController {
 			return "add-like-form";
 		}
 		likeservice.save(theLike);
-		return "redirect:/like/list?friendId";
+		return "redirect:/like/list?id="+theLike.getPostId() + "&fid="+theLike.getFriendId();
 	}
 	
 	@GetMapping("/updatelike")

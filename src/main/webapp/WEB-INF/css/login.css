@@ -28,7 +28,7 @@ form {
 	box-shadow: 5px -7px 6px -7px;
 }
 
-input[type='text'], input[type='password'] {
+input[type='text'], input[type='password'], input[type='email'] {
 	display: block;
 	background-color: #fff;
 	margin: auto;

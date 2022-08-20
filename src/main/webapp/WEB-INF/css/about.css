@@ -1,6 +1,8 @@
 body {
 	background-color: white;
-	background-size: 1366px 768px;
+	background-size: 1370px 600px;
+	background-image: 
+		url("https://media.istockphoto.com/vectors/global-network-connection-concept-big-data-visualization-social-in-vector-id1141304089?k=20&m=1141304089&s=612x612&w=0&h=WG_WsuvzUucQHTmRKVw4DLj3qgOXpYYG1nLHsAY5wVQ=");
 }
 h3{
 	text-align:center;
@@ -10,7 +12,7 @@ h3{
 }
 .container{
 	width: 500px;
-	background-color: #0096FF;
+	background-color: #728FCE;
 	height: 550px;
 	border: 3px solid black;
 	margin-left: 30%;
