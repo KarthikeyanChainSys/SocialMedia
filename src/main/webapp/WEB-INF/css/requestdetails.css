@@ -1,4 +1,4 @@
-button {
+.button {
 	border: none;
 	background-color: #FF0000;
 	color: white;
@@ -26,21 +26,15 @@ button {
 }
 
 form{
-	background-color: #E3F9A6;
-	margin-left: 21%;
+	margin-left: 25%;
 	margin-bottom: 5%;
-	margin-right: 21%;
+	margin-right: 35%;
 	margin-top: 5%;
+	background-size: center;
 	justify-content: center;
 	border-radius: 50px;
 }
 
-table{
-  width:800px;
-  margin-top: 80px;
-  font-size: 18px;
-  border-radius: 100px;
-}
 * {
   margin: 0;
   padding: 0;
@@ -61,21 +55,24 @@ td {
 }
 
 thead th {
-  background-color: #E3F9A6;
-  color: #1877f2;
+  background-color: #087f5b;
+  color: #fff;
   width: 25%;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #E3F9A6;
+  background-color: #f8f9fa;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #E3F9A6;
+  background-color: #e9ecef;
 }
 
 body{
+  color: #343a40;
   line-height: 1;
+  display: flex;
+  justify-content: center;
   background-image: 
   	url("https://st.depositphotos.com/1035451/3325/v/950/depositphotos_33257541-stock-illustration-network-color-technology-background.jpg");
 }

@@ -6,12 +6,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Request Details</title>
-<style><%@include file="/WEB-INF/css/form.css"%></style>
+<style><%@include file="/WEB-INF/css/requestdetails.css"%></style>
 </head>
 <body>
-<div id="table root"></div>
-	<table class=".table_size">
-		<caption>List Friends</caption>
+<form>
+	<button class="button1"
+        onclick="history.back()">Go Back</button>
+<div >
+	<table>
+		<caption></caption>
 		<thead>
 			<tr>
 				<th>FriendId</th>
@@ -21,15 +24,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="friends" items="${requestList}">
+			<c:forEach var="friends" items="${requestLists}">
 				<tr>
 					<td>${friends.friendId}</td>
 					<td>${friends.userId}</td>
 					<td>${friends.requestStatus}</td>
-					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">UnRequest</a></td>
+					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">
+						<button class="button" type="button">UnRequest </button></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+</div>
+</form>
 </body>
 </html>

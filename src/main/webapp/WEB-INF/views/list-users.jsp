@@ -10,9 +10,11 @@
 <style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <body>
+<button class="button"
+        onclick="history.back()">Go Back</button>
 <div id="table root"></div>
-	<table class=".table_size">
-		<caption>List Users</caption>
+	<table>
+		<caption></caption>
 		<thead>
 			<tr>
 				<th>UserId</th>

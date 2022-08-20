@@ -8,6 +8,12 @@
 	position: fixed;
 	box-shadow: 5px 3px 5px 3px;
 }
+body{
+	background-image: 
+		url("https://img.freepik.com/free-vector/social-media-icons_53876-89124.jpg?w=2000");
+	background-color: white;
+    background-size: 1370px 600px;
+}
 form {
 	background-color: #fff;
 	position: fixed;

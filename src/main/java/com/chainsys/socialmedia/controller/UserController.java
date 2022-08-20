@@ -51,7 +51,7 @@ public class UserController {
 			return "update-user-form"; 
 			}
 		userService.save(theUser);
-		return "homepage";
+		return "redirect:/home/userPage";
 	}
 	
 	@GetMapping("/finduserbyid")

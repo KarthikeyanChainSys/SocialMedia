@@ -7,12 +7,15 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Friend List</title>
-<style><%@include file="/WEB-INF/css/form.css"%></style>
+<style><%@include file="/WEB-INF/css/requestdetails.css"%></style>
 </head>
 <body>
-<div id="table root"></div>
-	<table class=".table_size">
-		<caption>List Friends</caption>
+<button class="button"
+        onclick="history.back()">Go Back</button>
+<form>
+<div>
+	<table>
+		<caption></caption>
 		<thead>
 			<tr>
 				<th>UserId</th>
@@ -34,5 +37,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
+	</form>
 </body>
 </html>

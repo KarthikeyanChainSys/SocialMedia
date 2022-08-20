@@ -48,14 +48,14 @@
 							<button id="button" class="button">Friends</button>
 					</a><br> <br></li>
 					<li><a href="/user/list?id=${user.userId}" target="_self">
-							<button id="button" class="button">addRequest</button>
+							<button id="button" class="button">Send Request</button>
 					</a><br> <br></li>
 					<li><a href="/friend/requestDetails?id=${user.userId}"
 						target="_self">
-							<button id="button" class="button">MyRequest</button>
+							<button id="button" class="button">Request Status</button>
 					</a><br> <br></li>
 					<li><a href="/friend/request?id=${user.userId}" target="_self">
-							<button id="button" class="button">Request</button>
+							<button id="button" class="button">Friends Request</button>
 					</a><br> <br></li>
 					<li><div class="logout">
 							<a href="/home/login"><button>Logout</button></a>

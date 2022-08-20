@@ -8,39 +8,32 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Add Friend</title>
-<style type="text/css">
-.text-danger {
-    color: #e80c4d;
-    font-size: 0.9em;
-}
-</style>
+<style><%@ include file="/WEB-INF/css/post.css"%></s</style>
 </head>
 <body>
 <div id="root">
+<button class="button"
+        onclick="history.back()">Go Back</button>
+	<div class="container">
 		<div id="form">
 			<form:form action="add" method="post" modelAttribute="addfriend">
-				<div>
+				<div class="form">
 					<div>
 						<form:input path="userId" placeholder="Friend Id" type="hidden"/>
 					</div>
-				</div>
-				<div>
-					<label for="friendId">FriendId:</label>
 					<div>
-						<form:input path="friendId" placeholder="Friend Id" />
+						<form:input path="friendId" placeholder="Friend Id" type="hidden" />
 					</div>
-				</div>
-				<div>
 					<label for="requestStatus">RequestStatus:</label>
 					<div>
 						<form:input path="requestStatus" placeholder="Request Status" />
 					</div>
-				</div>
-				<form:errors path="requestStatus" cssClass="text-danger" />
 				<div>
-					<form:button>Add</form:button>
+					<form:button class="button1">Add</form:button>
+				</div>
 				</div>
 			</form:form>
+		</div>
 		</div>
 	</div>
 </body>

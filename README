@@ -19,16 +19,16 @@ Social media platforms allow users to have conversations, share information and 
 	
 # Project Flow
 
-	LOGIN ---> HOMEPAGE	--->	- EDIT PROFILE	---> UPDATE USER PROFILE
-								- ABOUT 		---> VIEW USER DETAILS
-								- PICTURES		---> VIEW USER POST 	---> - DELETE POST
-																			 - COMMENT POST ---> ADD COMMENT
-																			 - LIKE POST	---> ADD LIKE
-								- POST			---> ADD POST
-								- FRIENDS		---> VIEW FRIENDS LIST
-								- ADD REQUEST	---> VIEW FRIEND LIST	---> - ADD FRIEND REQUEST 
-								- MY REQUEST	---> VIEW USER REQUEST
-								- REQUEST		---> VIEW FRIEND SEND REQUEST 
+	LOGIN ---> HOMEPAGE	--->	- EDIT PROFILE		---> UPDATE USER PROFILE
+								- ABOUT 			---> VIEW USER DETAILS
+								- PICTURES			---> VIEW USER POST 	---> - DELETE POST
+																			 	 - COMMENT POST ---> ADD COMMENT
+																				 - LIKE POST	---> ADD LIKE
+								- POST				---> ADD POST
+								- FRIENDS			---> VIEW FRIENDS LIST
+								- SEND REQUEST		---> VIEW FRIEND LIST	---> - ADD FRIEND REQUEST 
+								- REQUEST STATUS	---> VIEW USER REQUEST
+								- FRIENDS REQUEST	---> VIEW FRIEND REQUEST 
 								- LOGOUT		
 	
 # Technology

@@ -10,15 +10,17 @@
 <style><%@include file="/WEB-INF/css/table.css"%></style>
 </head>
 <body>
+	<button class="button1"
+        onclick="history.back()">Go Back</button>
 <script type="text/javascript">
 $(window).on("load resize ", function() {
 	  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
 	  $('.tbl-header').css({'padding-right':scrollWidth});
 	}).resize();
 </script>
-<form class="form">
-<div class="root">
-	<table>
+<form>
+<div class="form">
+	<table class="table">
 		<caption></caption>
 		<thead class="tbl-header">
 			<tr>

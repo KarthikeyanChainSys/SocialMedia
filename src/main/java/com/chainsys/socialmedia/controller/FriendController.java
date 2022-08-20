@@ -103,7 +103,7 @@ public class FriendController {
 	public String getRequestDetails(@RequestParam("id") int userId, Model model) {
 		List<Friend> theFriends = friendService.findByUserId(userId);
 		List<Friend>requestList=Logic.getRequestList(theFriends);
-		model.addAttribute("requestList", requestList);
+		model.addAttribute("requestLists", requestList);
 		return "request-details";
 	}
 }
