@@ -2,9 +2,7 @@ package com.chainsys.socialmedia.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.chainsys.socialmedia.businesslogic.Logic;
 import com.chainsys.socialmedia.compositekey.FriendCompositeKey;
 import com.chainsys.socialmedia.model.Friend;
@@ -27,13 +24,14 @@ public class FriendController {
 	FriendService friendService;
 	
 	@GetMapping("/addfriend")
-	public String addNewFriend(@RequestParam("friendId")int friendId,@RequestParam("userId")int userId,Model model) {
+	public String addNewFriend(@RequestParam("friendId")int friendId, @RequestParam("userId")int userId,Model model) {
 		Friend theFriend = new Friend();
 		theFriend.setFriendId(friendId);
 		theFriend.setUserId(userId);
 		theFriend.setRequestStatus("request");
+		friendService.save(theFriend);
 		model.addAttribute("addfriend", theFriend);
-		return "add-friend-form";
+		return "redirect:/user/list?id="+userId;
 	}
 	
 	@PostMapping("/add")
@@ -81,6 +79,14 @@ public class FriendController {
 		FriendCompositeKey friendcompositekey = new FriendCompositeKey(friendId,userId);
 		friendService.deleteById(friendcompositekey);
 		return "redirect:/friend/request?id="+userId;
+	}
+	
+	@GetMapping("/list")
+	public String getAllFriend(@RequestParam("id")int id,Model model) {
+		List<Friend> theFriend = friendService.getFriends();
+		model.addAttribute("friendId", id);
+		model.addAttribute("allfriend", theFriend);
+		return "list-friends";
 	}
 	
 	@GetMapping("/request")

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>Friend List</title>
-<style><%@include file="/WEB-INF/css/table.css"%></style>
+<style><%@include file="/WEB-INF/css/friends.css"%></style>
 </head>
 <body>
 	<button class="button1"
@@ -24,8 +24,8 @@ $(window).on("load resize ", function() {
 		<caption></caption>
 		<thead class="tbl-header">
 			<tr>
-				<th>FriendId</th>
 				<th>UserId</th>
+				<th>FriendId</th>
 				<th>RequestStatus</th>
 				<th>UnFriend</th>
 			</tr>
@@ -33,8 +33,8 @@ $(window).on("load resize ", function() {
 		<tbody class="tbl-content">
 			<c:forEach var="friends" items="${allfriend}">
 				<tr>
-					<td>${friends.friendId}</td>
 					<td>${friends.userId}</td>
+					<td>${friends.friendId}</td>
 					<td>${friends.requestStatus}</td>
 					<td><a href="/friend/deletefriend?id=${friends.friendId}&userId=${friends.userId}">
 						<button class="button" type="button">UnFriend </button></a></td>

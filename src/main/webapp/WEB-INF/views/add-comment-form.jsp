@@ -5,42 +5,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
-<title>Add Comment</title>
+<title>Add C	omment</title>
 <style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
-<body>
-<div id="root">
-		<div id="form">
-			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment" name="form">
+<div>
+		<div class="form1">
+			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment" name="form1">
 				<div>
 						<form:hidden path="postId" />
-				</div>
-				<div>
 						<form:hidden path="friendId" />
-					</div><br>
-				<div class="box">
-				<div>
 					<label for="comments">Comments:</label>
 					<div>
 						<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
-				</div><br>
-				<div>
 					<label for="commentText">CommentText:</label>
 					<div>
 						<form:textarea path="commentText" name="commentText" class="textarea" placeholder="Comment Text" />
 					</div>
-				</div><br>
-				<div>
-					<form:button>Add</form:button>
-				</div>
+					<div>
+				<a href="/posts/list2"><button class="button">Add</button></a>
+					</div>
 				</div>
 			</form:form>
 		</div>
-	</div>
-	<div id="table root"></div>
+	<div id="table root">
 	<table class=".table_size">
 		<caption>Comment table</caption>
 		<thead>
@@ -68,5 +57,14 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
+	</div>
 </body>
 </html>
+			
+			
+			
+			
+			
+			
+					

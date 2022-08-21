@@ -5,6 +5,14 @@ form {
 	width: 1400px;
 	height: 1400px;
 }
+form1 {
+	background-color: #fff;
+	position: absolute;
+	text-align: center;
+	width: 1400px;
+	height: 1400px;
+	justify-content: left;
+}
 body{
 	background-size: 1370px 600px;
 }
@@ -70,10 +78,8 @@ table, th, td {
 
 .textarea {
 	width: 20%;
-	height: 50%;
+	height: 30%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 .like_btn {
 	padding: 10px 15px;
@@ -95,12 +101,16 @@ table, th, td {
 	width: 100%;
 }
 .iframe {
-    position: relative;
+    position: absolute;
     width: 500px;
     height: 300px;
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    box-shadow: 5px 10px 18px #25195c;
     margin-left: 0px;
-    justify-content: left;
-} 
+    justify-content: center;
+    z-index: 999;
+}
 .box{
 	margin-left: 5%;
 }
@@ -116,4 +126,14 @@ table, th, td {
 	font-weight: bold;
 	cursor: pointer;
 	margin-left: 47%
+}
+.btn btn-info{
+	color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+    margin-left: 20%;
+    justify-content: center;
+}
+.label{
+	margin: left;
 }

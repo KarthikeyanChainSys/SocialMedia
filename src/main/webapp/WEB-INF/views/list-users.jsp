@@ -7,10 +7,10 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>User List</title>
-<style><%@include file="/WEB-INF/css/form.css"%></style>
+<style><%@include file="/WEB-INF/css/table.css"%></style>
 </head>
 <body>
-<button class="button"
+<button class="button1"
         onclick="history.back()">Go Back</button>
 <div id="table root"></div>
 	<table>
@@ -21,10 +21,11 @@
 				<th>Email</th>
 				<th>Password</th>
 				<th>UserName</th>
-				<th>DOB</th>
+				<th>DateOfBirth</th>
 				<th>Country</th>
 				<th>JoiningDate</th>
 				<th>Gender</th>
+				<th>Requests</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,7 +39,7 @@
 					<td>${users.country}</td>
 					<td>${users.joiningDate}</td>
 					<td>${users.gender}</td>
-					<td><a href="/friend/addfriend?friendId=${users.userId}&userId=${userId}"><button>request</button></a></td>
+					<td><a href="/friend/addfriend?friendId=${users.userId}&userId=${userId}"><button class="button1">request</button></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

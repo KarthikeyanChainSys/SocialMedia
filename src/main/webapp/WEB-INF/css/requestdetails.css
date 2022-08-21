@@ -51,7 +51,8 @@ table {
 th,
 td {
   padding: 16px 24px;
-  text-align: left;
+  border: 1px solid black;
+  text-align: center;
 }
 
 thead th {
@@ -70,8 +71,8 @@ tbody tr:nth-child(odd) {
 
 body{
   color: #343a40;
+  background-size: 1370px 600px;
   line-height: 1;
-  display: flex;
   justify-content: center;
   background-image: 
   	url("https://st.depositphotos.com/1035451/3325/v/950/depositphotos_33257541-stock-illustration-network-color-technology-background.jpg");

@@ -9,9 +9,9 @@
 <style><%@include file="/WEB-INF/css/requestdetails.css"%></style>
 </head>
 <body>
-<form>
 	<button class="button1"
         onclick="history.back()">Go Back</button>
+<form>
 <div >
 	<table>
 		<caption></caption>

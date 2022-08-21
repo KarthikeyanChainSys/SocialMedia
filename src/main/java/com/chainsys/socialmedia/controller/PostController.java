@@ -82,7 +82,7 @@ public class PostController {
 		Post post = postservice.findById(id);
 		postservice.deleteById(id);
 		int userId = post.getUserId();
-		return "redirect:/posts/list?userId="+userId;
+		return "redirect:/posts/list2?userId="+userId;
 	}
 	
 	@GetMapping("/deletepost2")

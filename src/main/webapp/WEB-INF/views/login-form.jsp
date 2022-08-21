@@ -44,7 +44,6 @@
 	    else{
 	        return false;
 	    } 
-	   
 	}
 	 
 	 var passwordCheck = function() {

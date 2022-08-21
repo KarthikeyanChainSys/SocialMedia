@@ -10,7 +10,7 @@
 <style><%@include file="/WEB-INF/css/requestdetails.css"%></style>
 </head>
 <body>
-<button class="button"
+<button class="button1"
         onclick="history.back()">Go Back</button>
 <form>
 <div>

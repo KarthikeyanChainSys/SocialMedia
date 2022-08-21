@@ -12,22 +12,6 @@
 </style>
 </head>
 <body>
-	<script type="text/javascript">
-	$('#foo').click(function() {
-	    var button = $(this),
-	        commentField = $('<textarea/>');
-	        .val(button.data('textContent') || 'This is my comment field\'s text')
-	        .keypress(function(e) {
-	            if (e.which === 13) {
-	                e.preventDefault();
-	                button.data('textContent', this.value);
-	                $(this).remove();
-	            }
-	        })
-	        .appendTo(document.body);
-	});
-	</script>  
-	
 	<c:forEach var="post" items="${allpost}">
 	<div class="div">
 	<div>
@@ -39,38 +23,27 @@
 		${post.posts}
 		<img width="350" height="250" src="getimage?id=${post.postId}" alt="image"><br>
 		${post.mediaLocation}<br>
-		<a href="/posts/deletepost2?id=${post.postId}" target="_self"><em class="fa fa-trash-o"></em>Delete</a>&nbsp;&nbsp;&nbsp;
-		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
- 			<div id="demo" class="collapse">
-   		<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="comments" class="iframe" class="box"> </iframe>
+		<a href="/posts/deletepost?id=${post.postId}" target="_self">
+		<button type="button" class="btn btn-info">Delete</button></a>&nbsp;&nbsp;&nbsp;
+		
+ 			<div>
+   		<iframe id="iframe" class="iframe" src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="comments" > 
+   			<button type="button" class="btn btn-info" onclick='show("iframe")'><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
+   		</iframe>
  			 </div>
-		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" onclick="clickCounter();"><em class="fa-regular fa-thumbs-up"></em>like</a>	
+		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like</button></a>	
 	</div>
 	</div>
 	<hr>
 	</c:forEach>
 	<script type="text/javascript">
-	function clickCounter() {
-		if(typeof(Storage) != "undefined"){
-			if(localStorage.clickcount){
-				localStorage.clickcount = Number(localStorage.clickcount)+1;
-				var click = localStorage.clickcount
-				if(localStorage.clickcount % 2 ==0){
-					var click = 0
-					console.log(click)
-				}
-				else{
-					var click = 1
-					console.log(click)
-				}
-			}
-			else{
-				localStorage.clickcount = 1;
-			}
-			document.getElementById("result").innerHTML = click;
-		} else{
-			document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-		}
+	function show(elementID) {
+		var myElement = document.getElementById(elementID);
+		if (myElement) myElement.style.display = "block";
+	}
+	function hide(elementID) {
+		var myElement = document.getElementById(elementID);
+		if (myElement) myElement.style.display = "none";
 	}
 	</script>
 </body>

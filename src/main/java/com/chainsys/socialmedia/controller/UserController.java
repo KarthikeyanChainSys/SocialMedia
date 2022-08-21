@@ -1,6 +1,7 @@
 package com.chainsys.socialmedia.controller;
 
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,12 +47,14 @@ public class UserController {
 	}
 	
 	@PostMapping("/update")
-	public String updateUser(@Valid @ModelAttribute("updateuser") User theUser, Errors errors) {
+	public String updateUser(@Valid @ModelAttribute("updateuser") User theUser, Errors errors, Model model, HttpSession session) {
 		if(errors.hasErrors()) {
 			return "update-user-form"; 
 			}
 		userService.save(theUser);
-		return "redirect:/home/userPage";
+		model.addAttribute("user",theUser);
+		session.setAttribute("userId", theUser.getUserId());
+		return "homepage";
 	}
 	
 	@GetMapping("/finduserbyid")
