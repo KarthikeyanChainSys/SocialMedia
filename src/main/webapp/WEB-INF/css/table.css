@@ -33,13 +33,6 @@ form{
 	margin-top: 5%;
 	justify-content: center;
 }
-
-table{
-  width:800px;
-  margin-top: 80px;
-  font-size: 18px;
-  border-radius: 100px;
-}
 * {
   margin: 0;
   padding: 0;

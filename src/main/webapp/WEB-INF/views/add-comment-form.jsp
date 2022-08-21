@@ -10,8 +10,8 @@
 <style><%@include file="/WEB-INF/css/form.css"%></style>
 </head>
 <div>
-		<div class="form1">
-			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment" name="form1">
+		<div class="form">
+			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment" name="form">
 				<div>
 						<form:hidden path="postId" />
 						<form:hidden path="friendId" />
