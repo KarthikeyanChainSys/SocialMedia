@@ -25,15 +25,14 @@
 		${post.posts}
 		<img width="550" height="350" src="getimage?id=${post.postId}" alt="image"><br>
 		${post.mediaLocation}<br><br>
-	</div>
 		<a href="/posts/deletepost?id=${post.postId}" target="_self">
-		<button type="button" class="btn btn-info"><em class="fa fa-trash-o"></em>Delete</button></a>&nbsp;&nbsp;&nbsp;
-		<a href="/comment/addcomment?id=${post.postId}&fid=${post.userId}" target="_self">
-		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button></a>&nbsp;&nbsp;&nbsp;
- 			<div id="demo" class="collapse">
-   		<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="comments"> </iframe>
- 			 </div>
+		<button type="button" class="btn btn-info">Delete</button></a>&nbsp;&nbsp;&nbsp;
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
 		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like</button></a>	
+		<div id="demo" class="collapse">
+			<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="iframe" width="510px" height="300px"></iframe>
+		</div>	
+	</div>
 	</div>
 	<hr>
 	</c:forEach>

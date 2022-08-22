@@ -110,6 +110,8 @@ button {
 }
 
 P{
+	color:red;
+	text-align: center;
 	font-size: 20px;
 	font-weight: 600;
 	word-spacing: 3px;

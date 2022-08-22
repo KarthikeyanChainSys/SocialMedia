@@ -24,6 +24,8 @@
 			<form:input class="form" path="password" type="password" placeholder="Password" onblur="passwordCheck();"
 			pattern="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$"/>
 			<br>
+			<p>${result}</p>
+			<br>
 			<form:button class="form" id="button" target="_self" value="submit">Login</form:button>
 			<br>
 			<form:button class="signup" id="button" value="submit">

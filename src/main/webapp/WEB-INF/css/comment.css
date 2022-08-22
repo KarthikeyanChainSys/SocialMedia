@@ -1,0 +1,41 @@
+.button {
+	border: none;
+	background-color: #1877f2;
+	color: white;
+	margin-left: 0px;
+	width: 100px;
+	display: block;
+	border-radius: 5px;
+	padding: 10px 0;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+input[type='text'], input[type='password'], input[type='email'], input[type='date'] {
+	display: block;
+	background-color: #fff;
+	margin: auto;
+	border: 1.5px solid rgb(200, 200, 200);
+	width: 200px;
+	padding: 10px 40px;
+	border-radius: 5px;
+	text-align: center;
+	color: black;
+	font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	font-size: 15px;
+}
+
+.textarea {
+	width: 40%;
+	height: 40%;
+    display: block;
+}
+
+.div{
+	padding-left: 25%;
+	padding-right: 25%;
+}
+
+.table_size{
+	border: 2;
+}

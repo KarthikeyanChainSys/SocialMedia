@@ -6,13 +6,13 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Add C	omment</title>
-<style><%@include file="/WEB-INF/css/form.css"%></style>
+<title>Add Comment</title>
+<style><%@include file="/WEB-INF/css/comment.css"%></style>
 </head>
 <div>
 		<div class="form">
 			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addcomment" name="form">
-				<div>
+				<div class="form">
 						<form:hidden path="postId" />
 						<form:hidden path="friendId" />
 					<label for="comments">Comments:</label>
@@ -24,18 +24,16 @@
 						<form:textarea path="commentText" name="commentText" class="textarea" placeholder="Comment Text" />
 					</div>
 					<div>
-				<a href="/posts/list2"><button class="button">Add</button></a>
+				<a href="/posts/list2?userId="${comment.friendId}><button class="button">Add</button></a>
 					</div>
 				</div>
 			</form:form>
 		</div>
 	<div id="table root">
 	<table class=".table_size">
-		<caption>Comment table</caption>
+		<caption></caption>
 		<thead>
 			<tr>
-				<th>CommentId</th>
-				<th>PostId</th>
 				<th>FriendId</th>
 				<th>commentText</th>
 				<th>comments</th>
@@ -46,8 +44,6 @@
 		<tbody>
 			<c:forEach var="comment" items="${allcomment}">
 				<tr>
-					<td>${comment.commentId}</td>
-					<td>${comment.postId}</td>
 					<td>${comment.friendId}</td>
 					<td>${comment.commentText}</td>
 					<td>${comment.comments}</td>

@@ -6,6 +6,8 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Post List</title>
 <style><%@include file="/WEB-INF/css/form.css"%>
@@ -14,37 +16,25 @@
 <body>
 	<c:forEach var="post" items="${allpost}">
 	<div class="div">
-	<div>
-		Id : ${post.userId}
-		Date : ${post.date}
-		Time : ${post.time}
+	<div><br>
+		Id : ${post.userId}&nbsp;&nbsp;&nbsp;
+		Date : ${post.date}&nbsp;&nbsp;&nbsp;
+		Time : ${post.time}&nbsp;&nbsp;&nbsp;
 	</div>
-	<div>
+	<div><br>
 		${post.posts}
-		<img width="350" height="250" src="getimage?id=${post.postId}" alt="image"><br>
+		<img width="400" height="300" src="getimage?id=${post.postId}" alt="image"><br>
 		${post.mediaLocation}<br>
 		<a href="/posts/deletepost?id=${post.postId}" target="_self">
 		<button type="button" class="btn btn-info">Delete</button></a>&nbsp;&nbsp;&nbsp;
-		
- 			<div>
-   		<iframe id="iframe" class="iframe" src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="comments" > 
-   			<button type="button" class="btn btn-info" onclick='show("iframe")'><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
-   		</iframe>
- 			 </div>
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
 		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like</button></a>	
+		<div id="demo" class="collapse">
+			<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="iframe" width="500px" height="300px"></iframe>
+		</div>
 	</div>
 	</div>
 	<hr>
 	</c:forEach>
-	<script type="text/javascript">
-	function show(elementID) {
-		var myElement = document.getElementById(elementID);
-		if (myElement) myElement.style.display = "block";
-	}
-	function hide(elementID) {
-		var myElement = document.getElementById(elementID);
-		if (myElement) myElement.style.display = "none";
-	}
-	</script>
 </body>
 </html>
