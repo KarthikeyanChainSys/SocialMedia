@@ -56,7 +56,6 @@ public class PostService {
 	public byte[] getPostImageByteArray(int id) {
 		Post post = postRepository.findById(id);
 		byte[] imageBytes = null;
-			
 			if(post != null)
 			{
 				imageBytes = post.getPosts();

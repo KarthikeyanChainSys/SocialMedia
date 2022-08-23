@@ -10,13 +10,13 @@
 <style><%@include file="/WEB-INF/css/table.css"%></style>
 </head>
 <body>
-<button class="button1"
-        onclick="history.back()">Go Back</button>
+<button class="button1" onclick="history.back()">Go Back</button>
 <div id="table root"></div>
 	<table>
 		<caption></caption>
 		<thead>
 			<tr>
+				<th>Profile</th>
 				<th>UserId</th>
 				<th>Email</th>
 				<th>Password</th>
@@ -31,6 +31,7 @@
 		<tbody>
 			<c:forEach var="users" items="${alluser}">
 				<tr>
+					<td>$(users.profile)<img width="150" height="150" src="getimage?id=${user.userId}" alt="image"><br></td>
 					<td>${users.userId}</td>
 					<td>${users.email}</td>
 					<td>${users.password}</td>

@@ -12,8 +12,7 @@
 </head>
 <body>        
 	<div id="root">
-	<button class="button"
-        onclick="history.back()">Go Back</button>
+	<button class="button" onclick="history.back()">Go Back</button>
         <div class="container">
 		<div class="form">
 			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="addpost" >

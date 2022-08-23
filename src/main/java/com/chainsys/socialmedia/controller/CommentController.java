@@ -3,6 +3,8 @@ package com.chainsys.socialmedia.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +32,12 @@ public class CommentController {
 	CommentService commentservice;
 	
 	@GetMapping("/addcomment")
-	public String addNewComment(@RequestParam("id") int postId, @RequestParam("fid") int friendId, Model model) {
+	public String addNewComment(@RequestParam("id") int postId, HttpServletRequest request, Model model) {
 		Comment theComment = new Comment();
 		theComment.setPostId(postId);
-		theComment.setFriendId(friendId);
+		HttpSession session = request.getSession();
+		int userId = (int) session.getAttribute("userId");
+		theComment.setFriendId(userId);
 		model.addAttribute("addcomment", theComment);
 		List<Comment> theComments = commentservice.getComments();
 		model.addAttribute("allcomment", theComments);

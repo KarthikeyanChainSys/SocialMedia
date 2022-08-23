@@ -16,14 +16,16 @@ public class LikeService {
 	
 	public Like save(Like likes) {
 		List<Like> likeList = likeRepository.findByPostId(likes.getPostId());
+		Post post = postService.findById(likes.getPostId());
 		for(int i=0; i<likeList.size(); i++) {
 			if(likeList.get(i).getFriendId() == likes.getFriendId()) {
 				likeRepository.deleteById(likeList.get(i).getLikeId());
+				post.setLikeCount(post.getLikeCount() - 1);
+				postService.save(post);
 				return likes;
 			}
 		}
 		Like like = likeRepository.save(likes);
-		Post post = postService.findById(likes.getPostId());
 		post.setLikeCount(post.getLikeCount() + 1);
 		postService.save(post);
 		return like;

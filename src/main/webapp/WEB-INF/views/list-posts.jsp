@@ -6,6 +6,8 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Post List</title>
 <style><%@include file="/WEB-INF/css/form.css"%>
@@ -30,7 +32,7 @@
 		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
 		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like</button></a>	
 		<div id="demo" class="collapse">
-			<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="iframe" width="510px" height="300px"></iframe>
+			<iframe src="/comment/addcomment?id=${post.postId}" title="iframe" width="510px" height="300px"></iframe>
 		</div>	
 	</div>
 	</div>

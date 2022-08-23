@@ -14,7 +14,7 @@
 </style>
 </head>
 <body>
-	<c:forEach var="post" items="${allpost}">
+	<c:forEach var="post" items="${allpost}" varStatus="status">
 	<div class="div">
 	<div><br>
 		Id : ${post.userId}&nbsp;&nbsp;&nbsp;
@@ -24,13 +24,11 @@
 	<div><br>
 		${post.posts}
 		<img width="400" height="300" src="getimage?id=${post.postId}" alt="image"><br>
-		${post.mediaLocation}<br>
-		<a href="/posts/deletepost?id=${post.postId}" target="_self">
-		<button type="button" class="btn btn-info">Delete</button></a>&nbsp;&nbsp;&nbsp;
+		${post.mediaLocation}<br>&nbsp;&nbsp;&nbsp;
 		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
-		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like</button></a>	
+		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like ${post.likeCount}</button></a>	
 		<div id="demo" class="collapse">
-			<iframe src="/comment/addcomment?id=${post.postId}&fid=${post.userId}" title="iframe" width="500px" height="300px"></iframe>
+			<iframe src="/comment/addcomment?id=${post.postId}" title="iframe" width="500px" height="300px"></iframe>
 		</div>
 	</div>
 	</div>

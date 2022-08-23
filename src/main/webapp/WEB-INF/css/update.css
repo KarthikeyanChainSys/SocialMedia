@@ -5,7 +5,7 @@
 	border: 3px solid black;
 	margin-left: 30%;
 	border-radius: 10%;
-	position: fixed;
+	position: absolute;
 	box-shadow: 5px 3px 5px 3px;
 }
 body{
@@ -16,7 +16,7 @@ body{
 }
 form {
 	background-color: #fff;
-	position: fixed;
+	position: absolute;
 	text-align: center;
 	width: 8px;
 	height: auto;
@@ -28,7 +28,7 @@ form {
 	color: black;
 }
 .form{
-    margin-top:5%;
+    margin-top:0%;
 	margin-left: 22%;
 }
 .form label {

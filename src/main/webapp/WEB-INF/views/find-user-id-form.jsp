@@ -16,6 +16,10 @@
 		<div class="container">
 			<form:form action="" method="get" modelAttribute="finduserbyid">
 				<div class="form">
+				<label for="profile">Profile:</label>
+					<div>
+						<form:input path="profile" type='file' placeholder='file' accept='text/*,audio/*,video/*,image/*' readonly="true" />
+					</div>
 					<label for="userId">UserId:</label>
 					<div>
 						<form:input path="userId" readonly="true"/>

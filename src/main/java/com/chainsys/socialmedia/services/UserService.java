@@ -77,4 +77,14 @@ public class UserService {
 		return user.stream().filter(filteredUser->filteredUser.getUserId()!=id).collect(Collectors.toList()); 
 		
 	}
+	
+	public byte[] getUserImageByteArray(int id) {
+		User user = userRepository.findById(id);
+		byte[] imageBytes = null;
+			if(user != null)
+			{
+				imageBytes = user.getProfile();
+			}
+		return imageBytes;
+	}
 }

@@ -58,7 +58,7 @@ img.p{
 ul {
   font-size: 19px;
   padding: 0;
-  width: 180px;
+  width: 200px;
   text-align: center;
   background-color: #f1f1f1;
 }
@@ -93,7 +93,7 @@ li a:hover {
 	background-color: #FF0000;
 	color: white;
 	margin-left: 0px;
-	width: 180px;
+	width: 200px;
 	display: block;
 	border-radius: 5px;
 	padding: 10px 0;
