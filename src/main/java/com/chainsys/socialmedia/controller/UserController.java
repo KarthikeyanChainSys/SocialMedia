@@ -40,7 +40,7 @@ public class UserController {
 		try {
 			theUser.setProfile(photo.getBytes());
 		} catch (IOException e) {
-			e.printStackTrace();
+			//
 		}
 		userService.save(theUser);
 		return "redirect:/home/login";

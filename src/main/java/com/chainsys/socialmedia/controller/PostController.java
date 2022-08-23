@@ -43,7 +43,7 @@ public class PostController {
 		try {
 			thePost.setPosts(photo.getBytes());
 		} catch (IOException e) {
-			e.printStackTrace();
+			//
 		}
 		thePost.setDate();
 		thePost.setTime();

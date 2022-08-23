@@ -43,12 +43,12 @@ public class LogManager {
 			fileWriter = new FileWriter(fileName,true);
 			fileWriter.write(message);
 		}catch(IOException e) {
-			e.printStackTrace();
+			//
 		}finally {
 			try {
 				fileWriter.close();
 			}catch(Exception e) {
-				e.printStackTrace();
+				//
 			}
 		}
 	}

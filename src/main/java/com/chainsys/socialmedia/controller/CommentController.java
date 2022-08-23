@@ -51,7 +51,7 @@ public class CommentController {
 		try {
 			theComment.setComments(photo.getBytes());
 		} catch (IOException e) {
-			e.printStackTrace();
+			//
 			LogManager.logException(e, "CommentController.addComment");
 		}
 		commentservice.save(theComment);
