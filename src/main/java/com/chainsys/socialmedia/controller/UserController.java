@@ -36,7 +36,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/add")
-	public String addUser(@ModelAttribute("adduser") User theUser, @RequestParam("photo") MultipartFile photo) {
+	public String addUser(@ModelAttribute("adduser") User theUser, @RequestParam("photos") MultipartFile photo) {
 		try {
 			theUser.setProfile(photo.getBytes());
 		} catch (IOException e) {
@@ -103,9 +103,9 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@GetMapping("/getimage")
+	@GetMapping("/getImage")
 	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id){
-		byte[] imageBytes = userService.getUserImageByteArray(id);
-		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
+		byte[] imageBytes1 = userService.getUserImageByteArray(id);
+		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes1);
 	}
 }

@@ -63,6 +63,9 @@ public class UserService {
 	
 	public List<User> getUsersWithoutFriends(int userId) {
 		List<Friend> friendList = friendRepository.findByUserId(userId);
+		if(friendList.isEmpty()) {
+			return filterOwnId(userRepository.findAll(), userId);
+		}
 		List<Integer> duplicateUserList = friendList.stream().map(Friend::getFriendId).collect(Collectors.toList());
 		List<Integer> userIdList = duplicateUserList.stream().distinct().collect(Collectors.toList());
 		List<User> userDetails = userRepository.findByUserIdNotIn(userIdList);
@@ -80,11 +83,11 @@ public class UserService {
 	
 	public byte[] getUserImageByteArray(int id) {
 		User user = userRepository.findById(id);
-		byte[] imageBytes = null;
+		byte[] imageBytes1 = null;
 			if(user != null)
 			{
-				imageBytes = user.getProfile();
+				imageBytes1 = user.getProfile();
 			}
-		return imageBytes;
+		return imageBytes1;
 	}
 }

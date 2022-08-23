@@ -14,7 +14,7 @@
 </style>
 </head>
 <body>
-	<c:forEach var="post" items="${allpost}" varStatus="status">
+	<c:forEach var="post" items="${allpost}">
 	<div class="div">
 	<div><br>
 		Id : ${post.userId}&nbsp;&nbsp;&nbsp;

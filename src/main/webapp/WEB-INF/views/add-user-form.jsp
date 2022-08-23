@@ -12,10 +12,10 @@
 <body>
 <button class="button" onclick="history.back()">Go Back</button>
 	<h1>Create an Account</h1>
-			<form:form action="add" method="post" modelAttribute="adduser" enctype="multipart/form-data">
+			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="adduser">
 					<label for="profile">Profile:</label>
 					<div>
-					<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
+					<input name="photos" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 					<label for="userName">UserName:</label>
 					<div>
