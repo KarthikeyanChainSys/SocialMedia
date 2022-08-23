@@ -2,7 +2,6 @@ package com.chainsys.socialmedia.controller;
 
 import java.io.IOException;
 import java.util.List;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.chainsys.socialmedia.commonutil.InvalidInputDataException;
 import com.chainsys.socialmedia.dto.PostCommentDTO;
 import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.model.Post;
@@ -25,6 +26,9 @@ import com.chainsys.socialmedia.services.PostService;
 @Controller
 @RequestMapping("/posts")
 public class PostController {
+	private static final String ERROR = "Error"; 
+	private static final String ERROR_PAGE = "error-page";
+	private static final String ALLPOST = "allpost";
 	@Autowired
 	PostService postservice;
 	@Autowired
@@ -39,16 +43,21 @@ public class PostController {
 	}
 	
 	@PostMapping("/add")
-	public String addPost(@ModelAttribute("addpost") Post thePost, @RequestParam("photo") MultipartFile photo) {
+	public String addPost(@ModelAttribute("addpost") Post thePost, @RequestParam("photo") MultipartFile photo, Model model) {
 		try {
 			thePost.setPosts(photo.getBytes());
 		} catch (IOException e) {
 			//
 		}
+		try {
+			postservice.save(thePost);
+		} catch(Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		thePost.setDate();
 		thePost.setTime();
 		int id = thePost.getUserId();
-		postservice.save(thePost);
 		return "redirect:/posts/list?userId="+id;
 	}
 	
@@ -60,25 +69,36 @@ public class PostController {
 	}
 	
 	@PostMapping("update")
-	public String updatePost(@Valid @ModelAttribute("updatepost") Post thePost, Errors errors) {
+	public String updatePost(@ModelAttribute("updatepost") Post thePost, Errors errors, Model model) {
+		try {
+			postservice.save(thePost);
+		} catch(Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		thePost.setDate();
 		thePost.setTime();
-		if(errors.hasErrors()) {
-			return "update-post-form";
-		}
-		postservice.save(thePost);
 		return "homepage";
 	}
 	
 	@GetMapping("/findpostbyid")
 	public String findPostById(@RequestParam("id") int id, Model model) {
-		Post thePost = postservice.findById(id);
+		Post thePost = null;
+		try {
+			thePost = postservice.findById(id);
+			if(thePost==null) {
+				throw new InvalidInputDataException("Cannot find post details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}		
 		model.addAttribute("findpostbyid", thePost);
 		return "find-post-id-form";
 	}
 	
 	@GetMapping("/deletepost")
-	public String deletePost(@RequestParam("id") int id) {
+	public String deletePost(@RequestParam("id") int id, Model model) {
 		Post post = postservice.findById(id);
 		postservice.deleteById(id);
 		int userId = post.getUserId();
@@ -88,7 +108,7 @@ public class PostController {
 	@GetMapping("/getPostByUserId")
 	public String getPostByUserId(@RequestParam("id")int id,Model model) {
 		List<Post>postList=postservice.findByUserId(id);
-		model.addAttribute("allpost", postList);
+		model.addAttribute(ALLPOST, postList);
 		return "list-posts";
 	}
 	
@@ -97,7 +117,7 @@ public class PostController {
 		List<Friend>friendList=friendService.findByUserId(userId);
 		List<Post> postList = postservice.getPost(friendList);
 		model.addAttribute("userId", userId);
-		model.addAttribute("allpost", postList);
+		model.addAttribute(ALLPOST, postList);
 		return "list-posts";
 	}
 	
@@ -106,7 +126,7 @@ public class PostController {
 		List<Friend>friendList=friendService.findByUserId(userId);
 		List<Post> postList = postservice.getPost(friendList);
 		model.addAttribute("userId", userId);
-		model.addAttribute("allpost", postList);
+		model.addAttribute(ALLPOST, postList);
 		return "list-posts2";
 	}
 	

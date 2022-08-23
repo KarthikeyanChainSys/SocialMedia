@@ -25,8 +25,9 @@
 		${post.posts}
 		<img width="400" height="300" src="getimage?id=${post.postId}" alt="image"><br>
 		${post.mediaLocation}<br>&nbsp;&nbsp;&nbsp;
+		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like ${post.likeCount}</button></a>
+		
 		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><em class="fa-regular fa-comment"></em> Comment</button>&nbsp;&nbsp;&nbsp;
-		<a href="/like/addlike?id=${post.postId}&fid=${userId}" target="_self" ><button type="button" class="btn btn-info"><em class="fa-regular fa-thumbs-up"></em> Like ${post.likeCount}</button></a>	
 		<div id="demo" class="collapse">
 			<iframe src="/comment/addcomment?id=${post.postId}" title="iframe" width="500px" height="300px"></iframe>
 		</div>

@@ -31,7 +31,8 @@
 		<tbody>
 			<c:forEach var="users" items="${alluser}">
 				<tr>
-					<td>$(users.profile)<img width="50" height="50" src="getImage?id=${users.userId}" alt="image"></td>
+					<td>$(users.profile)
+					<img width="50" height="50" src="getimage?id=${users.userId}" alt="image"></td>
 					<td>${users.userId}</td>
 					<td>${users.email}</td>
 					<td>${users.password}</td>

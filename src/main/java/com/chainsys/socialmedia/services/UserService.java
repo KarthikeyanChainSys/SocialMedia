@@ -83,11 +83,11 @@ public class UserService {
 	
 	public byte[] getUserImageByteArray(int id) {
 		User user = userRepository.findById(id);
-		byte[] imageBytes1 = null;
+		byte[] imageBytes = null;
 			if(user != null)
 			{
-				imageBytes1 = user.getProfile();
+				imageBytes = user.getProfile();
 			}
-		return imageBytes1;
+		return imageBytes;
 	}
 }

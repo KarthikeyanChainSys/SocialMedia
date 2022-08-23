@@ -1,5 +1,6 @@
 package com.chainsys.socialmedia.businesslogic;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,5 +41,9 @@ public class Logic{
 	
 	public static List<Post> getPostForUsers(List<Post> friendPost, List<Post> publicPost){
 		return Stream.concat(friendPost.stream(), publicPost.stream()).collect(Collectors.toList());
+	}
+	
+	public static LocalDate  getInstanceDate() {
+		return java.time.LocalDate.now();
 	}
 }

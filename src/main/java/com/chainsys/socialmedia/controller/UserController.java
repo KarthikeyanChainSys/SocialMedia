@@ -3,7 +3,6 @@ package com.chainsys.socialmedia.controller;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
+import com.chainsys.socialmedia.commonutil.InvalidInputDataException;
 import com.chainsys.socialmedia.dto.UserFriendDTO;
 import com.chainsys.socialmedia.dto.UserPostDTO;
 import com.chainsys.socialmedia.model.User;
@@ -25,6 +24,8 @@ import com.chainsys.socialmedia.services.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	private static final String ERROR = "Error"; 
+	private static final String ERROR_PAGE = "error-page";
 	@Autowired
 	UserService userService;
 	
@@ -36,13 +37,18 @@ public class UserController {
 	}
 	
 	@PostMapping("/add")
-	public String addUser(@ModelAttribute("adduser") User theUser, @RequestParam("photos") MultipartFile photo) {
+	public String addUser(@ModelAttribute("adduser") User theUser, @RequestParam("photo") MultipartFile photo, Model model) {
 		try {
 			theUser.setProfile(photo.getBytes());
 		} catch (IOException e) {
 			//
 		}
-		userService.save(theUser);
+		try {
+			userService.save(theUser);
+		} catch (Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}	
 		return "redirect:/home/login";
 	}
 	
@@ -55,35 +61,70 @@ public class UserController {
 	}
 	
 	@PostMapping("/update")
-	public String updateUser(@Valid @ModelAttribute("updateuser") User theUser, Errors errors, Model model, HttpSession session) {
-		if(errors.hasErrors()) {
-			return "update-user-form"; 
-			}
-		userService.save(theUser);
-		model.addAttribute("user",theUser);
-		session.setAttribute("userId", theUser.getUserId());
+	public String updateUser(@ModelAttribute("updateuser") User theUser, Errors errors, Model model, HttpSession session) {
+		try {
+			userService.save(theUser);
+			model.addAttribute("user",theUser);
+			session.setAttribute("userId", theUser.getUserId());
+		} catch (Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		return "homepage";
 	}
 	
 	@GetMapping("/finduserbyid")
 	public String findUserById(@RequestParam("id") int id, Model model) {
-		User theUser = userService.findById(id);
+		User theUser = null;
+		try {
+			theUser = userService.findById(id);
+			if(theUser==null) {
+				throw new InvalidInputDataException("Cannot find user details");
+			}
+		} catch (InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		model.addAttribute("finduserbyid", theUser);
 		return "find-user-id-form";
 	}
 	
 	@GetMapping("/deleteuser")
-	public String deleteUser(@RequestParam("id") int id) {
-		userService.deleteById(id);
+	public String deleteUser(@RequestParam("id") int id, Model model) {
+		try {
+			userService.deleteById(id);
+			if(id==0) {
+				throw new InvalidInputDataException("Cannot delete user details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		return "redirect:/user/list";
 	}
 	
 	@GetMapping("/list")
 	public String getAllUser(@RequestParam("id")int id,Model model) {
-		List<User> theUsers = userService.getUsersWithoutFriends(id);
+		List<User> theUsers = null;
+		try {
+			theUsers = userService.getUsersWithoutFriends(id);
+			if(theUsers==null) {
+				throw new InvalidInputDataException("Cannot find user details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		model.addAttribute("userId", id);
 		model.addAttribute("alluser", theUsers);
 		return "list-users";
+	}
+	
+	@ResponseBody
+	@GetMapping("/getimage")
+	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id){
+		byte[] imageBytes = userService.getUserImageByteArray(id);
+		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
 	}
 	
 	@GetMapping("/getuserfriend")
@@ -96,16 +137,10 @@ public class UserController {
 	
 	@GetMapping("/getuserpost")
 	public String getUserAndPost(@RequestParam("id") int id, Model model) {
+		
 		UserPostDTO dto = userService.getUserAndPost(id);
 		model.addAttribute("getuser",dto.getUser());
 		model.addAttribute("postlist", dto.getPostList());
 		return "list-user-post";
-	}
-	
-	@ResponseBody
-	@GetMapping("/getImage")
-	public ResponseEntity<byte[]> getImage(@RequestParam("id") int id){
-		byte[] imageBytes1 = userService.getUserImageByteArray(id);
-		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes1);
 	}
 }

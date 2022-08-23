@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.chainsys.socialmedia.businesslogic.Logic" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="adduser">
 					<label for="profile">Profile:</label>
 					<div>
-					<input name="photos" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
+						<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
 					</div>
 					<label for="userName">UserName:</label>
 					<div>
@@ -36,7 +37,7 @@
 					</div>
 					<label for="dob">DOB</label>
 					<div>
-						<form:input path="dob" type="date" />
+						<form:input path="dob" type="date" max="<%=Logic.getInstanceDate()%>"/>
 					</div>
 					<label for="country">Country:</label>
 					<div>
@@ -45,7 +46,7 @@
 					</div>
 					<label for="joiningDate">JoiningDate:</label>
 					<div>
-						<form:input path="joiningDate" type="date" />
+						<form:input path="joiningDate" type="date" max="<%=Logic.getInstanceDate()%>" />
 					</div>
 					<label for="gender">Gender:</label>
 					<div>
