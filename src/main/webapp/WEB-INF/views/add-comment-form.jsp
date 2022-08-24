@@ -35,6 +35,7 @@
 		<thead>
 			<tr>
 				<th>FriendId</th>
+				<th>PostId</th>
 				<th>commentText</th>
 				<th>comments</th>
 				<th>Date</th>
@@ -45,6 +46,7 @@
 			<c:forEach var="comment" items="${allcomment}">
 				<tr>
 					<td>${comment.friendId}</td>
+					<td>${comment.postId}</td>
 					<td>${comment.commentText}</td>
 					<td>${comment.comments}</td>
 					<td>${comment.date}</td>

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.chainsys.socialmedia.businesslogic.Logic;
+import com.chainsys.businesslogic.Logic;
 import com.chainsys.socialmedia.dto.PostCommentDTO;
 import com.chainsys.socialmedia.model.Comment;
 import com.chainsys.socialmedia.model.Friend;

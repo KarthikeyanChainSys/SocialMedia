@@ -1,4 +1,4 @@
-package com.chainsys.socialmedia.businesslogic;
+package com.chainsys.businesslogic;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

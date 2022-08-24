@@ -99,8 +99,17 @@ public class PostController {
 	
 	@GetMapping("/deletepost")
 	public String deletePost(@RequestParam("id") int id, Model model) {
-		Post post = postservice.findById(id);
-		postservice.deleteById(id);
+		Post post = null;
+		try {
+			post = postservice.findById(id);
+			postservice.deleteById(id);
+			if(id==0) {
+				throw new InvalidInputDataException("Cannot delete post details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		int userId = post.getUserId();
 		return "redirect:/posts/list2?userId="+userId;
 	}
@@ -114,8 +123,17 @@ public class PostController {
 	
 	@GetMapping("/list")
 	public String getAllPosts(@RequestParam("userId")int userId , Model model) {
-		List<Friend>friendList=friendService.findByUserId(userId);
-		List<Post> postList = postservice.getPost(friendList);
+		List<Post> postList = null;
+		try {
+			List<Friend>friendList=friendService.findByUserId(userId);
+			postList = postservice.getPost(friendList);
+			if(postList==null) {
+				throw new InvalidInputDataException("Cannot delete post details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		model.addAttribute("userId", userId);
 		model.addAttribute(ALLPOST, postList);
 		return "list-posts";

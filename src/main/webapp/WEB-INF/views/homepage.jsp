@@ -12,19 +12,25 @@
 </style>
 </head>
 <body>
+<nav class="navbar">
+            <div class="navbar__container">
+                <a href="#" id="navbar__logo">Friends Hub</a>
+                <a href="/user/finduserbyid?id=${user.userId}"
+                        target="_self" class="navbar__links">About</a>
+            </div>
+        </nav><br>
 	<div class="main">
 		<div class="dashbord">
 			<div class="img">
-				<img src="https://bootdey.com/img/Content/avatar/avatar6.png"
+				&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://bootdey.com/img/Content/avatar/avatar6.png"
 					class="img" alt="profile"><br>
 				<p class="img.p">${user.userName}</p>
 				<a href="/user/updateuser?id=${user.userId}" target="_self">
-					&nbsp;
 					<button id="button" class="button">Edit profile</button>
 				</a><br>
 			</div>
 
-			<div class="menu">
+			<div>
 				<ul>
 					<li><a href="/user/finduserbyid?id=${user.userId}"
 						target="_self">About
@@ -47,11 +53,12 @@
 					<li><a href="/home/login" class=button1>Logout</a></li>
 				</ul>
 			</div>
-		</div>
-		<div class="iframe">
+			<div class="iframe">
 			<iframe width="560" class="iframe" height="315" title="Post lists"
 				src="/posts/list2?userId=${user.userId}"></iframe>
 		</div>
+		</div>
+		
 	</div>
 </body>
 </html>

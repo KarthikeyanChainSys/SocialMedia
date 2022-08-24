@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.chainsys.socialmedia.businesslogic.Logic;
+
+import com.chainsys.businesslogic.Logic;
 import com.chainsys.socialmedia.compositekey.FriendCompositeKey;
 import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.services.FriendService;

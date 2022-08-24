@@ -39,7 +39,7 @@ public class CommentController {
 		int userId = (int) session.getAttribute("userId");
 		theComment.setFriendId(userId);
 		model.addAttribute("addcomment", theComment);
-		List<Comment> theComments = commentservice.getComments();
+		List<Comment> theComments = commentservice.getComments(postId);
 		model.addAttribute("allcomment", theComments);
 		return "add-comment-form";
 	}
