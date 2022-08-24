@@ -16,9 +16,8 @@
 		<div class="container">
 			<form:form action="" method="get" modelAttribute="finduserbyid">
 				<div class="form">
-					<label for="userId">UserId:</label>
 					<div>
-						<form:input path="userId" readonly="true"/>
+						<form:input path="userId" readonly="true" type="hidden"/>
 					</div>
 					<label for="email">Email:</label>
 					<div>

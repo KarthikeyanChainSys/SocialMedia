@@ -40,12 +40,12 @@ form{
 }
 
 table {
-  width: 800px;
-  margin-top: 80px;
+  width: 900px;
+  margin-top: 60px;
   border-collapse: collapse;
   font-size: 18px;
   border-radius: 100px;
-  margin-left: 8%;
+  margin-left: 18%;
 }
 
 th,
@@ -60,6 +60,7 @@ thead th {
   background-color: #E3F9A6;
   color: #1877f2;
   width: 25%;
+  font-size: 21px;
 }
 
 tbody tr:nth-child(even) {

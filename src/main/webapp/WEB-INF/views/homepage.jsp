@@ -15,8 +15,7 @@
 <nav class="navbar">
             <div class="navbar__container">
                 <a href="#" id="navbar__logo">Friends Hub</a>
-                <a href="/user/finduserbyid?id=${user.userId}"
-                        target="_self" class="navbar__links">About</a>
+                <a href="/home/login" class=button1>Logout</a>
             </div>
         </nav><br>
 	<div class="main">
@@ -30,7 +29,7 @@
 				</a><br>
 			</div>
 
-			<div>
+			<div class="menu">
 				<ul>
 					<li><a href="/user/finduserbyid?id=${user.userId}"
 						target="_self">About
@@ -49,8 +48,7 @@
 					<li><a href="/friend/requestDetails?id=${user.userId}"target="_self">Request Status
 					</a><br> <br></li>
 					<li><a href="/friend/request?id=${user.userId}" target="_self">Friends Request
-					</a><br> <br></li>
-					<li><a href="/home/login" class=button1>Logout</a></li>
+					</a></li>
 				</ul>
 			</div>
 			<div class="iframe">

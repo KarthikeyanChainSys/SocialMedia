@@ -19,10 +19,6 @@
 					<div>
 						<form:hidden path="userId" />
 					</div>
-					<label for="profile">Profile:</label>
-					<div>
-					<form:input path="profile" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
-					</div>
 					<label for="email">Email:</label>
 					<div>
 						<form:input class="form" path="email" type="email" title="Mail Id is not in correct format" placeholder="example@domain.com"

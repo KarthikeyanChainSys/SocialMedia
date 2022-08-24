@@ -13,11 +13,7 @@
 <body>
 <button class="button" onclick="history.back()">Go Back</button>
 	<h1>Create an Account</h1>
-			<form:form action="add" method="post" enctype="multipart/form-data" modelAttribute="adduser">
-					<label for="profile">Profile:</label>
-					<div>
-						<input name="photo" type='file' placeholder='file' accept='audio/*,video/*,image/*' />
-					</div>
+			<form:form action="add" method="post" modelAttribute="adduser">
 					<label for="userName">UserName:</label>
 					<div>
 						<form:input path="userName" name="userName" title="User name can't be empty" placeholder="UserName"

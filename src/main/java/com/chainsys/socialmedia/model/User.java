@@ -40,9 +40,6 @@ public class User {
 
 	@Column(name="gender")
 	private String gender;
-	
-	@Column(name="profile")
-	private byte[] profile;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Friend> friend;
@@ -124,12 +121,5 @@ public class User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-	
-	public byte[] getProfile() {
-		return profile;
-	}
-	public void setProfile(byte[] profile) {
-		this.profile = profile;
 	}
 }

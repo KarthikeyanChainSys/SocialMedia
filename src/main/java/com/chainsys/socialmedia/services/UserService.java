@@ -61,6 +61,10 @@ public class UserService {
 		return userPostDto;
 	}
 	
+	public User getEmailAndPassword(String email, String password) {
+		return userRepository.findByEmailAndPassword(email, password);
+	}
+	
 	public List<User> getUsersWithoutFriends(int userId) {
 		List<Friend> friendList = friendRepository.findByUserId(userId);
 		if(friendList.isEmpty()) {
@@ -72,22 +76,8 @@ public class UserService {
 		return filterOwnId(userDetails,userId);
 	}
 	
-	public User getEmailAndPassword(String email, String password) {
-		return userRepository.findByEmailAndPassword(email, password);
-	}
-	
 	public List<User> filterOwnId(List<User> user, int id){
 		return user.stream().filter(filteredUser->filteredUser.getUserId()!=id).collect(Collectors.toList()); 
 		
-	}
-	
-	public byte[] getUserImageByteArray(int id) {
-		User user = userRepository.findById(id);
-		byte[] imageBytes = null;
-			if(user != null)
-			{
-				imageBytes = user.getProfile();
-			}
-		return imageBytes;
 	}
 }

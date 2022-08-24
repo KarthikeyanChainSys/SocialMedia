@@ -16,14 +16,10 @@
 		<caption></caption>
 		<thead>
 			<tr>
-				<th>Profile</th>
-				<th>UserId</th>
 				<th>Email</th>
-				<th>Password</th>
 				<th>UserName</th>
 				<th>DateOfBirth</th>
 				<th>Country</th>
-				<th>JoiningDate</th>
 				<th>Gender</th>
 				<th>Requests</th>
 			</tr>
@@ -31,15 +27,10 @@
 		<tbody>
 			<c:forEach var="users" items="${alluser}">
 				<tr>
-					<td>$(users.profile)
-					<img width="50" height="50" src="getimage?id=${users.userId}" alt="image"></td>
-					<td>${users.userId}</td>
 					<td>${users.email}</td>
-					<td>${users.password}</td>
 					<td>${users.userName}</td>
 					<td>${users.dob}</td>
 					<td>${users.country}</td>
-					<td>${users.joiningDate}</td>
 					<td>${users.gender}</td>
 					<td><a href="/friend/addfriend?friendId=${users.userId}&userId=${userId}"><button class="button1">request</button></a></td>
 				</tr>
