@@ -141,8 +141,17 @@ public class PostController {
 	
 	@GetMapping("/list2")
 	public String getPosts(@RequestParam("userId")int userId , Model model) {
-		List<Friend>friendList=friendService.findByUserId(userId);
-		List<Post> postList = postservice.getPost(friendList);
+		List<Post> postList = null;
+		try {
+			List<Friend>friendList=friendService.findByUserId(userId);
+			postList = postservice.getPost(friendList);
+			if(postList==null) {
+				throw new InvalidInputDataException("Cannot delete post details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		model.addAttribute("userId", userId);
 		model.addAttribute(ALLPOST, postList);
 		return "list-posts2";
