@@ -2,18 +2,16 @@ package com.chainsys.socialmedia.controller;
 
 import java.util.List;
 import java.util.Optional;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.chainsys.businesslogic.Logic;
+import com.chainsys.socialmedia.commonutil.InvalidInputDataException;
 import com.chainsys.socialmedia.compositekey.FriendCompositeKey;
 import com.chainsys.socialmedia.model.Friend;
 import com.chainsys.socialmedia.services.FriendService;
@@ -21,6 +19,8 @@ import com.chainsys.socialmedia.services.FriendService;
 @Controller
 @RequestMapping("/friend")
 public class FriendController {
+	private static final String ERROR = "Error"; 
+	private static final String ERROR_PAGE = "error-page";
 	@Autowired
 	FriendService friendService;
 	
@@ -36,11 +36,13 @@ public class FriendController {
 	}
 	
 	@PostMapping("/add")
-	public String addFriend(@Valid @ModelAttribute("addfriend") Friend theFriend, Errors errors) {
-		if(errors.hasErrors()) {
-			return "add-friend-form";
+	public String addFriend(@ModelAttribute("addfriend") Friend theFriend, Model model) {
+		try {
+			friendService.save(theFriend);
+		} catch (Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
 		}
-		friendService.save(theFriend);
 		int id=theFriend.getUserId();
 		return "redirect:/friend/request?id="+id;
 	}
@@ -59,11 +61,13 @@ public class FriendController {
 	}
 	
 	@PostMapping("update")
-	public String updateFriend(@Valid @ModelAttribute("updatefriend") Friend theFriend, Errors errors) {
-		if(errors.hasErrors()) {
-			return "update-friend-form";
+	public String updateFriend(@ModelAttribute("updatefriend") Friend theFriend, Model model) {
+		try {
+			friendService.save(theFriend);
+		} catch (Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
 		}
-		friendService.save(theFriend);
 		return "redirect:/friend/request";
 	}
 	
@@ -76,7 +80,7 @@ public class FriendController {
 	}
 	
 	@GetMapping("/deletefriend")
-	public String deleteFriend(@RequestParam("id") int friendId, @RequestParam("userId") int userId) {
+	public String deleteFriend(@RequestParam("id") int friendId, @RequestParam("userId") int userId, Model model) {
 		FriendCompositeKey friendcompositekey = new FriendCompositeKey(friendId,userId);
 		friendService.deleteById(friendcompositekey);
 		return "redirect:/friend/request?id="+userId;
@@ -84,7 +88,16 @@ public class FriendController {
 	
 	@GetMapping("/list")
 	public String getAllFriend(@RequestParam("id")int id,Model model) {
-		List<Friend> theFriend = friendService.getFriends();
+		List<Friend> theFriend = null;
+		try {
+			theFriend = friendService.getFriends();
+			if(theFriend==null) {
+				throw new InvalidInputDataException("Cannot find friends details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		model.addAttribute("friendId", id);
 		model.addAttribute("allfriend", theFriend);
 		return "list-friends";

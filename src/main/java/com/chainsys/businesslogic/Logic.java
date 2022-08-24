@@ -12,8 +12,8 @@ public class Logic{
 	private Logic() {
 	    throw new IllegalStateException("Utility class");
 	  }
-	public static List<Friend> getRequestList(List<Friend>friendList) {
-		List<Friend> requestList=new ArrayList<>();
+	public static List<Friend> getRequestList(List<Friend> friendList) {
+		List<Friend> requestList = new ArrayList<>();
 		for(int i=0;i<friendList.size();i++) {
 			Friend friend=friendList.get(i);
 			if(friend.getRequestStatus().equalsIgnoreCase("request")) {
@@ -23,8 +23,8 @@ public class Logic{
 		return requestList;
 	}
 	
-	public static List<Friend> getAcceptList(List<Friend>friendList) {
-		List<Friend> requestList=new ArrayList<>();
+	public static List<Friend> getAcceptList(List<Friend> friendList) {
+		List<Friend> requestList = new ArrayList<>();
 		for(int i=0;i<friendList.size();i++) {
 			Friend friend=friendList.get(i);
 			if(friend.getRequestStatus().equalsIgnoreCase("accept")) {

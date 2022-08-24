@@ -1,18 +1,16 @@
 package com.chainsys.socialmedia.controller;
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.chainsys.socialmedia.commonutil.InvalidInputDataException;
 import com.chainsys.socialmedia.model.Like;
 import com.chainsys.socialmedia.model.User;
 import com.chainsys.socialmedia.services.LikeService;
@@ -21,6 +19,8 @@ import com.chainsys.socialmedia.services.UserService;
 @Controller
 @RequestMapping("/like")
 public class LikeController {
+	private static final String ERROR = "Error"; 
+	private static final String ERROR_PAGE = "error-page";
 	@Autowired
 	LikeService likeservice;
 	@Autowired
@@ -39,12 +39,14 @@ public class LikeController {
 	}
 	
 	@PostMapping("/add")
-	public String addLike(@Valid @ModelAttribute("addlike") Like theLike, Errors errors) {
-		theLike.setDateTime();
-		if(errors.hasErrors()) {
-			return "add-like-form";
+	public String addLike(@ModelAttribute("addlike") Like theLike, Model model) {
+		try {
+			likeservice.save(theLike);
+		} catch(Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
 		}
-		likeservice.save(theLike);
+		theLike.setDateTime();
 		return "redirect:/like/list?id="+theLike.getPostId() + "&fid="+theLike.getFriendId();
 	}
 	
@@ -56,31 +58,59 @@ public class LikeController {
 	}
 	
 	@PostMapping("/update")
-	public String updateLike(@Valid @ModelAttribute("updatelike") Like theLike, Errors errors) {
-		theLike.setDateTime();
-		if(errors.hasErrors()) {
-			return "update-like-form";
+	public String updateLike(@ModelAttribute("updatelike") Like theLike, Model model) {
+		try {
+			likeservice.save(theLike);
+		} catch(Exception e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
 		}
-		likeservice.save(theLike);
+		theLike.setDateTime();
 		return "redirect:/like/list";
 	}
 	
 	@GetMapping("/findlikebyid")
 	public String findLikeById(@RequestParam("id") int id, Model model) {
-		Like theLike = likeservice.findById(id);
+		Like theLike = null;
+		try {
+			theLike = likeservice.findById(id);
+			if(theLike==null) {
+				throw new InvalidInputDataException("Cannot find like details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		model.addAttribute("findlikebyid", theLike);
 		return "find-like-id-form";
 	}
 	
 	@GetMapping("/deletelike")
-	public String deleteLike(@RequestParam("id") int id) {
-		likeservice.deleteById(id);
+	public String deleteLike(@RequestParam("id") int id, Model model) {
+		try {
+			likeservice.deleteById(id);
+			if(id==0) {
+				throw new InvalidInputDataException("Cannot delete like details");
+			}
+		} catch (InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		return "redirect:/like/list";
 	}
 	
 	@GetMapping("/list")
 	public String getLikes(Model model) {
-		List<Like> thelikes = likeservice.getLikes();
+		List<Like> thelikes = null;
+		try {
+			thelikes = likeservice.getLikes();
+			if(thelikes==null) {
+				throw new InvalidInputDataException("Cannot show like details");
+			}
+		} catch(InvalidInputDataException e) {
+			model.addAttribute(ERROR, e.getMessage());
+			return ERROR_PAGE;
+		}
 		model.addAttribute("alllike", thelikes);
 		return "list-likes";
 	}

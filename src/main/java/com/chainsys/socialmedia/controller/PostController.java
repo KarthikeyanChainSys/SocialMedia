@@ -128,7 +128,7 @@ public class PostController {
 			List<Friend>friendList=friendService.findByUserId(userId);
 			postList = postservice.getPost(friendList);
 			if(postList==null) {
-				throw new InvalidInputDataException("Cannot delete post details");
+				throw new InvalidInputDataException("Cannot list post details");
 			}
 		} catch(InvalidInputDataException e) {
 			model.addAttribute(ERROR, e.getMessage());
@@ -146,7 +146,7 @@ public class PostController {
 			List<Friend>friendList=friendService.findByUserId(userId);
 			postList = postservice.getPost(friendList);
 			if(postList==null) {
-				throw new InvalidInputDataException("Cannot delete post details");
+				throw new InvalidInputDataException("Cannot list the post details");
 			}
 		} catch(InvalidInputDataException e) {
 			model.addAttribute(ERROR, e.getMessage());
